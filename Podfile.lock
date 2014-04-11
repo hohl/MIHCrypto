@@ -1,0 +1,21 @@
+PODS:
+  - CocoaLumberjack (1.6.5.1):
+    - CocoaLumberjack/Core
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.6.5.1)
+  - CocoaLumberjack/Extensions (1.6.5.1):
+    - CocoaLumberjack/Core
+  - OCMock (2.2.4)
+  - OpenSSL-Universal (1.0.1.g)
+
+DEPENDENCIES:
+  - CocoaLumberjack (= 1.6.5.1)
+  - OCMock (~> 2.2.3)
+  - OpenSSL-Universal (~> 1.0.1.g)
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: 17803afbade3126a377d32b8d23367264b44ced6
+  OCMock: 5008fae4b4789b8fc3e48cd7660f2eb5ef8ce89e
+  OpenSSL-Universal: 5d86548fb37553c3e8b1bb577500f7fee0a71775
+
+COCOAPODS: 0.31.1
