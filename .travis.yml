@@ -1,3 +1,4 @@
 language: objective-c
 xcode_workspace: MIHCrypto.xcworkspace 
+xcode_scheme: MIHCryptoTests
 before_install: gem install cocoapods
