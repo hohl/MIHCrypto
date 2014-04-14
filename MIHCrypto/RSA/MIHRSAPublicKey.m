@@ -104,11 +104,12 @@
                             range:NSMakeRange(0, dataString.length)
                      withTemplate:@""];
     // --- END OPENSSL HACK ---
-
-    // --- !!! ---
-    // Using the following deprecated method to allow backwards compatibility:
+    
+#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_9
     return [[NSData alloc] initWithBase64Encoding:dataString];
-    // --- !!! ---
+#else
+    return [[NSData alloc] initWithBase64EncodedString:dataString options:0];
+#endif
 }
 
 - (NSData *)encrypt:(NSData *)messageData error:(NSError **)error
