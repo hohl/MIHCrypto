@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F35BD3218F850E400596974"
-               BuildableName = "MIHCrypto.app"
+               BlueprintIdentifier = "5F35130118FC258F002BD9D9"
+               BuildableName = "MIHCrypto"
                BlueprintName = "MIHCrypto"
                ReferencedContainer = "container:MIHCrypto.xcodeproj">
             </BuildableReference>
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5F35BD5318F850E400596974"
+               BlueprintIdentifier = "5F35131118FC259F002BD9D9"
                BuildableName = "MIHCryptoTests.xctest"
                BlueprintName = "MIHCryptoTests"
                ReferencedContainer = "container:MIHCrypto.xcodeproj">
@@ -42,8 +42,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F35BD3218F850E400596974"
-            BuildableName = "MIHCrypto.app"
+            BlueprintIdentifier = "5F35130118FC258F002BD9D9"
+            BuildableName = "MIHCrypto"
             BlueprintName = "MIHCrypto"
             ReferencedContainer = "container:MIHCrypto.xcodeproj">
          </BuildableReference>
@@ -61,8 +61,8 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F35BD3218F850E400596974"
-            BuildableName = "MIHCrypto.app"
+            BlueprintIdentifier = "5F35130118FC258F002BD9D9"
+            BuildableName = "MIHCrypto"
             BlueprintName = "MIHCrypto"
             ReferencedContainer = "container:MIHCrypto.xcodeproj">
          </BuildableReference>
@@ -79,8 +79,8 @@
       <BuildableProductRunnable>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5F35BD3218F850E400596974"
-            BuildableName = "MIHCrypto.app"
+            BlueprintIdentifier = "5F35130118FC258F002BD9D9"
+            BuildableName = "MIHCrypto"
             BlueprintName = "MIHCrypto"
             ReferencedContainer = "container:MIHCrypto.xcodeproj">
          </BuildableReference>

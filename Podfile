@@ -1,4 +1,4 @@
-platform :ios, '7.0'
+platform :osx, '10.7'
 link_with ['MIHCrypto', 'MIHCryptoTests']
 
 pod 'CocoaLumberjack', '1.6.5.1'
