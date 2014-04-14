@@ -16,6 +16,7 @@
 - (void)setUp
 {
     self.rsaKeyFactory = [[MIHRSAKeyFactory alloc] init];
+    self.rsaKeyFactory.preferedKeySize = MIHRSAKey512;
 }
 
 - (void)testRandomKeyGeneration
