@@ -23,7 +23,7 @@
 {
     NSString *pubString = @"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJma7iWHjLCpeiHHhkwf/IGVtJvrHVW/"
             "F+te83hB85YiCuAOqvaG7Isy4dYbwBZKkuIq9x+FVZ+6SrsaRQuaFSkCAwEAAQ==";
-    self.pub = [[NSData alloc] initWithBase64EncodedString:pubString options:0];
+    self.pub = [[NSData alloc] initWithBase64Encoding:pubString];
     NSString *pemString = @"-----BEGIN PRIVATE KEY-----\n"
             "MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAmZruJYeMsKl6IceG\n"
             "TB/8gZW0m+sdVb8X617zeEHzliIK4A6q9obsizLh1hvAFkqS4ir3H4VVn7pKuxpF\n"

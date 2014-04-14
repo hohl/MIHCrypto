@@ -105,7 +105,10 @@
                      withTemplate:@""];
     // --- END OPENSSL HACK ---
 
-    return [[NSData alloc] initWithBase64EncodedString:dataString options:0];
+    // --- !!! ---
+    // Using the following deprecated method to allow backwards compatibility:
+    return [[NSData alloc] initWithBase64Encoding:dataString];
+    // --- !!! ---
 }
 
 - (NSData *)encrypt:(NSData *)messageData error:(NSError **)error
