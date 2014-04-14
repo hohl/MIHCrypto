@@ -156,7 +156,7 @@
             if (error)
                 *error = [NSError errorWithDomain:MIHCryptoErrorDomain
                                              code:MIHCryptoInvalidKeySize
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%d is not a valid AES key size!", self.key.length]}];
+                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%lu is not a valid AES key size!", (unsigned long)self.key.length]}];
             return nil;
     }
 

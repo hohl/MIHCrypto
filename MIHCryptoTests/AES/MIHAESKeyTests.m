@@ -77,7 +77,8 @@ const unsigned char kIv1Bytes[] = {
 
 - (void)testPreventInit {
     @try {
-        [[MIHAESKey alloc] init];
+        MIHAESKey *unusedKey = [[MIHAESKey alloc] init];
+        [unusedKey description]; // Just do something to prevent the unused warning.
         XCTAssert(false, "Exception should get thrown when using [[MIHAESKey alloc] init]!");
     }
     @catch (NSException *e) {
