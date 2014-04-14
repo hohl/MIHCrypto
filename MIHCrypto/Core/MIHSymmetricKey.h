@@ -11,6 +11,6 @@
 
 - (NSData *)encrypt:(NSData *)message error:(NSError **)error;
 
-@property (strong) NSData *dataValue;
+- (NSData *)dataValue;
 
 @end
