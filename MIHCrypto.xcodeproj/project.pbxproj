@@ -51,6 +51,9 @@
 		5FDD19A318FD9A6000620929 /* MIHSecureHashAlgorithm512.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A218FD9A6000620929 /* MIHSecureHashAlgorithm512.m */; };
 		5FDD19A618FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A518FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m */; };
 		5FDD19A718FD9BAF00620929 /* MIHSecureHashAlgorithm512.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A218FD9A6000620929 /* MIHSecureHashAlgorithm512.m */; };
+		5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */; };
+		5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19AC18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m */; };
+		5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */; };
 		C46F28014D6D496E98C9068F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675F91913CB4A25B61DA7CC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +137,9 @@
 		5FDD19A118FD9A6000620929 /* MIHSecureHashAlgorithm512.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm512.h; sourceTree = "<group>"; };
 		5FDD19A218FD9A6000620929 /* MIHSecureHashAlgorithm512.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm512.m; sourceTree = "<group>"; };
 		5FDD19A518FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm512Tests.m; sourceTree = "<group>"; };
+		5FDD19A818FD9E4F00620929 /* MIHSecureHashAlgorithm384.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm384.h; sourceTree = "<group>"; };
+		5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm384.m; sourceTree = "<group>"; };
+		5FDD19AC18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm384.m; sourceTree = "<group>"; };
 		77FC9867951C420FBA613731 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -267,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				5FDD19A518FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m */,
+				5FDD19AC18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m */,
 				5F35BD8818F8522C00596974 /* MIHSecureHashAlgorithm256Tests.m */,
 				5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */,
 			);
@@ -330,6 +337,8 @@
 			children = (
 				5FDD19A118FD9A6000620929 /* MIHSecureHashAlgorithm512.h */,
 				5FDD19A218FD9A6000620929 /* MIHSecureHashAlgorithm512.m */,
+				5FDD19A818FD9E4F00620929 /* MIHSecureHashAlgorithm384.h */,
+				5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */,
 				5F35BDAC18F8523E00596974 /* MIHSecureHashAlgorithm256.h */,
 				5F35BDAD18F8523E00596974 /* MIHSecureHashAlgorithm256.m */,
 				5FDD199A18FD978400620929 /* MIHSecureHashAlgorithm.h */,
@@ -510,6 +519,7 @@
 				5F35132918FC25E5002BD9D9 /* MIHAESKeyFactory.m in Sources */,
 				5F35132A18FC25E5002BD9D9 /* MIHErrors.m in Sources */,
 				5F35132B18FC25E5002BD9D9 /* MIHKeyPair.m in Sources */,
+				5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
 				5F35132D18FC25E5002BD9D9 /* MIHRSAPrivateKey+Internal.m in Sources */,
 				5F35132E18FC25E5002BD9D9 /* MIHRSAPrivateKey.m in Sources */,
@@ -534,6 +544,8 @@
 				5FDD19A618FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m in Sources */,
 				5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */,
 				5FDD19A718FD9BAF00620929 /* MIHSecureHashAlgorithm512.m in Sources */,
+				5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */,
+				5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
 				5F5A756918FC2B9100773864 /* MIHKeyPair.m in Sources */,
 				5F5A756A18FC2B9100773864 /* MIHRSAKeyFactory.m in Sources */,
