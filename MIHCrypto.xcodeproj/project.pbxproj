@@ -416,6 +416,7 @@
 				5F35130F18FC259F002BD9D9 /* Frameworks */,
 				5F35131018FC259F002BD9D9 /* Resources */,
 				C415DB6DBD93456CB4F6D1C6 /* Copy Pods Resources */,
+				5FDD19B818FDD49700620929 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -487,6 +488,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5FDD19B818FDD49700620929 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "pod spec lint";
 		};
 		7BA6BA6D9D86494BA5656BA7 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
