@@ -5,9 +5,9 @@
 [![Build Status](https://travis-ci.org/hohl/MIHCrypto.svg?branch=master)](https://travis-ci.org/hohl/MIHCrypto)
 
 
-[OpenSSL](https://www.openssl.org/) is the most powerful SSL and TLS library available which wraps a full cryptographic library. The library is written in pure C and due to its endless size and not-so-well-designed it is very hard for beginners to step into it.
+[OpenSSL](https://www.openssl.org/) is the most powerful SSL and TLS library available which wraps a full cryptographic library. The library is written in pure C and due to its endless size and not-so-well-designed C interface it is very hard for beginners to step into it.
 
-The aim of the MIHCrypto library is to provide an object-oriented interface which allows developers to write simple and clean code by still using the power of the OpenSSL library. As already mentioned OpenSSL is a very large library so (yet) not the whole library is wrapped by MIHCrypto. Since [I](http://www.michaelhohl.net/) am developing the library because personal needs focus of the functionallity is on modern cryptographic apporaches, but everybody is welcome to contrbute other parts to the library.
+The aim of the MIHCrypto library is to provide an object-oriented interface which allows developers to write simple and clean code by still using the power of the OpenSSL `libCrypto` library. OpenSSL is a very large library so (yet) not the whole library is wrapped by MIHCrypto. Since [I](http://www.michaelhohl.net/) am developing the library because personal needs focus of the functionallity is on modern cryptographic apporaches, but everybody is welcome to contrbute other parts to the library.
 
 ## How To Get Started
 
@@ -43,13 +43,14 @@ MIHCrypto requires Xcode 4 and above, targeting either iOS 5.0 and above, or Mac
 As already mentioned OpenSSL is very powerful and large project so this library doesn't support all functionallity of it yet and new functions are added as needed. At the moment following cryptographic approaches are supported:
 
  - AES (block cipher)
+ - MD5 (hash algorithm)
  - RSA (public-key cryptography)
- - SHA (hash algorithm)
+ - SHA, SHA256, SHA384, SHA512 (hash algorithm)
 
 Following approaches are in progress and may get published shortly:
 
  - ECC (public-key cryptography)
- - MD5 (hash algorithm)
+ - DES (block cipher)
  
 Anybody is welcome to add additional support for other approaches.
 
