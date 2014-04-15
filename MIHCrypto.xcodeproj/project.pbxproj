@@ -73,7 +73,7 @@
 
 /* Begin PBXFileReference section */
 		0675F91913CB4A25B61DA7CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F35130218FC258F002BD9D9 /* MIHCryptoOSX */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; name = MIHCryptoOSX; path = MIHCrypto; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F35130218FC258F002BD9D9 /* MIHCrypto */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MIHCrypto; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F35130518FC2590002BD9D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../MIHCryptoOSX/main.m; sourceTree = "<group>"; };
 		5F35130818FC2590002BD9D9 /* MIHCryptoOSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MIHCryptoOSX-Prefix.pch"; path = "../MIHCryptoOSX/MIHCryptoOSX-Prefix.pch"; sourceTree = "<group>"; };
 		5F35130918FC2590002BD9D9 /* MIHCryptoOSX.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; name = MIHCryptoOSX.1; path = ../MIHCryptoOSX/MIHCryptoOSX.1; sourceTree = "<group>"; };
@@ -172,7 +172,7 @@
 		5F35BD3418F850E400596974 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5F35130218FC258F002BD9D9 /* MIHCryptoOSX */,
+				5F35130218FC258F002BD9D9 /* MIHCrypto */,
 				5F35131218FC259F002BD9D9 /* MIHCryptoTests.xctest */,
 			);
 			name = Products;
@@ -352,7 +352,7 @@
 			);
 			name = MIHCrypto;
 			productName = MIHCryptoOSX;
-			productReference = 5F35130218FC258F002BD9D9 /* MIHCryptoOSX */;
+			productReference = 5F35130218FC258F002BD9D9 /* MIHCrypto */;
 			productType = "com.apple.product-type.tool";
 		};
 		5F35131118FC259F002BD9D9 /* MIHCryptoTests */ = {
@@ -565,7 +565,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -579,7 +579,7 @@
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIHCryptoOSX/MIHCryptoOSX-Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -601,7 +601,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MIHCryptoOSXTests/MIHCryptoOSXTests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xctest;
@@ -621,7 +621,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIHCryptoOSXTests/MIHCryptoOSXTests-Prefix.pch";
 				INFOPLIST_FILE = "MIHCryptoOSXTests/MIHCryptoOSXTests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = xctest;

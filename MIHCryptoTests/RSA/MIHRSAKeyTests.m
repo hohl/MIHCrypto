@@ -8,6 +8,7 @@
 #import "MIHKeyPair.h"
 #import "MIHPrivateKey.h"
 #import "MIHRSAPrivateKey.h"
+#import "NSData+MIHConversion.h"
 
 @interface MIHRSAKeyTests : XCTestCase
 @property(strong) NSData *messageData;
@@ -22,12 +23,8 @@
 - (void)setUp
 {
     NSString *pubString = @"MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJma7iWHjLCpeiHHhkwf/IGVtJvrHVW/"
-            "F+te83hB85YiCuAOqvaG7Isy4dYbwBZKkuIq9x+FVZ+6SrsaRQuaFSkCAwEAAQ==";
-#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_9
-    self.pub = [[NSData alloc] initWithBase64Encoding:pubString];
-#else
-    self.pub = [[NSData alloc] initWithBase64EncodedString:pubString options:0];
-#endif
+                           "F+te83hB85YiCuAOqvaG7Isy4dYbwBZKkuIq9x+FVZ+6SrsaRQuaFSkCAwEAAQ==";
+    self.pub = [NSData MIH_dataByBase64DecodingString:pubString];
     NSString *pemString = @"-----BEGIN PRIVATE KEY-----\n"
             "MIIBVQIBADANBgkqhkiG9w0BAQEFAASCAT8wggE7AgEAAkEAmZruJYeMsKl6IceG\n"
             "TB/8gZW0m+sdVb8X617zeEHzliIK4A6q9obsizLh1hvAFkqS4ir3H4VVn7pKuxpF\n"

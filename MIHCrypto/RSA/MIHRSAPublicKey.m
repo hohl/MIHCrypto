@@ -5,6 +5,7 @@
 
 #import "MIHRSAPublicKey.h"
 #import "MIHInternal.h"
+#import "NSData+MIHConversion.h"
 #include <openssl/pem.h>
 
 @implementation MIHRSAPublicKey
@@ -19,13 +20,13 @@
     self = [super init];
     if (self) {
         // --- BEGIN OPENSSL HACK ---
-        NSString *base64DataString = [dataValue base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        NSString *base64DataString = [dataValue MIH_base64EncodedStringWithWrapWidth:64];
         base64DataString = [@"-----BEGIN PUBLIC KEY-----\n" stringByAppendingString:base64DataString];
         base64DataString = [base64DataString stringByAppendingString:@"\n-----END PUBLIC KEY-----"];
         NSData *base64Data = [base64DataString dataUsingEncoding:NSUTF8StringEncoding];
         // --- END OPENSSL HACK ---
 
-        BIO *publicBIO = BIO_new_mem_buf((void *) base64Data.bytes, base64Data.length);
+        BIO *publicBIO = BIO_new_mem_buf((void *) base64Data.bytes, (int)base64Data.length);
         EVP_PKEY *pkey = EVP_PKEY_new();
         @try {
             if (!PEM_read_bio_PUBKEY(publicBIO, &pkey, NULL, NULL)) {
@@ -86,7 +87,7 @@
         PEM_write_bio_PUBKEY(publicBIO, pkey);
         publicBytesLength = (size_t) BIO_pending(publicBIO);
         publicBytes = malloc(publicBytesLength);
-        BIO_read(publicBIO, publicBytes, publicBytesLength);
+        BIO_read(publicBIO, publicBytes, (int)publicBytesLength);
     }
     @finally {
         EVP_PKEY_free(pkey);
@@ -105,11 +106,7 @@
                      withTemplate:@""];
     // --- END OPENSSL HACK ---
     
-#if MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_9
-    return [[NSData alloc] initWithBase64Encoding:dataString];
-#else
-    return [[NSData alloc] initWithBase64EncodedString:dataString options:0];
-#endif
+    return [NSData MIH_dataByBase64DecodingString:dataString];
 }
 
 - (NSData *)encrypt:(NSData *)messageData error:(NSError **)error

@@ -52,4 +52,37 @@
     XCTAssertEqualObjects(expectedHexString, [hexString lowercaseString]);
 }
 
+- (void)testEncodeBase64 {
+    NSData *decodedInputString = [@"Guten Tag, Herr Hohl!" dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *outputString = [decodedInputString MIH_base64EncodedString];
+    
+    NSString *expectedEncodedString = @"R3V0ZW4gVGFnLCBIZXJyIEhvaGwh";
+    XCTAssertEqualObjects(expectedEncodedString, outputString);
+}
+
+- (void)testEncodeBase64Wrapped {
+    NSData *decodedInputString = [@"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor "
+                                  "invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam "
+                                  "et justo duo dolores et ea rebum." dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSString *outputString = [decodedInputString MIH_base64EncodedStringWithWrapWidth:64];
+    
+    NSString *expectedEncodedString = @"TG9yZW0gaXBzdW0gZG9sb3Igc2l0IGFtZXQsIGNvbnNldGV0dXIgc2FkaXBzY2lu\r\n"
+                                       "ZyBlbGl0ciwgc2VkIGRpYW0gbm9udW15IGVpcm1vZCB0ZW1wb3IgaW52aWR1bnQg\r\n"
+                                       "dXQgbGFib3JlIGV0IGRvbG9yZSBtYWduYSBhbGlxdXlhbSBlcmF0LCBzZWQgZGlh\r\n"
+                                       "bSB2b2x1cHR1YS4gQXQgdmVybyBlb3MgZXQgYWNjdXNhbSBldCBqdXN0byBkdW8g\r\n"
+                                       "ZG9sb3JlcyBldCBlYSByZWJ1bS4=";
+    XCTAssertEqualObjects(expectedEncodedString, outputString);
+}
+
+- (void)testDecodeBase64 {
+    NSString *encodedInputString = @"R3V0ZW4gVGFnLCBIZXJyIEhvaGwh";
+    
+    NSData *outputData = [NSData MIH_dataByBase64DecodingString:encodedInputString];
+    
+    NSData *expectedDecodedString = [@"Guten Tag, Herr Hohl!" dataUsingEncoding:NSUTF8StringEncoding];
+    XCTAssertEqualObjects(expectedDecodedString, outputData);
+}
+
 @end
