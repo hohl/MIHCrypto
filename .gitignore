@@ -20,3 +20,7 @@ DerivedData
 #
 Pods/
 
+# Jetbrains AppCode
+#
+.idea/
+atlassian-ide-plugin.xml
