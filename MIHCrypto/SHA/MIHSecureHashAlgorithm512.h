@@ -18,7 +18,7 @@
 #import "MIHHashAlgorithm.h"
 
 /**
- * SHA1 implementation for MIHHashAlgorithm.
+ * SHA512 implementation for MIHHashAlgorithm.
  */
-@interface MIHSecureHashAlgorithm : NSObject<MIHHashAlgorithm>
+@interface MIHSecureHashAlgorithm512 : NSObject<MIHHashAlgorithm>
 @end

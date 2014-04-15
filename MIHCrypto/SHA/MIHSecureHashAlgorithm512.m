@@ -15,10 +15,27 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "MIHHashAlgorithm.h"
+#import "MIHSecureHashAlgorithm512.h"
+#import "MIHInternal.h"
+#import <openssl/sha.h>
 
-/**
- * SHA1 implementation for MIHHashAlgorithm.
- */
-@interface MIHSecureHashAlgorithm : NSObject<MIHHashAlgorithm>
+
+@implementation MIHSecureHashAlgorithm512
+
+- (NSData *)hashValueOfData:(NSData *)data
+{
+    SHA512_CTX sha512Ctx;
+    unsigned char hashValue[SHA512_DIGEST_LENGTH];
+    if(!SHA512_Init(&sha512Ctx)) {
+        @throw [NSException openSSLException];
+    }
+    if (!SHA512_Update(&sha512Ctx, data.bytes, data.length)) {
+        @throw [NSException openSSLException];
+    }
+    if (!SHA512_Final(hashValue, &sha512Ctx)) {
+        @throw [NSException openSSLException];
+    }
+    return [NSData dataWithBytes:hashValue length:SHA512_DIGEST_LENGTH];
+}
+
 @end
