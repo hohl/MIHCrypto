@@ -57,3 +57,7 @@ Anybody is welcome to add additional support for other approaches.
 ### Authors
 
  - [Michael Hohl](http://www.michaelhohl.net/)
+
+### License
+
+MIHCrypto is available under the MIT license. See the LICENSE file for more info.
