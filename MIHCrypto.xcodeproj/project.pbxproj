@@ -54,6 +54,9 @@
 		5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */; };
 		5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19AC18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m */; };
 		5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */; };
+		5FDD19B218FDA0D800620929 /* MIHMessageDigest5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */; };
+		5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */; };
+		5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */; };
 		C46F28014D6D496E98C9068F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675F91913CB4A25B61DA7CC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +143,9 @@
 		5FDD19A818FD9E4F00620929 /* MIHSecureHashAlgorithm384.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm384.h; sourceTree = "<group>"; };
 		5FDD19A918FD9E4F00620929 /* MIHSecureHashAlgorithm384.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm384.m; sourceTree = "<group>"; };
 		5FDD19AC18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm384.m; sourceTree = "<group>"; };
+		5FDD19B018FDA0D800620929 /* MIHMessageDigest5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIHMessageDigest5.h; path = MD5/MIHMessageDigest5.h; sourceTree = "<group>"; };
+		5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHMessageDigest5.m; path = MD5/MIHMessageDigest5.m; sourceTree = "<group>"; };
+		5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHMessageDigest5Tests.m; path = MD5/MIHMessageDigest5Tests.m; sourceTree = "<group>"; };
 		77FC9867951C420FBA613731 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -213,6 +219,7 @@
 			children = (
 				5F35BD9118F8523E00596974 /* AES */,
 				5F35BD9618F8523E00596974 /* Core */,
+				5FDD19AF18FDA09000620929 /* MD5 */,
 				5F35BDA018F8523E00596974 /* RSA */,
 				5F35BDAB18F8523E00596974 /* SHA */,
 				5F35BDAE18F8523E00596974 /* Utils */,
@@ -226,6 +233,7 @@
 			children = (
 				5F35BD8018F8522C00596974 /* AES */,
 				5F35BD8318F8522C00596974 /* Core */,
+				5FDD19B418FDA17C00620929 /* MD5 */,
 				5F35BD8418F8522C00596974 /* RSA */,
 				5F35BD8718F8522C00596974 /* SHA */,
 				5F35BD8918F8522C00596974 /* Utils */,
@@ -358,6 +366,23 @@
 				5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5FDD19AF18FDA09000620929 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				5FDD19B018FDA0D800620929 /* MIHMessageDigest5.h */,
+				5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */,
+			);
+			name = MD5;
+			sourceTree = "<group>";
+		};
+		5FDD19B418FDA17C00620929 /* MD5 */ = {
+			isa = PBXGroup;
+			children = (
+				5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */,
+			);
+			name = MD5;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,6 +548,7 @@
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
 				5F35132D18FC25E5002BD9D9 /* MIHRSAPrivateKey+Internal.m in Sources */,
 				5F35132E18FC25E5002BD9D9 /* MIHRSAPrivateKey.m in Sources */,
+				5FDD19B218FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
 				5F35132F18FC25E5002BD9D9 /* MIHRSAPublicKey+Internal.m in Sources */,
 				5F35133018FC25E5002BD9D9 /* MIHRSAPublicKey.m in Sources */,
 				5F35133118FC25E5002BD9D9 /* MIHSecureHashAlgorithm256.m in Sources */,
@@ -544,6 +570,7 @@
 				5FDD19A618FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m in Sources */,
 				5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */,
 				5FDD19A718FD9BAF00620929 /* MIHSecureHashAlgorithm512.m in Sources */,
+				5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */,
 				5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
@@ -563,6 +590,7 @@
 				5F35132618FC25B9002BD9D9 /* MIHSecureHashAlgorithm256Tests.m in Sources */,
 				5F35132418FC25B9002BD9D9 /* MIHRSAKeyFactoryTests.m in Sources */,
 				5F35132518FC25B9002BD9D9 /* MIHRSAKeyTests.m in Sources */,
+				5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
 				5F35132218FC25B9002BD9D9 /* MIHAESKeyFactoryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
