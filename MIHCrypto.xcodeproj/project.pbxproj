@@ -45,6 +45,9 @@
 		5F5A757018FC2B9100773864 /* MIHInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35BDB018F8523E00596974 /* MIHInternal.m */; };
 		5F5A757118FC2B9100773864 /* NSData+MIHConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35BDB218F8523E00596974 /* NSData+MIHConversion.m */; };
 		5F5A757218FC2B9100773864 /* NSString+MIHConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */; };
+		5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
+		5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */; };
+		5FDD19A018FD98F100620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
 		C46F28014D6D496E98C9068F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675F91913CB4A25B61DA7CC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -122,6 +125,9 @@
 		5F35BDB218F8523E00596974 /* NSData+MIHConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MIHConversion.m"; sourceTree = "<group>"; };
 		5F35BDB318F8523E00596974 /* NSString+MIHConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MIHConversion.h"; sourceTree = "<group>"; };
 		5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MIHConversion.m"; sourceTree = "<group>"; };
+		5FDD199A18FD978400620929 /* MIHSecureHashAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm.h; sourceTree = "<group>"; };
+		5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm.m; sourceTree = "<group>"; };
+		5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithmTests.m; sourceTree = "<group>"; };
 		77FC9867951C420FBA613731 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				5F35BD8818F8522C00596974 /* MIHSecureHashAlgorithm256Tests.m */,
+				5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */,
 			);
 			path = SHA;
 			sourceTree = "<group>";
@@ -316,6 +323,8 @@
 			children = (
 				5F35BDAC18F8523E00596974 /* MIHSecureHashAlgorithm256.h */,
 				5F35BDAD18F8523E00596974 /* MIHSecureHashAlgorithm256.m */,
+				5FDD199A18FD978400620929 /* MIHSecureHashAlgorithm.h */,
+				5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */,
 			);
 			path = SHA;
 			sourceTree = "<group>";
@@ -501,6 +510,7 @@
 				5F35133218FC25E5002BD9D9 /* MIHInternal.m in Sources */,
 				5F35133318FC25E5002BD9D9 /* NSData+MIHConversion.m in Sources */,
 				5F35133418FC25E5002BD9D9 /* NSString+MIHConversion.m in Sources */,
+				5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */,
 				5F35130618FC2590002BD9D9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,11 +521,13 @@
 			files = (
 				5F5A756618FC2B9100773864 /* MIHAESKey.m in Sources */,
 				5F5A756718FC2B9100773864 /* MIHAESKeyFactory.m in Sources */,
+				5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
 				5F5A756918FC2B9100773864 /* MIHKeyPair.m in Sources */,
 				5F5A756A18FC2B9100773864 /* MIHRSAKeyFactory.m in Sources */,
 				5F5A756B18FC2B9100773864 /* MIHRSAPrivateKey+Internal.m in Sources */,
 				5F5A756C18FC2B9100773864 /* MIHRSAPrivateKey.m in Sources */,
+				5FDD19A018FD98F100620929 /* MIHSecureHashAlgorithm.m in Sources */,
 				5F5A756D18FC2B9100773864 /* MIHRSAPublicKey+Internal.m in Sources */,
 				5F5A756E18FC2B9100773864 /* MIHRSAPublicKey.m in Sources */,
 				5F5A756F18FC2B9100773864 /* MIHSecureHashAlgorithm256.m in Sources */,
