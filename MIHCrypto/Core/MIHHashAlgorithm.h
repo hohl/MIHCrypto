@@ -15,14 +15,19 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-
+/**
+ * Protocol for implementations of hash algorithms. A hash function is any algorithm that maps data of arbitrary 
+ * length to data of a fixed length.
+ *
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
+ */
 @protocol MIHHashAlgorithm <NSObject>
 
 /**
  * Creates the hash value of the passed binary data.
  *
  * @param data The data to create the hash sum from.
+ *
  * @return Created hash sum.
  */
 - (NSData *)hashValueOfData:(NSData *)data;

@@ -15,17 +15,32 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-@protocol MIHPrivateKey <NSObject, NSCoding, NSCopying>
+#import "MIHCoding.h"
 
+/**
+ * Protocol for classes which represent a private key. Private keys can get used to decrypt cipher data and to sign
+ * messages.
+ * 
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
+ */
+@protocol MIHPrivateKey <NSObject, NSCopying, NSCoding, MIHCoding>
+
+/**
+ *  Decrypts the passed cipher data with this private key.
+ *
+ *  @param cipher The cipher data to decrypt.
+ *  @param error  Will get set if an error occurs while decrypting the cipher.
+ *
+ *  @return The encrypted message or nil if an error occured.
+ */
 - (NSData *)decrypt:(NSData *)cipher error:(NSError **)error;
-
-- (NSData *)dataValue;
 
 /**
  * Signs the passed data. SHA256 is used to create the hash of the message.
  *
  * @param message The message to sign.
- * @param error Reference used to return an error if there something went wrong.
+ * @param error   Reference used to return an error if there something went wrong.
+ *
  * @return The created signature or nil if any error occurred.
  */
 - (NSData *)signWithSHA256:(NSData *)message error:(NSError **)error;

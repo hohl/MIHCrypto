@@ -18,3 +18,7 @@
 #import "MIHErrors.h"
 
 NSString *const MIHCryptoErrorDomain = @"MIHCryptoErrorDomain";
+
+NSString *const MIHOpenSSLErrorDomain = @"MIHOpenSSLErrorDomain";
+
+NSString *const MIHCryptoException = @"MIHCryptoException";

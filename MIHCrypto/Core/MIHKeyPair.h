@@ -20,16 +20,14 @@
 
 /**
  * Container for storing a pair of public and private keys.
+ *
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
  */
 @interface MIHKeyPair : NSObject <NSCoding, NSCopying>
 
 @property(strong) id <MIHPrivateKey> private;
 @property(strong) id <MIHPublicKey> public;
 
-- (BOOL)isEqual:(id)other;
-
 - (BOOL)isEqualToPair:(MIHKeyPair *)pair;
-
-- (NSUInteger)hash;
 
 @end

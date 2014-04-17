@@ -18,17 +18,14 @@
 #include <openssl/rsa.h>
 #import "MIHPrivateKey.h"
 
+/**
+ * Implementation of MIHPrivateKey which represents a private RSA key.
+ *
+ * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
+ */
 @interface MIHRSAPrivateKey : NSObject<MIHPrivateKey> {
 @protected
     RSA *_rsa;
 }
-
-/**
- * Initializes a new private RSA key.
- *
- * @param data Must be the output of dataValue or at least the same format.
- * @return The initialized instance.
- */
-- (instancetype)initWithData:(NSData *)dataValue;
 
 @end

@@ -15,29 +15,28 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-/*
- * Some helpers which make code more readable which should only get used MIHCrypto internally.
+/**
+ * Protocol which allows any implementation to get serialized to a file or a network stream.
+ *
+ * @discussion The decision against using NSCoding is because NSCoding is designed to store data in Apples
+ *             non-portable PLIST format. MIHCoding is designed to store data in exchangable OpenSSL formats.
+ *
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
  */
+@protocol MIHCoding <NSObject>
 
 /**
- * Helper category used to construct NSErrors from OpenSSL errors.
- *
- * @internal
- * @discussion These methods are designed for internal use only. Don't use these category yourself!
- * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
+ * Initilises a new object from a binary representation.
+ * 
+ * @param dataValue NSData which contains the binary representation.
+ * 
+ * @return The newly-created instance.
  */
-@interface NSError (MIHCrypt)
-+ (instancetype)errorFromOpenSSL;
-@end
+- (id)initWithDataValue:(NSData *)dataValue;
 
 /**
- * Helper category used to construct NSException from OpenSSL errors and out of memory exceptions.
- *
- * @internal
- * @discussion These methods are designed for internal use only. Don't use these category yourself!
- * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
+ * @return Binary representation of the object.
  */
-@interface NSException (MIHCrypto)
-+ (instancetype)openSSLException;
-+ (instancetype)outOfMemoryException;
+- (NSData*)dataValue;
+
 @end

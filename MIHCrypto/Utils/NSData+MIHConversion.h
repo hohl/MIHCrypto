@@ -15,8 +15,11 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
-
+/**
+ * Extension to NSData used by MIHCrypto internally to create HEX and BASE64 strings.
+ * 
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
+ */
 @interface NSData (MIHConversion)
 
 /**

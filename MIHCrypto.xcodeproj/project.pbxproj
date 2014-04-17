@@ -146,6 +146,7 @@
 		5FDD19B018FDA0D800620929 /* MIHMessageDigest5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIHMessageDigest5.h; path = MD5/MIHMessageDigest5.h; sourceTree = "<group>"; };
 		5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHMessageDigest5.m; path = MD5/MIHMessageDigest5.m; sourceTree = "<group>"; };
 		5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHMessageDigest5Tests.m; path = MD5/MIHMessageDigest5Tests.m; sourceTree = "<group>"; };
+		5FF8106F18FFA4DE00408780 /* MIHCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHCoding.h; sourceTree = "<group>"; };
 		77FC9867951C420FBA613731 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -316,6 +317,7 @@
 				5F35BD9A18F8523E00596974 /* MIHKeyFactory.h */,
 				5F35BD9B18F8523E00596974 /* MIHKeyPair.h */,
 				5F35BD9C18F8523E00596974 /* MIHKeyPair.m */,
+				5FF8106F18FFA4DE00408780 /* MIHCoding.h */,
 				5F35BD9D18F8523E00596974 /* MIHPrivateKey.h */,
 				5F35BD9E18F8523E00596974 /* MIHPublicKey.h */,
 				5F35BD9F18F8523E00596974 /* MIHSymmetricKey.h */,

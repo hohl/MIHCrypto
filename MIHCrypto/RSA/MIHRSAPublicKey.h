@@ -18,18 +18,15 @@
 #include <openssl/rsa.h>
 #import "MIHPublicKey.h"
 
+/**
+ * Implementation of MIHRSAPublicKey which represents a public RSA key.
+ *
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
+ */
 @interface MIHRSAPublicKey : NSObject <MIHPublicKey>
 {
 @protected
     RSA *_rsa;
 }
-
-/**
- * Initializes a new public RSA key.
- *
- * @param data Must be the output of dataValue or at least the same format.
- * @return The initialized instance.
- */
-- (instancetype)initWithData:(NSData *)dataValue;
 
 @end

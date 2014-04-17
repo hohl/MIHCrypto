@@ -19,7 +19,6 @@
 #import "MIHErrors.h"
 #include <openssl/err.h>
 
-NSString *const MIHCryptoException = @"MIHCryptoException";
 static dispatch_once_t loadErrorsOnce = 0;
 
 @implementation NSError (MIHCrypto)
@@ -40,8 +39,8 @@ static dispatch_once_t loadErrorsOnce = 0;
     NSString *errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)", errorCode, errorMessage];
     free(errorMessage);
 
-    return [NSError errorWithDomain:MIHCryptoErrorDomain
-                               code:MIHCryptoOpenSSLErrorCode
+    return [NSError errorWithDomain:MIHOpenSSLErrorDomain
+                               code:(NSUInteger)errorCode
                            userInfo:@{NSLocalizedDescriptionKey : errorDescription}];
 }
 

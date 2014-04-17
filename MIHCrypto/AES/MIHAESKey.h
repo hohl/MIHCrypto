@@ -45,24 +45,6 @@
 @property(readonly) NSString *stringValue;
 
 /**
- * Generates a new AES key with random key and init vector.
- *
- * @warning Random bytes are taken from OpenSSL secure random method and may take some time!
- *
- * @return The initialized instance.
- */
-- (id)init;
-
-/**
- * Initializes a new AES key.
- *
- * @param data Must be the output of dataValue or at least the same format.
- *
- * @return The initialized instance.
- */
-- (id)initWithData:(NSData *)data;
-
-/**
  * Initializes a new AES key.
  *
  * @param key NSData which contains the bytes used as key. Must be of length 16, 24 or 32 bytes!

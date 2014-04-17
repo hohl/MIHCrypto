@@ -41,27 +41,6 @@
                                  userInfo:nil];
 }
 
-- (id)initWithData:(NSData *)data
-{
-    self = [super init];
-    if (self) {
-        NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSArray *components = [dataString componentsSeparatedByString:@","];
-        [components enumerateObjectsUsingBlock:^(NSString *component, NSUInteger index, BOOL *stop)
-        {
-            if ([component hasPrefix:@"key="]) {
-                NSString *hexEncodedKey = [component substringFromIndex:4];
-                _key = hexEncodedKey.MIH_dataFromHexadecimal;
-            } else if ([component hasPrefix:@"iv="]) {
-                NSString *hexEncodedIv = [component substringFromIndex:3];
-                _iv = hexEncodedIv.MIH_dataFromHexadecimal;
-            }
-        }];
-    }
-
-    return self;
-}
-
 - (id)initWithCoder:(NSCoder *)coder
 {
     self = [super init];
@@ -93,6 +72,36 @@
 - (id)copyWithZone:(NSZone *)zone
 {
     return [[[self class] allocWithZone:zone] initWithKey:_key iv:_iv];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark MIHCoding
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (id)initWithData:(NSData *)data
+{
+    self = [super init];
+    if (self) {
+        NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        NSArray *components = [dataString componentsSeparatedByString:@","];
+        [components enumerateObjectsUsingBlock:^(NSString *component, NSUInteger index, BOOL *stop)
+         {
+             if ([component hasPrefix:@"key="]) {
+                 NSString *hexEncodedKey = [component substringFromIndex:4];
+                 _key = hexEncodedKey.MIH_dataFromHexadecimal;
+             } else if ([component hasPrefix:@"iv="]) {
+                 NSString *hexEncodedIv = [component substringFromIndex:3];
+                 _iv = hexEncodedIv.MIH_dataFromHexadecimal;
+             }
+         }];
+    }
+    
+    return self;
+}
+
+- (NSData *)dataValue
+{
+    return [self.stringValue dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -201,11 +210,6 @@
 - (NSString *)stringValue
 {
     return [NSString stringWithFormat:@"key=%@,iv=%@", self.key.MIH_hexadecimalString, self.iv.MIH_hexadecimalString];
-}
-
-- (NSData *)dataValue
-{
-    return [self.stringValue dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -22,7 +22,7 @@ int main(int argc, const char * argv[])
 
     @autoreleasepool {
         
-        // insert code here...
+        // These main is only to have some application and keep Xcode calm.
         NSLog(@"Hello, MIHCrypto!");
         
     }

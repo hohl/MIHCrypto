@@ -15,12 +15,14 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
 #import "MIHRSAPublicKey.h"
 
 /**
  * These category on MIHRSAPublicKey contains an initializer which should only get used by MIHRSAKeyFactory.
- * @discussion Don't use these category yourself!
+ * 
+ * @internal
+ * @discussion These methods are designed for internal use only. Don't use these category yourself!
+ * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
  */
 @interface MIHRSAPublicKey (Internal)
 

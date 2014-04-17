@@ -26,6 +26,11 @@ typedef NS_ENUM(NSUInteger, MIHRSAKeySize) {
     MIHRSAKey4096 = 512
 };
 
+/**
+ * Factory used to create new MIHRSAPrivateKey and MIHRSAPublicKey.
+ *
+ * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
+ */
 @interface MIHRSAKeyFactory : NSObject <MIHKeyFactory>
 
 /**
@@ -34,7 +39,10 @@ typedef NS_ENUM(NSUInteger, MIHRSAKeySize) {
 @property (assign) MIHRSAKeySize preferedKeySize;
 
 /**
- * Generates a pair of RSA keys and returns them as MIHKeyPair.
+ * Generates a pair of private and public RSA keys.
+ *
+ * @return MIHKeyPair which contains the generated private and public key.
+ * @see -preferedKeySize
  */
 - (MIHKeyPair *)generateKeyPair;
 

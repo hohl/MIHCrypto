@@ -15,14 +15,34 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <Foundation/Foundation.h>
+#import "MIHCoding.h"
 
-@protocol MIHSymmetricKey <NSObject>
+/**
+ * Protocol for classes which represent a symmetric key. Symmetric keys can get used to encrypt and decrypt messages
+ * and cipher data.
+ *
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
+ */
+@protocol MIHSymmetricKey <NSObject, NSCopying, NSCoding, MIHCoding>
 
+/**
+ *  Decrypts the passed cipher data with this symmetric key.
+ *
+ *  @param cipher The cipher data to decrypt.
+ *  @param error  Will get set if an error occurs while decrypting the cipher.
+ *
+ *  @return The encrypted message or nil if an error occured.
+ */
 - (NSData *)decrypt:(NSData *)cipher error:(NSError **)error;
 
+/**
+ *  Encrypts the passed message with this symmetric key.
+ *
+ *  @param message The message to get encrypted.
+ *  @param error   Will be set if an error occurs.
+ *
+ *  @return The encrypted cipher data or nil if an error occured.
+ */
 - (NSData *)encrypt:(NSData *)message error:(NSError **)error;
-
-- (NSData *)dataValue;
 
 @end

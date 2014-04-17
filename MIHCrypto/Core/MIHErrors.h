@@ -15,10 +15,24 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-/** Domain used by all error which are issued by MIHCrypto.*/
+/**
+ * Domain used by all OpenSSL errors which are wrapped by MIHCrypto to an NSError instance.
+ */
+extern NSString *const MIHOpenSSLErrorDomain;
+
+/**
+ * Domain used by all error which are issued by MIHCrypto.
+ */
 extern NSString *const MIHCryptoErrorDomain;
 
 typedef NS_ENUM(NSUInteger, MIHCryptoErrorCode) {
-    MIHCryptoOpenSSLErrorCode,
+    /**
+     * MIHCryptoInvalidKeySize is used in errors indicating that the passed key size can't get used with this approach.
+     */
     MIHCryptoInvalidKeySize
 };
+
+/**
+ * Name of all exceptions which may get thrown by MIHCrypto library.
+ */
+extern NSString *const MIHCryptoException;

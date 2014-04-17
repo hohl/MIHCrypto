@@ -15,11 +15,25 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-@protocol MIHPublicKey <NSObject, NSCoding, NSCopying>
+#import "MIHCoding.h"
 
+/**
+ * Protocol for classes which represent a public key. Private keys can get used to encrypt cipher data and to verify
+ * signatures.
+ *
+ * @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
+ */
+@protocol MIHPublicKey <NSObject, NSCopying, NSCoding, MIHCoding>
+
+/**
+ *  Encrypts the passed message with this public key.
+ *
+ *  @param message The message to get encrypted.
+ *  @param error   Will be set if an error occurs.
+ *
+ *  @return The encrypted cipher data or nil if an error occured.
+ */
 - (NSData *)encrypt:(NSData *)message error:(NSError **)error;
-
-- (NSData *)dataValue;
 
 /**
  * Verifies the signature of the passed message. SHA256 is used to create the hash of the message.

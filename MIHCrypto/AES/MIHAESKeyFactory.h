@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, MIHAESKeySize) {
  * Generates a random AES key with the configured key size.
  *
  * @return The created symmetric AES key.
- * @seealso preferedKeySize
+ * @see -preferedKeySize
  */
 - (MIHAESKey<MIHSymmetricKey> *)generateKey;
 
