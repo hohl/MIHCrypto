@@ -25,6 +25,11 @@ typedef NS_ENUM(NSUInteger, MIHAESKeySize) {
     MIHAESKey128 = 16
 };
 
+/**
+ * Factory used to create new MIHAESKeys.
+ *
+ * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
+ */
 @interface MIHAESKeyFactory : NSObject <MIHKeyFactory>
 
 /**
@@ -33,7 +38,10 @@ typedef NS_ENUM(NSUInteger, MIHAESKeySize) {
 @property(assign) MIHAESKeySize preferedKeySize;
 
 /**
- * @return Generates a random AES key with the configured key size and returns it.
+ * Generates a random AES key with the configured key size.
+ *
+ * @return The created symmetric AES key.
+ * @seealso preferedKeySize
  */
 - (MIHAESKey<MIHSymmetricKey> *)generateKey;
 
