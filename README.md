@@ -55,6 +55,7 @@ MIHCrypto requires Xcode 4 and above, targeting either iOS 5.0 and above, or Mac
 As already mentioned OpenSSL is very powerful and large project so this library doesn't support all functionallity of it yet and new functions are added as needed. At the moment following cryptographic approaches are supported:
 
  - AES (block cipher)
+ - DES (block cipher)
  - MD5 (hash algorithm)
  - RSA (public-key cryptography)
  - SHA, SHA256, SHA384, SHA512 (hash algorithm)
@@ -62,7 +63,6 @@ As already mentioned OpenSSL is very powerful and large project so this library 
 Following approaches are in progress and may get published shortly:
 
  - ECC (public-key cryptography)
- - DES (block cipher)
  
 Anybody is welcome to add additional support for other approaches.
 
