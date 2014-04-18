@@ -30,7 +30,7 @@
     NSParameterAssert([dataValue isKindOfClass:[NSData class]]);
     self = [super init];
     if (self) {
-        BIO *privateBIO = BIO_new_mem_buf((void *) dataValue.bytes, dataValue.length);
+        BIO *privateBIO = BIO_new_mem_buf((void *) dataValue.bytes, (int)dataValue.length);
         EVP_PKEY *pkey = EVP_PKEY_new();
         @try {
             if (!PEM_read_bio_PrivateKey(privateBIO, &pkey, 0, NULL)) {
@@ -83,13 +83,13 @@
 {
     EVP_PKEY *pkey = EVP_PKEY_new();
     char *privateBytes;
-    size_t privateBytesLength;
+    int privateBytesLength;
     @try {
         EVP_PKEY_set1_RSA(pkey, _rsa);
         BIO *privateBIO = BIO_new(BIO_s_mem());
         PEM_write_bio_PKCS8PrivateKey(privateBIO, pkey, NULL, NULL, 0, 0, NULL);
-        privateBytesLength = (size_t) BIO_pending(privateBIO);
-        privateBytes = malloc(privateBytesLength);
+        privateBytesLength =  BIO_pending(privateBIO);
+        privateBytes = malloc((size_t)privateBytesLength);
         BIO_read(privateBIO, privateBytes, privateBytesLength);
     }
     @finally {
@@ -103,7 +103,7 @@
 {
     NSUInteger rsaSize = (NSUInteger) RSA_size(_rsa);
     NSMutableData *messageData = [NSMutableData dataWithLength:rsaSize];
-    int messageBytesLength = RSA_private_decrypt(cipherData.length, cipherData.bytes, messageData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
+    int messageBytesLength = RSA_private_decrypt((int)cipherData.length, cipherData.bytes, messageData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
     if (messageBytesLength < 0) {
         *error = [NSError errorFromOpenSSL];
         return nil;

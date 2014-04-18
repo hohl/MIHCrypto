@@ -124,7 +124,7 @@
 - (NSData *)encrypt:(NSData *)messageData error:(NSError **)error
 {
     NSMutableData *cipherData = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
-    int cipherBytesLength = RSA_public_encrypt(messageData.length, messageData.bytes, cipherData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
+    int cipherBytesLength = RSA_public_encrypt((int)messageData.length, messageData.bytes, cipherData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
     if (cipherBytesLength < 0) {
         *error = [NSError errorFromOpenSSL];
     }
@@ -146,7 +146,7 @@
     if (!SHA256_Final(messageDigest, &sha256Ctx)) {
         return NO;
     }
-    if (RSA_verify(NID_sha256, messageDigest, SHA256_DIGEST_LENGTH, signature.bytes, signature.length, _rsa) == 0) {
+    if (RSA_verify(NID_sha256, messageDigest, SHA256_DIGEST_LENGTH, signature.bytes, (int)signature.length, _rsa) == 0) {
         return NO;
     }
     return YES;

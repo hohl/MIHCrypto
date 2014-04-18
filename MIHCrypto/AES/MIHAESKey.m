@@ -197,7 +197,7 @@
         return nil;
     }
 
-    if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, messageData.length)) {
+    if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, (int)messageData.length)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
