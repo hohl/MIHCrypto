@@ -15,16 +15,15 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "MIHAESKey.h"
-#import "MIHAESKeyFactory.h"
-#import "MIHErrors.h"
-#import "MIHInternal.h"
+#import "MIHDESKey.h"
+#import "MIHDESKey+Internal.h"
 #import "NSData+MIHConversion.h"
 #import "NSString+MIHConversion.h"
-#include <openssl/evp.h>
-#include <openssl/aes.h>
+#import "MIHErrors.h"
+#import "MIHInternal.h"
+#import <openssl/evp.h>
 
-@implementation MIHAESKey
+@implementation MIHDESKey
 {
     EVP_CIPHER_CTX encryptCtx;
     EVP_CIPHER_CTX decryptCtx;
@@ -47,19 +46,21 @@
     if (self) {
         _key = [coder decodeObjectForKey:@"_key"];
         _iv = [coder decodeObjectForKey:@"_iv"];
+        _mode = [coder decodeIntegerForKey:@"_mode"];
     }
-
+    
     return self;
 }
 
-- (id)initWithKey:(NSData *)key iv:(NSData *)iv
+- (id)initWithKey:(NSData *)key iv:(NSData *)iv mode:(MIHDESMode)mode
 {
     self = [super init];
     if (self) {
         _key = key;
         _iv = iv;
+        _mode = mode;
     }
-
+    
     return self;
 }
 
@@ -67,11 +68,12 @@
 {
     [coder encodeObject:self.key forKey:@"_key"];
     [coder encodeObject:self.iv forKey:@"_iv"];
+    [coder encodeInteger:self.mode forKey:@"_mode"];
 }
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    return [[[self class] allocWithZone:zone] initWithKey:_key iv:_iv];
+    return [(MIHDESKey *)[[self class] allocWithZone:zone] initWithKey:_key iv:_iv mode:_mode];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -92,6 +94,9 @@
              } else if ([component hasPrefix:@"iv="]) {
                  NSString *hexEncodedIv = [component substringFromIndex:3];
                  _iv = hexEncodedIv.MIH_dataFromHexadecimal;
+             } else if ([component hasPrefix:@"mode="]) {
+                 NSString *modeName = [component substringFromIndex:3];
+                 _mode = [MIHDESKey modeFromModeName:modeName];
              }
          }];
     }
@@ -104,11 +109,6 @@
     return [self.stringValue dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSString *)stringValue
-{
-    return [NSString stringWithFormat:@"key=%@,iv=%@", self.key.MIH_hexadecimalString, self.iv.MIH_hexadecimalString];
-}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark MIHSymmetricKey
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -117,48 +117,34 @@
 {
     size_t messageBytesLength = 0;
     size_t blockLength = 0;
-
+    
     unsigned char *messageBytes = (unsigned char *) malloc(cipherData.length);
     if (messageBytes == NULL) {
         @throw [NSException outOfMemoryException];
     }
-
-    const EVP_CIPHER *evpCipher;
-    switch (self.key.length) {
-        case MIHAESKey256:
-            evpCipher = EVP_aes_256_cbc();
-            break;
-        case MIHAESKey192:
-            evpCipher = EVP_aes_192_cbc();
-            break;
-        case MIHAESKey128:
-            evpCipher = EVP_aes_128_cbc();
-            break;
-        default:
-            if (error)
-                *error = [NSError errorWithDomain:MIHCryptoErrorDomain
-                                             code:MIHCryptoInvalidKeySize
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%lu is not a valid AES key size!", self.key.length]}];
-            return nil;
+    
+    const EVP_CIPHER *evpCipher = [MIHDESKey cipherForMode:self.mode error:error];
+    if (*error) {
+        return nil;
     }
-
+    
     if (!EVP_DecryptInit(&decryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
-
+    
     if (!EVP_DecryptUpdate(&decryptCtx, messageBytes, (int *) &blockLength, cipherData.bytes, (int) cipherData.length)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     messageBytesLength += blockLength;
-
+    
     if (!EVP_DecryptFinal(&decryptCtx, messageBytes + messageBytesLength, (int *) &blockLength)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     messageBytesLength += blockLength;
-
+    
     return [NSData dataWithBytesNoCopy:messageBytes length:messageBytesLength];
 }
 
@@ -166,50 +152,48 @@
 {
     size_t blockLength = 0;
     size_t cipherBytesLength = 0;
-
-    const EVP_CIPHER *evpCipher;
-    switch (self.key.length) {
-        case MIHAESKey256:
-            evpCipher = EVP_aes_256_cbc();
-            break;
-        case MIHAESKey192:
-            evpCipher = EVP_aes_192_cbc();
-            break;
-        case MIHAESKey128:
-            evpCipher = EVP_aes_128_cbc();
-            break;
-        default:
-            if (error)
-                *error = [NSError errorWithDomain:MIHCryptoErrorDomain
-                                             code:MIHCryptoInvalidKeySize
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%lu is not a valid AES key size!", (unsigned long)self.key.length]}];
-            return nil;
+    
+    const EVP_CIPHER *evpCipher = [MIHDESKey cipherForMode:self.mode error:error];
+    if (*error) {
+        return nil;
     }
-
-    unsigned char *cipherBytes = (unsigned char *) malloc(messageData.length + AES_BLOCK_SIZE);
-    memset(cipherBytes, 0, messageData.length + AES_BLOCK_SIZE);
+    
+    int blockSize = EVP_CIPHER_block_size(evpCipher);
+    
+    unsigned char *cipherBytes = (unsigned char *) malloc(messageData.length + blockSize);
+    memset(cipherBytes, 0, messageData.length + blockSize);
     if (cipherBytes == NULL) {
         @throw [NSException outOfMemoryException];
     }
-
+    
     if (!EVP_EncryptInit(&encryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
-
-    if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, messageData.length)) {
+    
+    if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, (int)messageData.length)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     cipherBytesLength += blockLength;
-
+    
     if (!EVP_EncryptFinal(&encryptCtx, cipherBytes + cipherBytesLength, (int *) &blockLength)) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     cipherBytesLength += blockLength;
-
+    
     return [NSData dataWithBytesNoCopy:cipherBytes length:cipherBytesLength];
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark MIHDESKey
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (NSString *)stringValue
+{
+    return [NSString stringWithFormat:@"key=%@,iv=%@,mode=%@", self.key.MIH_hexadecimalString,
+            self.iv.MIH_hexadecimalString, [MIHDESKey modeNameForMode:self.mode]];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -222,13 +206,13 @@
         return YES;
     if (!other || ![[other class] isEqual:[self class]])
         return NO;
-
+    
     return [self isEqualToKey:other];
 }
 
-- (BOOL)isEqualToKey:(MIHAESKey *)key
+- (BOOL)isEqualToKey:(MIHDESKey *)key
 {
-    NSParameterAssert([key isKindOfClass:[MIHAESKey class]]);
+    NSParameterAssert([key isKindOfClass:[MIHDESKey class]]);
     if (self == key)
         return YES;
     if (key == nil)
@@ -237,6 +221,8 @@
         return NO;
     if (self.iv != key.iv && ![self.iv isEqualToData:key.iv])
         return NO;
+    if (self.mode != key.mode)
+        return NO;
     return YES;
 }
 
@@ -244,12 +230,13 @@
 {
     NSUInteger hash = [self.key hash];
     hash = hash * 31u + [self.iv hash];
+    hash = hash * 16u + self.mode;
     return hash;
 }
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"<MIHAESKey %@>", self.stringValue];
+    return [NSString stringWithFormat:@"<MIHDESKey %@>", self.stringValue];
 }
 
 @end

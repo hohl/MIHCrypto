@@ -29,7 +29,12 @@ typedef NS_ENUM(NSUInteger, MIHCryptoErrorCode) {
     /**
      * MIHCryptoInvalidKeySize is used in errors indicating that the passed key size can't get used with this approach.
      */
-    MIHCryptoInvalidKeySize
+    MIHCryptoInvalidKeySize,
+    
+    /**
+     * MIHCryptoInvalidMode is used in errors indicating that the passed mode is not usable with this approach.
+     */
+    MIHCryptoInvalidMode
 };
 
 /**

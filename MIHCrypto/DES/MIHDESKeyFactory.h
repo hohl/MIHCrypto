@@ -15,52 +15,49 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "MIHSymmetricKey.h"
+#import "MIHKeyFactory.h"
+
+typedef NS_ENUM(NSInteger, MIHDESMode) {
+    // DES:
+    MIHDESModeCBC = 0,
+    MIHDESModeECB = 1,
+    MIHDESModeCFB = 2,
+    MIHDESModeOFB = 3,
+    // Triple DES (EDE 2 key):
+    MIHDESModeTriple2CBC = 4,
+    MIHDESModeTriple2ECB = 5,
+    MIHDESModeTriple2CFB = 6,
+    MIHDESModeTriple2OFB = 7,
+    // Triple DES (EDE 2 key):
+    MIHDESModeTriple3CBC = 8,
+    MIHDESModeTriple3ECB = 9,
+    MIHDESModeTriple3CFB = 10,
+    MIHDESModeTriple3OFB = 11,
+    // DESX:
+    MIHDESModeXCBC = 12
+};
+
+@class MIHDESKey;
 
 /**
- * MIHSymmetricKey implementation which is based on AES in CBC mode.
+ * Factory used to create new MIHDESKeys.
  *
  * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
  */
-@interface MIHAESKey : NSObject <MIHSymmetricKey>
+@interface MIHDESKeyFactory : NSObject <MIHKeyFactory>
 
 /**
- * The raw bytes (as NSData instance) of the AES symmetric key.
- */
-@property(strong, readonly) NSData *key;
-
-/**
- * The initialisation vector used by the AES symmetric key.
- */
-@property(strong, readonly) NSData *iv;
-
-/**
- * Binary represation of this symmetric key.
- */
-@property (readonly) NSData *dataValue;
-
-/**
- * Same as dataValue but will return a string which contains iv and key as HEX encoded data.
- */
-@property(readonly) NSString *stringValue;
-
-/**
- * Initializes a new AES key.
+ * This key size is going to be used when a new key is created.
  *
- * @param key NSData which contains the bytes used as key. Must be of length 16, 24 or 32 bytes!
- * @param iv NSData which contains the bytes used as initialization vector. Must be of length 32!
- *
- * @return The initialized instance.
+ * @warning Cryptography newbies should let this value be set to it's default value of MIHDESModeCBC.
  */
-- (instancetype)initWithKey:(NSData *)key iv:(NSData *)iv;
+@property(assign) MIHDESMode preferedMode;
 
 /**
- * Compares this key against the passed aes key one.
+ * Generates a random DES key with the configured key size.
  *
- * @param key The key to compare this key against.
- *
- * @return YES if both keys are equavilent.
+ * @return The created symmetric DES key.
  */
-- (BOOL)isEqualToKey:(MIHAESKey *)key;
+- (MIHDESKey<MIHSymmetricKey> *)generateKey;
 
 @end

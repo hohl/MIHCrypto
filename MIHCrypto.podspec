@@ -28,6 +28,11 @@ Pod::Spec.new do |s|
     ss.dependency 'MIHCrypto/Core'
   end
   
+  s.subspec 'DES' do |ss|
+    ss.source_files = 'MIHCrypto/DES/*.{h,m,c}'
+    ss.dependency 'MIHCrypto/Core'
+  end
+
   s.subspec 'MD5' do |ss|
     ss.source_files = 'MIHCrypto/MD5/*.{h,m,c}'
     ss.dependency 'MIHCrypto/Core'

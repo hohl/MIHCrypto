@@ -45,6 +45,16 @@
 		5F5A757018FC2B9100773864 /* MIHInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35BDB018F8523E00596974 /* MIHInternal.m */; };
 		5F5A757118FC2B9100773864 /* NSData+MIHConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35BDB218F8523E00596974 /* NSData+MIHConversion.m */; };
 		5F5A757218FC2B9100773864 /* NSString+MIHConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */; };
+		5F7005C11900657A003789B7 /* MIHDESKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C01900657A003789B7 /* MIHDESKey.m */; };
+		5F7005C21900657A003789B7 /* MIHDESKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C01900657A003789B7 /* MIHDESKey.m */; };
+		5F7005C519006593003789B7 /* MIHDESKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C419006593003789B7 /* MIHDESKeyFactory.m */; };
+		5F7005C619006593003789B7 /* MIHDESKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C419006593003789B7 /* MIHDESKeyFactory.m */; };
+		5F7005C919006D25003789B7 /* MIHDESKey+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */; };
+		5F7005CA19006D25003789B7 /* MIHDESKey+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */; };
+		5F8C2C7819013F54003DD9E6 /* MIHDESKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7719013F54003DD9E6 /* MIHDESKeyTests.m */; };
+		5F8C2C7B19015303003DD9E6 /* MIHCryptoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */; };
+		5F8C2C7C19015303003DD9E6 /* MIHCryptoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */; };
+		5F8C2C7F19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */; };
 		5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
 		5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */; };
 		5FDD19A018FD98F100620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
@@ -134,6 +144,16 @@
 		5F35BDB218F8523E00596974 /* NSData+MIHConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MIHConversion.m"; sourceTree = "<group>"; };
 		5F35BDB318F8523E00596974 /* NSString+MIHConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MIHConversion.h"; sourceTree = "<group>"; };
 		5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MIHConversion.m"; sourceTree = "<group>"; };
+		5F7005BF1900657A003789B7 /* MIHDESKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHDESKey.h; sourceTree = "<group>"; };
+		5F7005C01900657A003789B7 /* MIHDESKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKey.m; sourceTree = "<group>"; };
+		5F7005C319006593003789B7 /* MIHDESKeyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHDESKeyFactory.h; sourceTree = "<group>"; };
+		5F7005C419006593003789B7 /* MIHDESKeyFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKeyFactory.m; sourceTree = "<group>"; };
+		5F7005C719006D25003789B7 /* MIHDESKey+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MIHDESKey+Internal.h"; sourceTree = "<group>"; };
+		5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MIHDESKey+Internal.m"; sourceTree = "<group>"; };
+		5F8C2C7719013F54003DD9E6 /* MIHDESKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKeyTests.m; sourceTree = "<group>"; };
+		5F8C2C7919015303003DD9E6 /* MIHCryptoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCryptoConfig.h; sourceTree = "<group>"; };
+		5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHCryptoConfig.m; sourceTree = "<group>"; };
+		5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKeyFactoryTests.m; sourceTree = "<group>"; };
 		5FDD199A18FD978400620929 /* MIHSecureHashAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm.h; sourceTree = "<group>"; };
 		5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm.m; sourceTree = "<group>"; };
 		5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithmTests.m; sourceTree = "<group>"; };
@@ -220,6 +240,7 @@
 			children = (
 				5F35BD9118F8523E00596974 /* AES */,
 				5F35BD9618F8523E00596974 /* Core */,
+				5F7005BE1900657A003789B7 /* DES */,
 				5FDD19AF18FDA09000620929 /* MD5 */,
 				5F35BDA018F8523E00596974 /* RSA */,
 				5F35BDAB18F8523E00596974 /* SHA */,
@@ -234,6 +255,7 @@
 			children = (
 				5F35BD8018F8522C00596974 /* AES */,
 				5F35BD8318F8522C00596974 /* Core */,
+				5F8C2C7519013F3C003DD9E6 /* DES */,
 				5FDD19B418FDA17C00620929 /* MD5 */,
 				5F35BD8418F8522C00596974 /* RSA */,
 				5F35BD8718F8522C00596974 /* SHA */,
@@ -360,6 +382,8 @@
 		5F35BDAE18F8523E00596974 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5F8C2C7919015303003DD9E6 /* MIHCryptoConfig.h */,
+				5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */,
 				5F35BDAF18F8523E00596974 /* MIHInternal.h */,
 				5F35BDB018F8523E00596974 /* MIHInternal.m */,
 				5F35BDB118F8523E00596974 /* NSData+MIHConversion.h */,
@@ -368,6 +392,28 @@
 				5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5F7005BE1900657A003789B7 /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				5F7005BF1900657A003789B7 /* MIHDESKey.h */,
+				5F7005C01900657A003789B7 /* MIHDESKey.m */,
+				5F7005C719006D25003789B7 /* MIHDESKey+Internal.h */,
+				5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */,
+				5F7005C319006593003789B7 /* MIHDESKeyFactory.h */,
+				5F7005C419006593003789B7 /* MIHDESKeyFactory.m */,
+			);
+			path = DES;
+			sourceTree = "<group>";
+		};
+		5F8C2C7519013F3C003DD9E6 /* DES */ = {
+			isa = PBXGroup;
+			children = (
+				5F8C2C7719013F54003DD9E6 /* MIHDESKeyTests.m */,
+				5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */,
+			);
+			path = DES;
 			sourceTree = "<group>";
 		};
 		5FDD19AF18FDA09000620929 /* MD5 */ = {
@@ -546,6 +592,8 @@
 				5F35132918FC25E5002BD9D9 /* MIHAESKeyFactory.m in Sources */,
 				5F35132A18FC25E5002BD9D9 /* MIHErrors.m in Sources */,
 				5F35132B18FC25E5002BD9D9 /* MIHKeyPair.m in Sources */,
+				5F7005C11900657A003789B7 /* MIHDESKey.m in Sources */,
+				5F8C2C7B19015303003DD9E6 /* MIHCryptoConfig.m in Sources */,
 				5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
 				5F35132D18FC25E5002BD9D9 /* MIHRSAPrivateKey+Internal.m in Sources */,
@@ -557,7 +605,9 @@
 				5F35133218FC25E5002BD9D9 /* MIHInternal.m in Sources */,
 				5F35133318FC25E5002BD9D9 /* NSData+MIHConversion.m in Sources */,
 				5F35133418FC25E5002BD9D9 /* NSString+MIHConversion.m in Sources */,
+				5F7005C519006593003789B7 /* MIHDESKeyFactory.m in Sources */,
 				5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */,
+				5F7005C919006D25003789B7 /* MIHDESKey+Internal.m in Sources */,
 				5FDD19A318FD9A6000620929 /* MIHSecureHashAlgorithm512.m in Sources */,
 				5F35130618FC2590002BD9D9 /* main.m in Sources */,
 			);
@@ -568,15 +618,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F5A756618FC2B9100773864 /* MIHAESKey.m in Sources */,
+				5F8C2C7C19015303003DD9E6 /* MIHCryptoConfig.m in Sources */,
 				5F5A756718FC2B9100773864 /* MIHAESKeyFactory.m in Sources */,
 				5FDD19A618FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m in Sources */,
 				5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */,
 				5FDD19A718FD9BAF00620929 /* MIHSecureHashAlgorithm512.m in Sources */,
+				5F7005C21900657A003789B7 /* MIHDESKey.m in Sources */,
 				5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */,
 				5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
 				5F5A756918FC2B9100773864 /* MIHKeyPair.m in Sources */,
+				5F8C2C7819013F54003DD9E6 /* MIHDESKeyTests.m in Sources */,
 				5F5A756A18FC2B9100773864 /* MIHRSAKeyFactory.m in Sources */,
 				5F5A756B18FC2B9100773864 /* MIHRSAPrivateKey+Internal.m in Sources */,
 				5F5A756C18FC2B9100773864 /* MIHRSAPrivateKey.m in Sources */,
@@ -584,16 +637,19 @@
 				5F5A756D18FC2B9100773864 /* MIHRSAPublicKey+Internal.m in Sources */,
 				5F5A756E18FC2B9100773864 /* MIHRSAPublicKey.m in Sources */,
 				5F5A756F18FC2B9100773864 /* MIHSecureHashAlgorithm256.m in Sources */,
+				5F7005CA19006D25003789B7 /* MIHDESKey+Internal.m in Sources */,
 				5F5A757018FC2B9100773864 /* MIHInternal.m in Sources */,
 				5F5A757118FC2B9100773864 /* NSData+MIHConversion.m in Sources */,
 				5F5A757218FC2B9100773864 /* NSString+MIHConversion.m in Sources */,
 				5F35132318FC25B9002BD9D9 /* MIHAESKeyTests.m in Sources */,
 				5F35132718FC25B9002BD9D9 /* MIHConversionTests.m in Sources */,
 				5F35132618FC25B9002BD9D9 /* MIHSecureHashAlgorithm256Tests.m in Sources */,
+				5F8C2C7F19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m in Sources */,
 				5F35132418FC25B9002BD9D9 /* MIHRSAKeyFactoryTests.m in Sources */,
 				5F35132518FC25B9002BD9D9 /* MIHRSAKeyTests.m in Sources */,
 				5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
 				5F35132218FC25B9002BD9D9 /* MIHAESKeyFactoryTests.m in Sources */,
+				5F7005C619006593003789B7 /* MIHDESKeyFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

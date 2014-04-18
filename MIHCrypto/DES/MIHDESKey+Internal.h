@@ -15,52 +15,53 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "MIHSymmetricKey.h"
+#import "MIHDESKey.h"
+#import "MIHDESKeyFactory.h"
+#import <openssl/evp.h>
 
 /**
- * MIHSymmetricKey implementation which is based on AES in CBC mode.
+ * These category on MIHDESKey contains an static helper which fetches the EVP_CIPHER for the passed MIHDESMode.
  *
+ * @internal
+ * @discussion These methods are designed for internal use only. Don't use these category yourself!
  * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
  */
-@interface MIHAESKey : NSObject <MIHSymmetricKey>
+@interface MIHDESKey (Internal)
 
 /**
- * The raw bytes (as NSData instance) of the AES symmetric key.
- */
-@property(strong, readonly) NSData *key;
-
-/**
- * The initialisation vector used by the AES symmetric key.
- */
-@property(strong, readonly) NSData *iv;
-
-/**
- * Binary represation of this symmetric key.
- */
-@property (readonly) NSData *dataValue;
-
-/**
- * Same as dataValue but will return a string which contains iv and key as HEX encoded data.
- */
-@property(readonly) NSString *stringValue;
-
-/**
- * Initializes a new AES key.
+ * Loads an EVP_CIPHER for the passed MIHDESMode.
  *
- * @param key NSData which contains the bytes used as key. Must be of length 16, 24 or 32 bytes!
- * @param iv NSData which contains the bytes used as initialization vector. Must be of length 32!
+ * @internal
  *
- * @return The initialized instance.
+ * @param mode  MIHDESMode to look up.
+ * @param error Will be set if an error occurs during loading.
+ *
+ * @return The loaded cipher or nil if an error occured..
  */
-- (instancetype)initWithKey:(NSData *)key iv:(NSData *)iv;
++ (const EVP_CIPHER*)cipherForMode:(MIHDESMode)mode error:(NSError**)error;
 
 /**
- * Compares this key against the passed aes key one.
+ * Fetches the name for the passed MIHDESMode.
  *
- * @param key The key to compare this key against.
+ * @internal
+ * @see -modeFromModeName
  *
- * @return YES if both keys are equavilent.
+ * @param mode MIHDESMode to look up.
+ *
+ * @return NSString which contains the name or nil if the mode isn't a valid MIHDESMode.
  */
-- (BOOL)isEqualToKey:(MIHAESKey *)key;
++ (NSString *)modeNameForMode:(MIHDESMode)mode;
+
+/**
+ * Fetches the MIHDESMode for the passed mode name.
+ *
+ * @internal
+ * @see -modeFromModeName
+ *
+ * @param modeName NSString which contains the name.
+ *
+ * @return MIHDESMode or MIHDESModeCBC if the mode name wasn't a valid name.
+ */
++ (MIHDESMode)modeFromModeName:(NSString *)modeName;
 
 @end

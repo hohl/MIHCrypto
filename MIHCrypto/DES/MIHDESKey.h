@@ -16,13 +16,14 @@
 //
 
 #import "MIHSymmetricKey.h"
+#import "MIHDESKeyFactory.h"
 
 /**
- * MIHSymmetricKey implementation which is based on AES in CBC mode.
+ * MIHSymmetricKey implementation of DES.
  *
  * @author <a href="http://www.michaelhohl.net">Michael Hohl</a>
  */
-@interface MIHAESKey : NSObject <MIHSymmetricKey>
+@interface MIHDESKey : NSObject <MIHSymmetricKey>
 
 /**
  * The raw bytes (as NSData instance) of the AES symmetric key.
@@ -33,6 +34,13 @@
  * The initialisation vector used by the AES symmetric key.
  */
 @property(strong, readonly) NSData *iv;
+
+/**
+ * Defines the used DES mode.
+ * 
+ * @warning This value is readonly since chaning the mode may require a different key size.
+ */
+@property(assign, readonly) MIHDESMode mode;
 
 /**
  * Binary represation of this symmetric key.
@@ -47,12 +55,13 @@
 /**
  * Initializes a new AES key.
  *
- * @param key NSData which contains the bytes used as key. Must be of length 16, 24 or 32 bytes!
- * @param iv NSData which contains the bytes used as initialization vector. Must be of length 32!
+ * @param key  NSData which contains the bytes used as key. Must be of length 56 bits!
+ * @param iv   NSData which contains the bytes used as initialization vector. Must be of length 64!
+ * @param mode MIHDESMode which defines the used block cipher mode.
  *
  * @return The initialized instance.
  */
-- (instancetype)initWithKey:(NSData *)key iv:(NSData *)iv;
+- (instancetype)initWithKey:(NSData *)key iv:(NSData *)iv mode:(MIHDESMode)mode;
 
 /**
  * Compares this key against the passed aes key one.
@@ -61,6 +70,6 @@
  *
  * @return YES if both keys are equavilent.
  */
-- (BOOL)isEqualToKey:(MIHAESKey *)key;
+- (BOOL)isEqualToKey:(MIHDESKey *)key;
 
 @end
