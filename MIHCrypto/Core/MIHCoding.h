@@ -32,7 +32,7 @@
  * 
  * @return The newly-created instance.
  */
-- (id)initWithDataValue:(NSData *)dataValue;
+- (id)initWithData:(NSData *)dataValue;
 
 /**
  * @return Binary representation of the object.
