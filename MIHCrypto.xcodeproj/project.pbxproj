@@ -52,8 +52,8 @@
 		5F7005C919006D25003789B7 /* MIHDESKey+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */; };
 		5F7005CA19006D25003789B7 /* MIHDESKey+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */; };
 		5F8C2C7819013F54003DD9E6 /* MIHDESKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7719013F54003DD9E6 /* MIHDESKeyTests.m */; };
-		5F8C2C7B19015303003DD9E6 /* MIHCryptoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */; };
-		5F8C2C7C19015303003DD9E6 /* MIHCryptoConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */; };
+		5F8C2C7B19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */; };
+		5F8C2C7C19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */; };
 		5F8C2C7F19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */; };
 		5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
 		5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */; };
@@ -151,8 +151,8 @@
 		5F7005C719006D25003789B7 /* MIHDESKey+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MIHDESKey+Internal.h"; sourceTree = "<group>"; };
 		5F7005C819006D25003789B7 /* MIHDESKey+Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MIHDESKey+Internal.m"; sourceTree = "<group>"; };
 		5F8C2C7719013F54003DD9E6 /* MIHDESKeyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKeyTests.m; sourceTree = "<group>"; };
-		5F8C2C7919015303003DD9E6 /* MIHCryptoConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCryptoConfig.h; sourceTree = "<group>"; };
-		5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHCryptoConfig.m; sourceTree = "<group>"; };
+		5F8C2C7919015303003DD9E6 /* MIHCryptoConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCryptoConfiguration.h; sourceTree = "<group>"; };
+		5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHCryptoConfiguration.m; sourceTree = "<group>"; };
 		5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKeyFactoryTests.m; sourceTree = "<group>"; };
 		5FDD199A18FD978400620929 /* MIHSecureHashAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm.h; sourceTree = "<group>"; };
 		5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm.m; sourceTree = "<group>"; };
@@ -382,8 +382,8 @@
 		5F35BDAE18F8523E00596974 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				5F8C2C7919015303003DD9E6 /* MIHCryptoConfig.h */,
-				5F8C2C7A19015303003DD9E6 /* MIHCryptoConfig.m */,
+				5F8C2C7919015303003DD9E6 /* MIHCryptoConfiguration.h */,
+				5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */,
 				5F35BDAF18F8523E00596974 /* MIHInternal.h */,
 				5F35BDB018F8523E00596974 /* MIHInternal.m */,
 				5F35BDB118F8523E00596974 /* NSData+MIHConversion.h */,
@@ -593,7 +593,7 @@
 				5F35132A18FC25E5002BD9D9 /* MIHErrors.m in Sources */,
 				5F35132B18FC25E5002BD9D9 /* MIHKeyPair.m in Sources */,
 				5F7005C11900657A003789B7 /* MIHDESKey.m in Sources */,
-				5F8C2C7B19015303003DD9E6 /* MIHCryptoConfig.m in Sources */,
+				5F8C2C7B19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */,
 				5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
 				5F35132D18FC25E5002BD9D9 /* MIHRSAPrivateKey+Internal.m in Sources */,
@@ -618,7 +618,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F5A756618FC2B9100773864 /* MIHAESKey.m in Sources */,
-				5F8C2C7C19015303003DD9E6 /* MIHCryptoConfig.m in Sources */,
+				5F8C2C7C19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */,
 				5F5A756718FC2B9100773864 /* MIHAESKeyFactory.m in Sources */,
 				5FDD19A618FD9AFF00620929 /* MIHSecureHashAlgorithm512Tests.m in Sources */,
 				5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */,
