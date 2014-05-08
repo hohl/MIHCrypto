@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3FAD852894F3429B91E0FE10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675F91913CB4A25B61DA7CC /* libPods.a */; };
+		5F20E406191BB20900D313FB /* MIHBigInteger+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */; };
+		5F20E40D191BC6FE00D313FB /* MIHBigIntegerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E40C191BC6FE00D313FB /* MIHBigIntegerTests.m */; };
+		5F20E40E191BC83500D313FB /* MIHBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9201D7191B7B30008FBBB2 /* MIHBigInteger.m */; };
+		5F20E40F191BC83800D313FB /* MIHBigInteger+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */; };
 		5F35130318FC2590002BD9D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F35BD3618F850E400596974 /* Foundation.framework */; };
 		5F35130618FC2590002BD9D9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F35130518FC2590002BD9D9 /* main.m */; };
 		5F35130A18FC2590002BD9D9 /* MIHCryptoOSX.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5F35130918FC2590002BD9D9 /* MIHCryptoOSX.1 */; };
@@ -55,6 +59,7 @@
 		5F8C2C7B19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */; };
 		5F8C2C7C19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */; };
 		5F8C2C7F19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */; };
+		5F9201D8191B7B30008FBBB2 /* MIHBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9201D7191B7B30008FBBB2 /* MIHBigInteger.m */; };
 		5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
 		5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */; };
 		5FDD19A018FD98F100620929 /* MIHSecureHashAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */; };
@@ -95,6 +100,9 @@
 
 /* Begin PBXFileReference section */
 		0675F91913CB4A25B61DA7CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F20E404191BB20900D313FB /* MIHBigInteger+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MIHBigInteger+Internal.h"; path = "Mathematics/MIHBigInteger+Internal.h"; sourceTree = "<group>"; };
+		5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MIHBigInteger+Internal.m"; path = "Mathematics/MIHBigInteger+Internal.m"; sourceTree = "<group>"; };
+		5F20E40C191BC6FE00D313FB /* MIHBigIntegerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHBigIntegerTests.m; path = Mathematics/MIHBigIntegerTests.m; sourceTree = "<group>"; };
 		5F35130218FC258F002BD9D9 /* MIHCrypto */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MIHCrypto; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F35130518FC2590002BD9D9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../MIHCryptoOSX/main.m; sourceTree = "<group>"; };
 		5F35130818FC2590002BD9D9 /* MIHCryptoOSX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MIHCryptoOSX-Prefix.pch"; path = "../MIHCryptoOSX/MIHCryptoOSX-Prefix.pch"; sourceTree = "<group>"; };
@@ -154,6 +162,9 @@
 		5F8C2C7919015303003DD9E6 /* MIHCryptoConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCryptoConfiguration.h; sourceTree = "<group>"; };
 		5F8C2C7A19015303003DD9E6 /* MIHCryptoConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHCryptoConfiguration.m; sourceTree = "<group>"; };
 		5F8C2C7E19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKeyFactoryTests.m; sourceTree = "<group>"; };
+		5F9201D4191B7802008FBBB2 /* MIHNumber.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHNumber.h; sourceTree = "<group>"; };
+		5F9201D6191B7B30008FBBB2 /* MIHBigInteger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIHBigInteger.h; path = Mathematics/MIHBigInteger.h; sourceTree = "<group>"; };
+		5F9201D7191B7B30008FBBB2 /* MIHBigInteger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHBigInteger.m; path = Mathematics/MIHBigInteger.m; sourceTree = "<group>"; };
 		5FDD199A18FD978400620929 /* MIHSecureHashAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHSecureHashAlgorithm.h; sourceTree = "<group>"; };
 		5FDD199B18FD978400620929 /* MIHSecureHashAlgorithm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithm.m; sourceTree = "<group>"; };
 		5FDD199E18FD981A00620929 /* MIHSecureHashAlgorithmTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHSecureHashAlgorithmTests.m; sourceTree = "<group>"; };
@@ -192,6 +203,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F20E407191BC6D100D313FB /* Mathematics */ = {
+			isa = PBXGroup;
+			children = (
+				5F20E40C191BC6FE00D313FB /* MIHBigIntegerTests.m */,
+			);
+			name = Mathematics;
+			sourceTree = "<group>";
+		};
 		5F35131518FC259F002BD9D9 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +260,7 @@
 				5F35BD9118F8523E00596974 /* AES */,
 				5F35BD9618F8523E00596974 /* Core */,
 				5F7005BE1900657A003789B7 /* DES */,
+				5F9201D5191B7B1E008FBBB2 /* Mathematics */,
 				5FDD19AF18FDA09000620929 /* MD5 */,
 				5F35BDA018F8523E00596974 /* RSA */,
 				5F35BDAB18F8523E00596974 /* SHA */,
@@ -256,6 +276,7 @@
 				5F35BD8018F8522C00596974 /* AES */,
 				5F35BD8318F8522C00596974 /* Core */,
 				5F8C2C7519013F3C003DD9E6 /* DES */,
+				5F20E407191BC6D100D313FB /* Mathematics */,
 				5FDD19B418FDA17C00620929 /* MD5 */,
 				5F35BD8418F8522C00596974 /* RSA */,
 				5F35BD8718F8522C00596974 /* SHA */,
@@ -333,13 +354,14 @@
 		5F35BD9618F8523E00596974 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				5FF8106F18FFA4DE00408780 /* MIHCoding.h */,
 				5F35BD9718F8523E00596974 /* MIHErrors.h */,
 				5F35BD9818F8523E00596974 /* MIHErrors.m */,
 				5F35BD9918F8523E00596974 /* MIHHashAlgorithm.h */,
 				5F35BD9A18F8523E00596974 /* MIHKeyFactory.h */,
 				5F35BD9B18F8523E00596974 /* MIHKeyPair.h */,
 				5F35BD9C18F8523E00596974 /* MIHKeyPair.m */,
-				5FF8106F18FFA4DE00408780 /* MIHCoding.h */,
+				5F9201D4191B7802008FBBB2 /* MIHNumber.h */,
 				5F35BD9D18F8523E00596974 /* MIHPrivateKey.h */,
 				5F35BD9E18F8523E00596974 /* MIHPublicKey.h */,
 				5F35BD9F18F8523E00596974 /* MIHSymmetricKey.h */,
@@ -416,6 +438,17 @@
 			path = DES;
 			sourceTree = "<group>";
 		};
+		5F9201D5191B7B1E008FBBB2 /* Mathematics */ = {
+			isa = PBXGroup;
+			children = (
+				5F9201D6191B7B30008FBBB2 /* MIHBigInteger.h */,
+				5F9201D7191B7B30008FBBB2 /* MIHBigInteger.m */,
+				5F20E404191BB20900D313FB /* MIHBigInteger+Internal.h */,
+				5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */,
+			);
+			name = Mathematics;
+			sourceTree = "<group>";
+		};
 		5FDD19AF18FDA09000620929 /* MD5 */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,7 +515,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MIH;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Michael Hohl";
 				TargetAttributes = {
 					5F35131118FC259F002BD9D9 = {
@@ -597,6 +630,8 @@
 				5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
 				5F35132D18FC25E5002BD9D9 /* MIHRSAPrivateKey+Internal.m in Sources */,
+				5F20E406191BB20900D313FB /* MIHBigInteger+Internal.m in Sources */,
+				5F9201D8191B7B30008FBBB2 /* MIHBigInteger.m in Sources */,
 				5F35132E18FC25E5002BD9D9 /* MIHRSAPrivateKey.m in Sources */,
 				5FDD19B218FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
 				5F35132F18FC25E5002BD9D9 /* MIHRSAPublicKey+Internal.m in Sources */,
@@ -617,6 +652,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F20E40D191BC6FE00D313FB /* MIHBigIntegerTests.m in Sources */,
 				5F5A756618FC2B9100773864 /* MIHAESKey.m in Sources */,
 				5F8C2C7C19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */,
 				5F5A756718FC2B9100773864 /* MIHAESKeyFactory.m in Sources */,
@@ -625,6 +661,7 @@
 				5FDD19A718FD9BAF00620929 /* MIHSecureHashAlgorithm512.m in Sources */,
 				5F7005C21900657A003789B7 /* MIHDESKey.m in Sources */,
 				5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */,
+				5F20E40F191BC83800D313FB /* MIHBigInteger+Internal.m in Sources */,
 				5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
@@ -647,6 +684,7 @@
 				5F8C2C7F19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m in Sources */,
 				5F35132418FC25B9002BD9D9 /* MIHRSAKeyFactoryTests.m in Sources */,
 				5F35132518FC25B9002BD9D9 /* MIHRSAKeyTests.m in Sources */,
+				5F20E40E191BC83500D313FB /* MIHBigInteger.m in Sources */,
 				5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
 				5F35132218FC25B9002BD9D9 /* MIHAESKeyFactoryTests.m in Sources */,
 				5F7005C619006593003789B7 /* MIHDESKeyFactory.m in Sources */,
@@ -711,6 +749,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77FC9867951C420FBA613731 /* Pods.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
@@ -734,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77FC9867951C420FBA613731 /* Pods.xcconfig */;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
@@ -754,7 +794,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -793,7 +832,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

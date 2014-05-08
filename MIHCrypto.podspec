@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MIHCrypto"
-  s.version      = "0.2.0"
+  s.version      = "0.3.0"
   s.license      = 'MIT'
   s.summary      = "OpenSSL wrapper for Objective-C"
   s.description  = "MIHCrypto provides an object-oriented cryptography framework based on libCrypto 
@@ -20,6 +20,11 @@ Pod::Spec.new do |s|
     core.source_files = 'MIHCrypto/{Utils,Core}/*.{h,m,c}'
     core.dependency 'OpenSSL-Universal'
     core.dependency 'CocoaLumberjack'
+  end
+
+  s.subspec 'Mathematics' do |ss|
+    ss.source_files = 'MIHCrypto/Mathematics/*.{h,m,c}'
+    ss.dependency 'MIHCrypto/Core'
   end
 
   s.subspec 'AES' do |ss|
