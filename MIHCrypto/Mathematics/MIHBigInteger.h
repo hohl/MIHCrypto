@@ -64,4 +64,22 @@
  */
 - (BOOL)isEqualToBigInteger:(MIHBigInteger *)other;
 
+/**
+ *  Compares this MIHBigInteger with the passed MIHBigInteger.
+ *
+ *  @param other MIHBigInteger to compare with.
+ *
+ *  @return `YES` if the other MIHBigInteger is less than this one.
+ */
+- (BOOL)isGreaterThanBigInteger:(MIHBigInteger *)other;
+
+/**
+ *  Compares this MIHBigInteger with the passed MIHBigInteger.
+ *
+ *  @param other MIHBigInteger to compare with.
+ *
+ *  @return `YES` if the other MIHBigInteger is greater than this one.
+ */
+- (BOOL)isLessThanBigInteger:(MIHBigInteger *)other;
+
 @end

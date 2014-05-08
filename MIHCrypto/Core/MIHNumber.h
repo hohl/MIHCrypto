@@ -156,4 +156,22 @@
  */
 - (BOOL)isEqualToNumber:(id<MIHNumber>)other;
 
+/**
+ *  Compares this MIHNumber instance with another one.
+ *
+ *  @param other The MIHNumber instance to compare with.
+ *
+ *  @return `YES` is the passed instance is less.
+ */
+- (BOOL)isGreaterThanNumber:(id<MIHNumber>)other;
+
+/**
+ *  Compares this MIHNumber instance with another one.
+ *
+ *  @param other The MIHNumber instance to compare with.
+ *
+ *  @return `YES` is the passed instance is greater.
+ */
+- (BOOL)isLessThanNumber:(id<MIHNumber>)other;
+
 @end

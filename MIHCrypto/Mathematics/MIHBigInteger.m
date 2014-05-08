@@ -316,6 +316,18 @@
     return [self isEqualToBigInteger:otherInteger];
 }
 
+- (BOOL)isGreaterThanNumber:(id<MIHNumber>)other
+{
+    MIHBigInteger *otherInteger = [MIHBigInteger bigIntegerFromNumber:other];
+    return [self isGreaterThanBigInteger:otherInteger];
+}
+
+- (BOOL)isLessThanNumber:(id<MIHNumber>)other
+{
+    MIHBigInteger *otherInteger = [MIHBigInteger bigIntegerFromNumber:other];
+    return [self isLessThanBigInteger:otherInteger];
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma mark MIHBigNum
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -336,6 +348,22 @@
         return YES;
     
     return (BN_cmp(_representedBn, other->_representedBn) == 0) ? YES : NO;
+}
+
+- (BOOL)isGreaterThanBigInteger:(MIHBigInteger *)other
+{
+    if (other == self)
+        return YES;
+    
+    return (BN_cmp(_representedBn, other->_representedBn) > 0) ? YES : NO;
+}
+
+- (BOOL)isLessThanBigInteger:(MIHBigInteger *)other
+{
+    if (other == self)
+        return YES;
+    
+    return (BN_cmp(_representedBn, other->_representedBn) < 0) ? YES : NO;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

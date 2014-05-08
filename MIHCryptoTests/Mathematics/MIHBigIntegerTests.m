@@ -142,4 +142,26 @@
     XCTAssertEqualObjects(someBigInteger, sameBigInteger);
 }
 
+- (void)testGreaterThan
+{
+    MIHBigInteger *someBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"345"];
+    MIHBigInteger *sameBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"345"];
+    MIHBigInteger *lessBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"340"];
+    MIHBigInteger *greaterBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"350"];
+    XCTAssert(![someBigInteger isGreaterThanNumber:sameBigInteger]);
+    XCTAssert([someBigInteger isGreaterThanNumber:lessBigInteger]);
+    XCTAssert(![someBigInteger isGreaterThanNumber:greaterBigInteger]);
+}
+
+- (void)testLessThan
+{
+    MIHBigInteger *someBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"12345678"];
+    MIHBigInteger *sameBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"12345678"];
+    MIHBigInteger *lessBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"1234567"];
+    MIHBigInteger *greaterBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"123456789"];
+    XCTAssert(![someBigInteger isLessThanNumber:sameBigInteger]);
+    XCTAssert(![someBigInteger isLessThanNumber:lessBigInteger]);
+    XCTAssert([someBigInteger isLessThanNumber:greaterBigInteger]);
+}
+
 @end
