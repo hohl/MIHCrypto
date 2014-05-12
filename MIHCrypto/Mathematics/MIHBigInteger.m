@@ -103,7 +103,7 @@
 
 - (void)dealloc
 {
-    BN_free(_representedBn);
+    BN_clear_free(_representedBn);
     _representedBn = nil;
 }
 
@@ -206,7 +206,7 @@
         @throw [NSException openSSLException];
     }
     BN_CTX_free(divCtx);
-    BN_free(reminderBn);
+    BN_clear_free(reminderBn);
     
     return [[MIHBigInteger alloc] initWithBIGNUMNoCopy:dividenBn];
 }
@@ -225,7 +225,7 @@
         @throw [NSException openSSLException];
     }
     BN_CTX_free(divCtx);
-    BN_free(dividenBn);
+    BN_clear_free(dividenBn);
     
     return [[MIHBigInteger alloc] initWithBIGNUMNoCopy:reminderBn];
 }
