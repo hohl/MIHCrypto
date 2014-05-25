@@ -41,3 +41,8 @@
 + (instancetype)openSSLException;
 + (instancetype)outOfMemoryException;
 @end
+
+/**
+ *  Seeds the generator for the pseudo-random number generator.
+ */
+void MIHSeedPseudeRandomNumberGenerator(void);

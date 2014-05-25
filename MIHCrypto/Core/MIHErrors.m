@@ -22,3 +22,5 @@ NSString *const MIHCryptoErrorDomain = @"MIHCryptoErrorDomain";
 NSString *const MIHOpenSSLErrorDomain = @"MIHOpenSSLErrorDomain";
 
 NSString *const MIHCryptoException = @"MIHCryptoException";
+
+NSString *const MIHNotSeededException = @"MIHNotSeededException";

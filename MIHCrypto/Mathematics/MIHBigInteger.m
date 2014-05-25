@@ -25,7 +25,7 @@
 #pragma mark Init, MIHCoding and NSCoding
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-- (id)initWithUnsignedInteger:(unsigned int)value
+- (id)initWithUnsignedInteger:(BN_ULONG)value
 {
     self = [super init];
     if (self) {
@@ -196,19 +196,19 @@
 {
     MIHBigInteger *divisorInteger = [MIHBigInteger bigIntegerFromNumber:divisor];
     
-    BIGNUM *dividenBn = BN_new();
+    BIGNUM *dividendBn = BN_new();
     BIGNUM *reminderBn = BN_new();
     BN_CTX *divCtx = BN_CTX_new();
     if (!divCtx) {
         @throw [NSException openSSLException];
     }
-    if (!BN_div(dividenBn, reminderBn, _representedBn, divisorInteger->_representedBn, divCtx)) {
+    if (!BN_div(dividendBn, reminderBn, _representedBn, divisorInteger->_representedBn, divCtx)) {
         @throw [NSException openSSLException];
     }
     BN_CTX_free(divCtx);
     BN_clear_free(reminderBn);
     
-    return [[MIHBigInteger alloc] initWithBIGNUMNoCopy:dividenBn];
+    return [[MIHBigInteger alloc] initWithBIGNUMNoCopy:dividendBn];
 }
 
 - (id<MIHNumber>)modulo:(id<MIHNumber>)divisor
@@ -292,22 +292,22 @@
 
 - (BOOL)isOne
 {
-    return BN_is_one(_representedBn) ? YES : NO;
+    return BN_is_one(_representedBn);
 }
 
 - (BOOL)isOdd
 {
-    return BN_is_odd(_representedBn) ? YES : NO;
+    return BN_is_odd(_representedBn);
 }
 
 - (BOOL)isZero
 {
-    return BN_is_zero(_representedBn) ? YES : NO;
+    return BN_is_zero(_representedBn);
 }
 
 - (BOOL)isNegative
 {
-    return BN_is_zero(_representedBn) ? YES : NO;
+    return BN_is_zero(_representedBn);
 }
 
 - (BOOL)isEqualToNumber:(id<MIHNumber>)other
@@ -347,7 +347,7 @@
     if (other == self)
         return YES;
     
-    return (BN_cmp(_representedBn, other->_representedBn) == 0) ? YES : NO;
+    return BN_cmp(_representedBn, other->_representedBn) == 0;
 }
 
 - (BOOL)isGreaterThanBigInteger:(MIHBigInteger *)other
@@ -355,7 +355,7 @@
     if (other == self)
         return YES;
     
-    return (BN_cmp(_representedBn, other->_representedBn) > 0) ? YES : NO;
+    return BN_cmp(_representedBn, other->_representedBn) > 0;
 }
 
 - (BOOL)isLessThanBigInteger:(MIHBigInteger *)other
@@ -363,7 +363,7 @@
     if (other == self)
         return YES;
     
-    return (BN_cmp(_representedBn, other->_representedBn) < 0) ? YES : NO;
+    return BN_cmp(_representedBn, other->_representedBn) < 0;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

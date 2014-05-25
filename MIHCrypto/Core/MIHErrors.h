@@ -41,3 +41,10 @@ typedef NS_ENUM(NSUInteger, MIHCryptoErrorCode) {
  * Name of all exceptions which may get thrown by MIHCrypto library.
  */
 extern NSString *const MIHCryptoException;
+
+/**
+ *  Called when trying to use pseudo-random number generator and there is no PRNG implementation/device available.
+ *  (This exception shouldn't never occur, since iOS and OS X implement `/dev/urandom` per default. But maybe this code
+ *  get ever ported anywhere or somebody is using an corrupt setup.)
+ */
+extern NSString *const MIHNotSeededException;

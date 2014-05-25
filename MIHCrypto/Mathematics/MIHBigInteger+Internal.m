@@ -53,4 +53,9 @@
     return [[MIHBigInteger alloc] initWithDecimalStringValue:aNumberDecimalString];
 }
 
+- (BIGNUM *)representedBn
+{
+    return _representedBn;
+}
+
 @end

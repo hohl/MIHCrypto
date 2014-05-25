@@ -19,10 +19,10 @@
 #import <openssl/bn.h>
 
 /**
- *  Class which wraps the functionallity of OpenSSL BIGNUM data type.
- *  BIGNUM is a integer data type which can store numbers of unlimted size without loosing precision.
+ *  Class which wraps the functionality of OpenSSL BIGNUM data type.
+ *  BIGNUM is a integer data type which can store numbers of unlimited size without loosing precision.
  *
- *  MIHNumber is designed to be an immutable. All calculation return a new instance.
+ *  MIHBigInteger is designed to be an immutable. All calculation return a new instance.
  *
  *  @author <a href="http://www.michaelhohl.net/">Michael Hohl</a>
  */
@@ -37,7 +37,7 @@
  *
  *  @return The newly-created MIHBigInteger instance.
  */
-- (id)initWithUnsignedInteger:(unsigned int)value;
+- (id)initWithUnsignedInteger:(BN_ULONG)value;
 
 /**
  *  Initialises MIHBigInteger with the passed NSString which contains a decimal number as string.

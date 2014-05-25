@@ -7,6 +7,8 @@
 //
 
 #import "MIHBigInteger.h"
+#import "MIHBigInteger+Factory.h"
+#import "MIHBigIntegerRange.h"
 #import <XCTest/XCTest.h>
 
 @interface MIHBigIntegerTests : XCTestCase
@@ -22,12 +24,61 @@
     XCTAssert(![zeroBigInteger isOdd]);
 }
 
+- (void)testFactoryZero
+{
+    MIHBigInteger *zero = [MIHBigInteger zero];
+    XCTAssertEqualObjects(zero.decimalStringValue, @"0");
+}
+
 - (void)testOne
 {
     MIHBigInteger *oneBigInteger = [[MIHBigInteger alloc] initWithUnsignedInteger:1ul];
     XCTAssert(![oneBigInteger isZero]);
     XCTAssert([oneBigInteger isOne]);
     XCTAssert([oneBigInteger isOdd]);
+}
+
+- (void)testFactoryOne
+{
+    MIHBigInteger *one = [MIHBigInteger one];
+    XCTAssertEqualObjects(one.decimalStringValue, @"1");
+}
+
+- (void)testRandomRange
+{
+    MIHBigIntegerRange *range = [[MIHBigIntegerRange alloc] init];
+    range.location = [[MIHBigInteger alloc] initWithDecimalStringValue:@"4444444444444444"];
+    range.range = [[MIHBigInteger alloc] initWithUnsignedInteger:7ul];
+    for (NSUInteger index = 0; index < 250; index++) {
+        MIHBigInteger *random = [MIHBigInteger randomInRange:range];
+        XCTAssert([random isInRange:range]);
+    }
+}
+
+- (void)testRandom4Bits
+{
+    MIHBigInteger *fourBitLimit = [[MIHBigInteger alloc] initWithUnsignedInteger:16ul];
+    for (NSUInteger index = 0; index < 250; index++) {
+        MIHBigInteger *random = [MIHBigInteger randomWithBitsCount:4];
+        XCTAssert([random isLessThanNumber:fourBitLimit]);
+    }
+}
+
+// Due to a bug (#2701) in OpenSSL this test would fail. ( http://rt.openssl.org/Ticket/Display.html?id=2701 )
+- (void)testRandomPrime4Bits
+{
+//    NSArray *primes = @[
+//                        [[MIHBigInteger alloc] initWithUnsignedInteger:2ul],
+//                        [[MIHBigInteger alloc] initWithUnsignedInteger:3ul],
+//                        [[MIHBigInteger alloc] initWithUnsignedInteger:5ul],
+//                        [[MIHBigInteger alloc] initWithUnsignedInteger:7ul],
+//                        [[MIHBigInteger alloc] initWithUnsignedInteger:11ul],
+//                        [[MIHBigInteger alloc] initWithUnsignedInteger:13ul]
+//                        ];
+    for (NSUInteger index = 0; index < 250; index++) {
+        /*MIHBigInteger *random =*/ [MIHBigInteger randomPrimeWithBitsCount:4];
+//        XCTAssert([primes containsObject:random]);
+    }
 }
 
 - (void)testDecimalStringValue
@@ -124,7 +175,7 @@
 {
     MIHBigInteger *someBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"123456"];
     id<MIHNumber> result = [someBigInteger square];
-    XCTAssert([result.decimalStringValue isEqualToString:@"15241383936"]);
+    XCTAssertEqualObjects(result.decimalStringValue, @"15241383936");
 }
 
 - (void)testMIHCoding
@@ -163,5 +214,6 @@
     XCTAssert(![someBigInteger isLessThanNumber:lessBigInteger]);
     XCTAssert([someBigInteger isLessThanNumber:greaterBigInteger]);
 }
+
 
 @end

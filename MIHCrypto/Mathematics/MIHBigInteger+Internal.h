@@ -57,4 +57,11 @@
  */
 + (MIHBigInteger *)bigIntegerFromNumber:(id<MIHNumber>)aNumber;
 
+/**
+ *  The BIGNUM which is wrapped by this object.
+ *
+ *  @internal
+ */
+@property (assign, readonly) BIGNUM *representedBn;
+
 @end

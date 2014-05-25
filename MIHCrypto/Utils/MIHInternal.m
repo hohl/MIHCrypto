@@ -18,8 +18,13 @@
 #import "MIHInternal.h"
 #import "MIHErrors.h"
 #include <openssl/err.h>
+#include <openssl/rand.h>
 
 static dispatch_once_t loadErrorsOnce = 0;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark NSError (MIHCrypto)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 @implementation NSError (MIHCrypto)
 
@@ -46,6 +51,10 @@ static dispatch_once_t loadErrorsOnce = 0;
 
 @end
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark NSException (MIHCrypto)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 @implementation NSException (MIHCrypto)
 
 + (instancetype)openSSLException
@@ -61,7 +70,8 @@ static dispatch_once_t loadErrorsOnce = 0;
     }
     unsigned long errorCode = ERR_get_error();
     ERR_error_string(errorCode, errorMessage);
-    NSString *errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)", errorCode, errorMessage];
+    NSString *errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)",
+                                  errorCode, errorMessage];
     free(errorMessage);
 
     return [NSException exceptionWithName:MIHCryptoException
@@ -75,3 +85,18 @@ static dispatch_once_t loadErrorsOnce = 0;
 }
 
 @end
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark MIHSeedPseudeRandomNumberGenerator
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+void MIHSeedPseudeRandomNumberGenerator(void)
+{
+    if (!RAND_status()) {
+        // This should never occur, but just for the case that there would be some situation where the operating system,
+        // doesn't provide a /dev/urandom.
+        [NSException exceptionWithName:MIHNotSeededException
+                                reason:@"You can't use pseudo-random number generators without seeding them first. (This is job of the operating system thought.)"
+                              userInfo:nil];
+    }
+}

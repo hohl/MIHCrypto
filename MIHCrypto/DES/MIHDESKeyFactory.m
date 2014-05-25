@@ -18,6 +18,7 @@
 #import "MIHDESKeyFactory.h"
 #import "MIHDESKey.h"
 #import "MIHDESKey+Internal.h"
+#import "MIHInternal.h"
 #import <openssl/dsa.h>
 #import <openssl/evp.h>
 #import <openssl/rand.h>
@@ -35,6 +36,8 @@
 
 - (MIHDESKey <MIHSymmetricKey> *)generateKey
 {
+    MIHSeedPseudeRandomNumberGenerator();
+    
     MIHDESMode mode = self.preferedMode;
     NSError *cipherForModeError = nil;
     const EVP_CIPHER *evpCipher = [MIHDESKey cipherForMode:mode error:&cipherForModeError];
