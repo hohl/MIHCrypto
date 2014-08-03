@@ -36,6 +36,16 @@
 - (NSData *)decrypt:(NSData *)cipher error:(NSError **)error;
 
 /**
+ * Signs the passed data. SHA128 is used to create the hash of the message.
+ *
+ * @param message The message to sign.
+ * @param error   Reference used to return an error if there something went wrong.
+ *
+ * @return The created signature or nil if any error occurred.
+ */
+- (NSData *)signWithSHA128:(NSData *)message error:(NSError **)error;
+
+/**
  * Signs the passed data. SHA256 is used to create the hash of the message.
  *
  * @param message The message to sign.
