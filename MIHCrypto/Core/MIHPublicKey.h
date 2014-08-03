@@ -36,6 +36,15 @@
 - (NSData *)encrypt:(NSData *)message error:(NSError **)error;
 
 /**
+ * Verifies the signature of the passed message. SHA128 is used to create the hash of the message.
+ *
+ * @param signature The signature bytes to verify.
+ * @param message The message to verify.
+ * @return YES if the signature is valid.
+ */
+- (BOOL)verifySignatureWithSHA128:(NSData *)signature message:(NSData *)message;
+
+/**
  * Verifies the signature of the passed message. SHA256 is used to create the hash of the message.
  *
  * @param signature The signature bytes to verify.

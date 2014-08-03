@@ -133,6 +133,25 @@
     return cipherData;
 }
 
+- (BOOL)verifySignatureWithSHA128:(NSData *)signature message:(NSData *)message
+{
+    SHA_CTX shaCtx;
+    unsigned char messageDigest[SHA_DIGEST_LENGTH];
+    if(!SHA_Init(&shaCtx)) {
+        return NO;
+    }
+    if (!SHA_Update(&shaCtx, message.bytes, message.length)) {
+        return NO;
+    }
+    if (!SHA_Final(messageDigest, &shaCtx)) {
+        return NO;
+    }
+    if (RSA_verify(NID_sha, messageDigest, SHA_DIGEST_LENGTH, signature.bytes, (int)signature.length, _rsa) == 0) {
+        return NO;
+    }
+    return YES;
+}
+
 - (BOOL)verifySignatureWithSHA256:(NSData *)signature message:(NSData *)message
 {
     SHA256_CTX sha256Ctx;

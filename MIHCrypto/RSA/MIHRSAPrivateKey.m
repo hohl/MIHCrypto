@@ -113,6 +113,34 @@
     return messageData;
 }
 
+- (NSData *)signWithSHA128:(NSData *)message error:(NSError **)error
+{
+    SHA_CTX shaCtx;
+    unsigned char messageDigest[SHA_DIGEST_LENGTH];
+    if (!SHA_Init(&shaCtx)) {
+        *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    if (!SHA_Update(&shaCtx, message.bytes, message.length)) {
+        *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    if (!SHA_Final(messageDigest, &shaCtx)) {
+        *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+
+    NSMutableData *signature = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
+    unsigned int signatureLength = 0;
+    if (RSA_sign(NID_sha, messageDigest, SHA_DIGEST_LENGTH, signature.mutableBytes, &signatureLength, _rsa) == 0) {
+        *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    [signature setLength:(NSUInteger) signatureLength];
+
+    return signature;
+}
+
 - (NSData *)signWithSHA256:(NSData *)message error:(NSError **)error
 {
     SHA256_CTX sha256Ctx;

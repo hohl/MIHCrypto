@@ -80,6 +80,21 @@
     XCTAssertEqual(NO, isVerified);
 }
 
+- (void)testSignAndVerifyUsingSHA1
+{
+    NSError *signingError = nil;
+    NSData *signatureData = [self.privateKey signWithSHA128:self.messageData error:&signingError];
+    XCTAssertNil(signingError);
+    BOOL isVerified = [self.publicKey verifySignatureWithSHA128:signatureData message:self.messageData];
+    XCTAssertEqual(YES, isVerified);
+}
+
+- (void)testInvalidSignatureUsingSHA1
+{
+    BOOL isVerified = [self.publicKey verifySignatureWithSHA128:self.messageData message:self.messageData];
+    XCTAssertEqual(NO, isVerified);
+}
+
 - (void)testDataValue
 {
     XCTAssertEqualObjects(self.pub, self.publicKey.dataValue);
