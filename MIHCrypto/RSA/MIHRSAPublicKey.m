@@ -137,16 +137,16 @@
 {
     SHA_CTX shaCtx;
     unsigned char messageDigest[SHA_DIGEST_LENGTH];
-    if(!SHA_Init(&shaCtx)) {
+    if(!SHA1_Init(&shaCtx)) {
         return NO;
     }
-    if (!SHA_Update(&shaCtx, message.bytes, message.length)) {
+    if (!SHA1_Update(&shaCtx, message.bytes, message.length)) {
         return NO;
     }
-    if (!SHA_Final(messageDigest, &shaCtx)) {
+    if (!SHA1_Final(messageDigest, &shaCtx)) {
         return NO;
     }
-    if (RSA_verify(NID_sha, messageDigest, SHA_DIGEST_LENGTH, signature.bytes, (int)signature.length, _rsa) == 0) {
+    if (RSA_verify(NID_sha1, messageDigest, SHA_DIGEST_LENGTH, signature.bytes, (int)signature.length, _rsa) == 0) {
         return NO;
     }
     return YES;

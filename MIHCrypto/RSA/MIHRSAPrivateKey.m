@@ -117,22 +117,22 @@
 {
     SHA_CTX shaCtx;
     unsigned char messageDigest[SHA_DIGEST_LENGTH];
-    if (!SHA_Init(&shaCtx)) {
+    if (!SHA1_Init(&shaCtx)) {
         *error = [NSError errorFromOpenSSL];
         return nil;
     }
-    if (!SHA_Update(&shaCtx, message.bytes, message.length)) {
+    if (!SHA1_Update(&shaCtx, message.bytes, message.length)) {
         *error = [NSError errorFromOpenSSL];
         return nil;
     }
-    if (!SHA_Final(messageDigest, &shaCtx)) {
+    if (!SHA1_Final(messageDigest, &shaCtx)) {
         *error = [NSError errorFromOpenSSL];
         return nil;
     }
 
     NSMutableData *signature = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
     unsigned int signatureLength = 0;
-    if (RSA_sign(NID_sha, messageDigest, SHA_DIGEST_LENGTH, signature.mutableBytes, &signatureLength, _rsa) == 0) {
+    if (RSA_sign(NID_sha1, messageDigest, SHA_DIGEST_LENGTH, signature.mutableBytes, &signatureLength, _rsa) == 0) {
         *error = [NSError errorFromOpenSSL];
         return nil;
     }
