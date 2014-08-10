@@ -49,6 +49,15 @@
 - (id)initWithDecimalStringValue:(NSString *)decimalString;
 
 /**
+ *  Initialises MIHBigInteger with the passed NSString which contains a hex number as string.
+ *
+ *  @param hexString NSString which contains a hex number represented by chars.
+ *
+ *  @return The newly-create MIHBigInteger instance.
+ */
+- (id)initWithHexStringValue:(NSString *)hexString;
+
+/**
  *  Creates a NSString of this hex value of this MIHBigInteger.
  *
  *  @return NSString which represents the MIHBigInteger.

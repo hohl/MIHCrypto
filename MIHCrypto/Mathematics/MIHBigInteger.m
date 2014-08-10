@@ -55,6 +55,22 @@
     return self;
 }
 
+- (id)initWithHexStringValue:(NSString *)hexString
+{
+    self = [super init];
+    if (self) {
+        _representedBn = BN_new();
+        if (!_representedBn) {
+            @throw [NSException openSSLException];
+        }
+        if (!BN_hex2bn(&_representedBn, hexString.UTF8String)) {
+            @throw [NSException openSSLException];
+        }
+    }
+
+    return self;
+}
+
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
