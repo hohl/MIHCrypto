@@ -39,6 +39,23 @@
     return self;
 }
 
+- (id)initWithSignedInteger:(BN_LONG)value
+{
+    self = [super init];
+    if (self) {
+        _representedBn = BN_new();
+        if (!_representedBn) {
+            @throw [NSException openSSLException];
+        }
+        BN_set_word(_representedBn, ABS(value));
+        if (value < 0) {
+            BN_set_negative(_representedBn, 1);
+        }
+    }
+
+    return self;
+}
+
 - (id)initWithDecimalStringValue:(NSString *)decimalString
 {
     self = [super init];
@@ -52,6 +69,22 @@
         }
     }
     
+    return self;
+}
+
+- (id)initWithHexStringValue:(NSString *)hexString
+{
+    self = [super init];
+    if (self) {
+        _representedBn = BN_new();
+        if (!_representedBn) {
+            @throw [NSException openSSLException];
+        }
+        if (!BN_hex2bn(&_representedBn, hexString.UTF8String)) {
+            @throw [NSException openSSLException];
+        }
+    }
+
     return self;
 }
 

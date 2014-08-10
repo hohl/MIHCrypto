@@ -40,6 +40,15 @@
 - (id)initWithUnsignedInteger:(BN_ULONG)value;
 
 /**
+ *  Initialises MIHBigInteger with the passed NSInteger value.
+ *
+ *  @param value The value of to get assigned to the BigNum.
+ *
+ *  @return The newly-created MIHBigInteger instance.
+ */
+- (id)initWithSignedInteger:(BN_LONG)value;
+
+/**
  *  Initialises MIHBigInteger with the passed NSString which contains a decimal number as string.
  *
  *  @param decimalString NSString which contains a decimal number represented by chars.
@@ -47,6 +56,15 @@
  *  @return The newly-create MIHBigInteger instance.
  */
 - (id)initWithDecimalStringValue:(NSString *)decimalString;
+
+/**
+ *  Initialises MIHBigInteger with the passed NSString which contains a hex number as string.
+ *
+ *  @param hexString NSString which contains a hex number represented by chars.
+ *
+ *  @return The newly-create MIHBigInteger instance.
+ */
+- (id)initWithHexStringValue:(NSString *)hexString;
 
 /**
  *  Creates a NSString of this hex value of this MIHBigInteger.

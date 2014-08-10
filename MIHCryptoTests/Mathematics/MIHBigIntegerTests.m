@@ -215,5 +215,20 @@
     XCTAssert([someBigInteger isLessThanNumber:greaterBigInteger]);
 }
 
+- (void)testInitWithHexStringValue
+{
+    MIHBigInteger *bigInteger = [[MIHBigInteger alloc] initWithHexStringValue:@"3039"];
+    XCTAssertEqualObjects(bigInteger.decimalStringValue, @"12345");
+}
+
+- (void)testInitWithSignedInteger
+{
+    MIHBigInteger *positiveBigInteger = [[MIHBigInteger alloc] initWithSignedInteger:12345];
+    XCTAssertEqualObjects(positiveBigInteger.decimalStringValue, @"12345");
+
+    MIHBigInteger *negativeBigInteger = [[MIHBigInteger alloc] initWithSignedInteger:-12345];
+    XCTAssertEqualObjects(negativeBigInteger.decimalStringValue, @"-12345");
+}
+
 
 @end
