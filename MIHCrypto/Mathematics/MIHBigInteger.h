@@ -40,6 +40,15 @@
 - (id)initWithUnsignedInteger:(BN_ULONG)value;
 
 /**
+ *  Initialises MIHBigInteger with the passed NSInteger value.
+ *
+ *  @param value The value of to get assigned to the BigNum.
+ *
+ *  @return The newly-created MIHBigInteger instance.
+ */
+- (id)initWithSignedInteger:(BN_LONG)value;
+
+/**
  *  Initialises MIHBigInteger with the passed NSString which contains a decimal number as string.
  *
  *  @param decimalString NSString which contains a decimal number represented by chars.
