@@ -70,6 +70,7 @@ Anybody is welcome to add additional support for other approaches.
 ### Authors
 
  - [Michael Hohl](http://www.michaelhohl.net/)
+ - [Akhil Stanislavose](https://github.com/akhilstanislavose)
 
 ### License
 
