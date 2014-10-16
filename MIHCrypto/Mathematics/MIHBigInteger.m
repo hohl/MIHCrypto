@@ -113,11 +113,27 @@
         if (!_representedBn) {
             @throw [NSException openSSLException];
         }
-        if (!BN_mpi2bn(dataValue.bytes, (int)dataValue.length, _representedBn)) {
+        if (!BN_bin2bn(dataValue.bytes, (int)dataValue.length, _representedBn)) {
             @throw [NSException openSSLException];
         }
     }
-    
+
+    return self;
+}
+
+- (id)initWithMpiData:(NSData *)mpiDataValue
+{
+    self = [super init];
+    if (self) {
+        _representedBn = BN_new();
+        if (!_representedBn) {
+            @throw [NSException openSSLException];
+        }
+        if (!BN_mpi2bn(mpiDataValue.bytes, (int)mpiDataValue.length, _representedBn)) {
+            @throw [NSException openSSLException];
+        }
+    }
+
     return self;
 }
 
@@ -128,9 +144,8 @@
 
 - (NSData *)dataValue
 {
-    int expectedLength = BN_bn2mpi(_representedBn, NULL);
-    NSMutableData *data = [[NSMutableData alloc] initWithLength:expectedLength];
-    BN_bn2mpi(_representedBn, data.mutableBytes);
+    NSMutableData *data = [[NSMutableData alloc] initWithLength:BN_num_bytes(_representedBn)];
+    BN_bn2bin(_representedBn, data.mutableBytes);
     return data;
 }
 
@@ -373,6 +388,14 @@
     }
     
     return [NSString stringWithUTF8String:hexString];
+}
+
+- (NSData *)mpiDataValue
+{
+    int expectedLength = BN_bn2mpi(_representedBn, NULL);
+    NSMutableData *data = [[NSMutableData alloc] initWithLength:expectedLength];
+    BN_bn2mpi(_representedBn, data.mutableBytes);
+    return data;
 }
 
 - (BOOL)isEqualToBigInteger:(MIHBigInteger *)other
