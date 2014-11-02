@@ -14,6 +14,7 @@
 		5F20E40D191BC6FE00D313FB /* MIHBigIntegerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E40C191BC6FE00D313FB /* MIHBigIntegerTests.m */; };
 		5F20E40E191BC83500D313FB /* MIHBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9201D7191B7B30008FBBB2 /* MIHBigInteger.m */; };
 		5F20E40F191BC83800D313FB /* MIHBigInteger+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */; };
+		5F2B7F9A19D8532A00DD5522 /* MIHX509Name.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2B7F9919D8532A00DD5522 /* MIHX509Name.m */; };
 		5F34B2C41931F18400456B9F /* MIHBigIntegerRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F34B2C31931F18400456B9F /* MIHBigIntegerRange.m */; };
 		5F34B2C51931F18400456B9F /* MIHBigIntegerRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F34B2C31931F18400456B9F /* MIHBigIntegerRange.m */; };
 		5F35130318FC2590002BD9D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F35BD3618F850E400596974 /* Foundation.framework */; };
@@ -113,6 +114,8 @@
 		5F2B7F9219D6041000DD5522 /* MIHCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCertificate.h; sourceTree = "<group>"; };
 		5F2B7F9319D84A8A00DD5522 /* MIHCertificateStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCertificateStore.h; sourceTree = "<group>"; };
 		5F2B7F9719D8502B00DD5522 /* MIHCertificateName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHCertificateName.h; sourceTree = "<group>"; };
+		5F2B7F9819D8532A00DD5522 /* MIHX509Name.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIHX509Name.h; path = X509/MIHX509Name.h; sourceTree = "<group>"; };
+		5F2B7F9919D8532A00DD5522 /* MIHX509Name.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHX509Name.m; path = X509/MIHX509Name.m; sourceTree = "<group>"; };
 		5F34B2C21931F18400456B9F /* MIHBigIntegerRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIHBigIntegerRange.h; path = Mathematics/MIHBigIntegerRange.h; sourceTree = "<group>"; };
 		5F34B2C31931F18400456B9F /* MIHBigIntegerRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHBigIntegerRange.m; path = Mathematics/MIHBigIntegerRange.m; sourceTree = "<group>"; };
 		5F35130218FC258F002BD9D9 /* MIHCrypto */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MIHCrypto; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,6 +229,8 @@
 		5F2B7F9119D602F700DD5522 /* X509 */ = {
 			isa = PBXGroup;
 			children = (
+				5F2B7F9819D8532A00DD5522 /* MIHX509Name.h */,
+				5F2B7F9919D8532A00DD5522 /* MIHX509Name.m */,
 			);
 			name = X509;
 			sourceTree = "<group>";
@@ -683,6 +688,7 @@
 				5FDD19A318FD9A6000620929 /* MIHSecureHashAlgorithm512.m in Sources */,
 				5F35130618FC2590002BD9D9 /* main.m in Sources */,
 				30F444513B60F9F0518B1DB1 /* MIHBigInteger+Factory.m in Sources */,
+				5F2B7F9A19D8532A00DD5522 /* MIHX509Name.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
