@@ -125,6 +125,7 @@
     
     const EVP_CIPHER *evpCipher = [MIHDESKey cipherForMode:self.mode error:error];
     if (*error) {
+        free(messageBytes);
         return nil;
     }
     
