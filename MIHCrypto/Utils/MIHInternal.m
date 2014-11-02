@@ -72,11 +72,12 @@ static dispatch_once_t loadErrorsOnce = 0;
     ERR_error_string(errorCode, errorMessage);
     NSString *errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)",
                                   errorCode, errorMessage];
+    
+    NSException *instance =[NSException exceptionWithName:MIHCryptoException
+                                                   reason:[NSString stringWithFormat:@"[OpenSSL] ERROR: %s", errorMessage]
+                                                 userInfo:@{NSLocalizedDescriptionKey : errorDescription}];
     free(errorMessage);
-
-    return [NSException exceptionWithName:MIHCryptoException
-                                   reason:[NSString stringWithFormat:@"[OpenSSL] ERROR: %s", errorMessage]
-                                 userInfo:@{NSLocalizedDescriptionKey : errorDescription}];
+    return instance;
 }
 
 + (instancetype)outOfMemoryException
