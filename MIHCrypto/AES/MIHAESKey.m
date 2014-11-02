@@ -135,6 +135,7 @@
             evpCipher = EVP_aes_128_cbc();
             break;
         default:
+            free(messageBytes);
             if (error)
                 *error = [NSError errorWithDomain:MIHCryptoErrorDomain
                                              code:MIHCryptoInvalidKeySize
