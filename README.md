@@ -16,8 +16,8 @@ The aim of the MIHCrypto library is to provide an object-oriented interface whic
 [CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like MIHCrypto in your projects.
 
 ```ruby
-platform :ios, '5.0'
-pod "MIHCrypto", "~> 0.2.0"
+platform :ios, '6.0'
+pod "MIHCrypto", "~> 0.3.2"
 ```
 
 ### Sample Code
