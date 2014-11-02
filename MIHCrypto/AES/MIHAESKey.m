@@ -151,12 +151,14 @@
 
     if (!EVP_DecryptUpdate(&decryptCtx, messageBytes, (int *) &blockLength, cipherData.bytes, (int) cipherData.length)) {
         if (error) *error = [NSError errorFromOpenSSL];
+        free(messageBytes);
         return nil;
     }
     messageBytesLength += blockLength;
 
     if (!EVP_DecryptFinal(&decryptCtx, messageBytes + messageBytesLength, (int *) &blockLength)) {
         if (error) *error = [NSError errorFromOpenSSL];
+        free(messageBytes);
         return nil;
     }
     messageBytesLength += blockLength;
