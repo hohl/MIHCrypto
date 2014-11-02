@@ -135,16 +135,17 @@
             evpCipher = EVP_aes_128_cbc();
             break;
         default:
-            free(messageBytes);
             if (error)
                 *error = [NSError errorWithDomain:MIHCryptoErrorDomain
                                              code:MIHCryptoInvalidKeySize
                                          userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%lu is not a valid AES key size!", self.key.length]}];
+            free(messageBytes);
             return nil;
     }
 
     if (!EVP_DecryptInit(&decryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
         if (error) *error = [NSError errorFromOpenSSL];
+        free(messageBytes);
         return nil;
     }
 

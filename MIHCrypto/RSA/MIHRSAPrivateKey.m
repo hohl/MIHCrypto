@@ -105,7 +105,7 @@
     NSMutableData *messageData = [NSMutableData dataWithLength:rsaSize];
     int messageBytesLength = RSA_private_decrypt((int)cipherData.length, cipherData.bytes, messageData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
     if (messageBytesLength < 0) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     [messageData setLength:(NSUInteger) messageBytesLength];
@@ -118,22 +118,22 @@
     SHA_CTX shaCtx;
     unsigned char messageDigest[SHA_DIGEST_LENGTH];
     if (!SHA1_Init(&shaCtx)) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     if (!SHA1_Update(&shaCtx, message.bytes, message.length)) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     if (!SHA1_Final(messageDigest, &shaCtx)) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
 
     NSMutableData *signature = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
     unsigned int signatureLength = 0;
     if (RSA_sign(NID_sha1, messageDigest, SHA_DIGEST_LENGTH, signature.mutableBytes, &signatureLength, _rsa) == 0) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     [signature setLength:(NSUInteger) signatureLength];
@@ -146,22 +146,23 @@
     SHA256_CTX sha256Ctx;
     unsigned char messageDigest[SHA256_DIGEST_LENGTH];
     if (!SHA256_Init(&sha256Ctx)) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     if (!SHA256_Update(&sha256Ctx, message.bytes, message.length)) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     if (!SHA256_Final(messageDigest, &sha256Ctx)) {
-        *error = [NSError errorFromOpenSSL];
+        if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
 
     NSMutableData *signature = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
     unsigned int signatureLength = 0;
     if (RSA_sign(NID_sha256, messageDigest, SHA256_DIGEST_LENGTH, signature.mutableBytes, &signatureLength, _rsa) == 0) {
-        *error = [NSError errorFromOpenSSL];
+        if (error)
+            *error = [NSError errorFromOpenSSL];
         return nil;
     }
     [signature setLength:(NSUInteger) signatureLength];
