@@ -24,6 +24,7 @@
 
 @interface MIHRSAKeyTests : XCTestCase
 @property(strong) NSData *messageData;
+@property(strong) NSData *inalidEncryptedData;
 @property(strong) MIHRSAPublicKey *publicKey;
 @property(strong) MIHRSAPrivateKey *privateKey;
 @property(strong) NSData *pub;
@@ -48,7 +49,11 @@
             "Zg54vniNK3Yv\n"
             "-----END PRIVATE KEY-----\n";
     self.pem = [pemString dataUsingEncoding:NSUTF8StringEncoding];
-
+    
+    self.inalidEncryptedData = [NSData MIH_dataByBase64DecodingString:@"BdhFH0sd7e9DExiCd50Yk"
+                                "h4spm2BX126skjJ1o8HHjKsN+J7r9IoI9kbB9AAacEpJsAfyesiJsq5gDBhQ"
+                                "tcNbB6l88aSgPrEoVwR9ilzuzVcv1q3J1dxs4uIEMuhzoWT+R8//dD2jDdXP"
+                                "yFsdGWJc10CEizPFKpmy2jWhvU8CVs="];
     self.messageData = [@"Good morning Mr. Hohl!" dataUsingEncoding:NSUTF8StringEncoding];
     self.publicKey = [[MIHRSAPublicKey alloc] initWithData:self.pub];
     self.privateKey = [[MIHRSAPrivateKey alloc] initWithData:self.pem];
@@ -99,6 +104,14 @@
 {
     XCTAssertEqualObjects(self.pub, self.publicKey.dataValue);
     XCTAssertEqualObjects(self.pem, self.privateKey.dataValue);
+}
+
+- (void)testDataExceedsModLen
+{
+    NSError *decryptionError = nil;
+    NSData *decryptedData = [self.privateKey decrypt:self.inalidEncryptedData error:&decryptionError];
+    XCTAssertNotNil(decryptionError);
+    XCTAssertNil(decryptedData);
 }
 
 @end

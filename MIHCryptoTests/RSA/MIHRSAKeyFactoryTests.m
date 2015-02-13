@@ -40,7 +40,6 @@
     XCTAssertNotNil(keyPair2.private);
     XCTAssertNotNil(keyPair2.public);
     XCTAssertNotEqualObjects(keyPair1, keyPair2);
-
 }
 
 @end

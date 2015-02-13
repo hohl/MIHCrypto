@@ -35,15 +35,24 @@ static dispatch_once_t loadErrorsOnce = 0;
         ERR_load_crypto_strings();
     });
 
-    char *errorMessage = malloc(130);
-    if (errorMessage == NULL) {
-        @throw [NSException outOfMemoryException];
-    }
+    
     unsigned long errorCode = ERR_get_error();
-    ERR_error_string(errorCode, errorMessage);
-    NSString *errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)", errorCode, errorMessage];
-    free(errorMessage);
-
+    
+    NSString *errorDescription;
+    if (errorCode == 67522668) {
+        errorDescription = @"Size of data to encrypt must not exceed size of RSA key. If you want to securly encrypt "
+                            "large blocks of data combine RSA with AES. (See "
+                            "https://github.com/hohl/MIHCrypto/issues/24 for more details about that topic.)";
+    } else {
+        char *errorMessage = malloc(130);
+        if (errorMessage == NULL) {
+            @throw [NSException outOfMemoryException];
+        }
+        ERR_error_string(errorCode, errorMessage);
+        errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)", errorCode, errorMessage];
+        free(errorMessage);
+    }
+    
     return [NSError errorWithDomain:MIHOpenSSLErrorDomain
                                code:(NSUInteger)errorCode
                            userInfo:@{NSLocalizedDescriptionKey : errorDescription}];
