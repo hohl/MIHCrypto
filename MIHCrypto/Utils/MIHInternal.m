@@ -49,7 +49,7 @@ static dispatch_once_t loadErrorsOnce = 0;
             @throw [NSException outOfMemoryException];
         }
         ERR_error_string(errorCode, errorMessage);
-        errorDescription = [NSString stringWithFormat:@"OpenSLL internal error! (Code=%lu,Description=%s)", errorCode, errorMessage];
+        errorDescription = [NSString stringWithFormat:@"OpenSSL internal error! (Code=%lu,Description=%s)", errorCode, errorMessage];
         free(errorMessage);
     }
     
