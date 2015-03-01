@@ -177,7 +177,7 @@
 
 - (NSString *)description
 {
-    return [[NSString alloc] initWithData:[self dataValue] encoding:NSUTF8StringEncoding];
+    return [[self dataValue] MIH_base64EncodedString];
 }
 
 @end
