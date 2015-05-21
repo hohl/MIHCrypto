@@ -36,6 +36,16 @@
 - (NSData *)encrypt:(NSData *)message error:(NSError **)error;
 
 /**
+ *  Decrypts the passed cipher data with this public key.
+ *
+ *  @param cipher The cipher data to decrypt.
+ *  @param error  Will get set if an error occurs while decrypting the cipher.
+ *
+ *  @return The encrypted message or nil if an error occured.
+ */
+- (NSData *)decrypt:(NSData *)cipher error:(NSError **)error;
+
+/**
  * Verifies the signature of the passed message. SHA128 is used to create the hash of the message.
  *
  * @param signature The signature bytes to verify.

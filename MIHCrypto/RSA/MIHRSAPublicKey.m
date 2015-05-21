@@ -86,6 +86,14 @@
 #pragma mark MIHPublicKey
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+- (int)rsaPadding
+{
+    if (_rsaPadding == 0)
+        _rsaPadding = RSA_PKCS1_OAEP_PADDING;
+
+    return _rsaPadding;
+}
+
 - (NSData *)dataValue
 {
     // OpenSSL PEM Writer requires the key in EVP_PKEY format:
@@ -124,13 +132,27 @@
 - (NSData *)encrypt:(NSData *)messageData error:(NSError **)error
 {
     NSMutableData *cipherData = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
-    int cipherBytesLength = RSA_public_encrypt((int)messageData.length, messageData.bytes, cipherData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
+    int cipherBytesLength = RSA_public_encrypt((int)messageData.length, messageData.bytes, cipherData.mutableBytes, _rsa, self.rsaPadding);
     if (cipherBytesLength < 0) {
         if (error) *error = [NSError errorFromOpenSSL];
     }
     [cipherData setLength:(NSUInteger) cipherBytesLength];
 
     return cipherData;
+}
+
+- (NSData *)decrypt:(NSData *)cipherData error:(NSError **)error
+{
+    NSUInteger rsaSize = (NSUInteger) RSA_size(_rsa);
+    NSMutableData *messageData = [NSMutableData dataWithLength:rsaSize];
+    int messageBytesLength = RSA_public_decrypt((int)cipherData.length, cipherData.bytes, messageData.mutableBytes, _rsa, self.rsaPadding);
+    if (messageBytesLength < 0) {
+        if (error) *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    [messageData setLength:(NSUInteger) messageBytesLength];
+
+    return messageData;
 }
 
 - (BOOL)verifySignatureWithSHA128:(NSData *)signature message:(NSData *)message

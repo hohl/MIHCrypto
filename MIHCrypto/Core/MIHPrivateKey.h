@@ -26,6 +26,16 @@
 @protocol MIHPrivateKey <NSObject, NSCopying, NSCoding, MIHCoding>
 
 /**
+ *  Encrypts the passed message with this private key.
+ *
+ *  @param message The message to get encrypted.
+ *  @param error   Will be set if an error occurs.
+ *
+ *  @return The encrypted cipher data or nil if an error occured.
+ */
+- (NSData *)encrypt:(NSData *)message error:(NSError **)error;
+
+/**
  *  Decrypts the passed cipher data with this private key.
  *
  *  @param cipher The cipher data to decrypt.
