@@ -67,10 +67,11 @@ Following approaches are in progress and may get published shortly:
  
 Anybody is welcome to add additional support for other approaches.
 
-### Authors
+### Contributors
 
  - [Michael Hohl](http://www.michaelhohl.net/)
  - [Akhil Stanislavose](https://github.com/akhilstanislavose)
+ - [Andrey Toropchin](https://github.com/4ndrey)
 
 ### License
 
