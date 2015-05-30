@@ -89,7 +89,7 @@
 - (int)rsaPadding
 {
     if (_rsaPadding == 0)
-        _rsaPadding = RSA_PKCS1_OAEP_PADDING;
+        _rsaPadding = RSA_PKCS1_PADDING;
 
     return _rsaPadding;
 }
