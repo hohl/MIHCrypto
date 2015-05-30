@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MIHCrypto"
-  s.version      = "0.3.3"
+  s.version      = "0.4.0"
   s.license      = 'MIT'
   s.summary      = "OpenSSL wrapper for Objective-C"
   s.description  = "MIHCrypto provides an object-oriented cryptography framework based on libCrypto 
