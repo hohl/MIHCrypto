@@ -79,6 +79,14 @@
 #pragma mark MIHPrivateKey
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+- (int)rsaPadding
+{
+    if (_rsaPadding == 0)
+        _rsaPadding = RSA_PKCS1_PADDING;
+
+    return _rsaPadding;
+}
+
 - (NSData *)dataValue
 {
     EVP_PKEY *pkey = EVP_PKEY_new();
@@ -99,11 +107,23 @@
     return [NSData dataWithBytesNoCopy:privateBytes length:privateBytesLength];
 }
 
+- (NSData *)encrypt:(NSData *)messageData error:(NSError **)error
+{
+    NSMutableData *cipherData = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
+    int cipherBytesLength = RSA_private_encrypt((int)messageData.length, messageData.bytes, cipherData.mutableBytes, _rsa, self.rsaPadding);
+    if (cipherBytesLength < 0) {
+        if (error) *error = [NSError errorFromOpenSSL];
+    }
+    [cipherData setLength:(NSUInteger) cipherBytesLength];
+
+    return cipherData;
+}
+
 - (NSData *)decrypt:(NSData *)cipherData error:(NSError **)error
 {
     NSUInteger rsaSize = (NSUInteger) RSA_size(_rsa);
     NSMutableData *messageData = [NSMutableData dataWithLength:rsaSize];
-    int messageBytesLength = RSA_private_decrypt((int)cipherData.length, cipherData.bytes, messageData.mutableBytes, _rsa, RSA_PKCS1_OAEP_PADDING);
+    int messageBytesLength = RSA_private_decrypt((int)cipherData.length, cipherData.bytes, messageData.mutableBytes, _rsa, self.rsaPadding);
     if (messageBytesLength < 0) {
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;

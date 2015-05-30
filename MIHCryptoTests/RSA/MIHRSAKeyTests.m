@@ -60,7 +60,7 @@
     self.privateKey = [[MIHRSAPrivateKey alloc] initWithData:self.pem];
 }
 
-- (void)testEncryptionAndDecryption
+- (void)testEncryptionWithPublicKeyAndDecryptionWithPrivateKey
 {
     NSError *encryptionError = nil;
     NSData *encryptedData = [self.publicKey encrypt:self.messageData error:&encryptionError];
@@ -69,6 +69,34 @@
     NSData *decryptedData = [self.privateKey decrypt:encryptedData error:&decryptionError];
     XCTAssertNil(decryptionError);
     XCTAssertEqualObjects(self.messageData, decryptedData);
+}
+
+- (void)testEncryptionWithPrivateKeyAndDecryptionWithPublicKey
+{
+    NSError *encryptionError = nil;
+    NSData *encryptedData = [self.privateKey encrypt:self.messageData error:&encryptionError];
+    XCTAssertNil(encryptionError);
+    NSError *decryptionError = nil;
+    NSData *decryptedData = [self.publicKey decrypt:encryptedData error:&decryptionError];
+    XCTAssertNil(decryptionError);
+    XCTAssertEqualObjects(self.messageData, decryptedData);
+}
+
+- (void)testRsaDefaultPadding
+{
+    XCTAssertEqual(self.privateKey.rsaPadding, RSA_PKCS1_PADDING);
+    XCTAssertEqual(self.publicKey.rsaPadding, RSA_PKCS1_PADDING);
+}
+
+- (void)testRsaPaddingChange
+{
+    self.privateKey.rsaPadding = RSA_PKCS1_OAEP_PADDING;
+    XCTAssertEqual(self.privateKey.rsaPadding, RSA_PKCS1_OAEP_PADDING);
+
+    self.publicKey.rsaPadding = RSA_PKCS1_OAEP_PADDING;
+    XCTAssertEqual(self.publicKey.rsaPadding, RSA_PKCS1_OAEP_PADDING);
+
+    [self testEncryptionWithPublicKeyAndDecryptionWithPrivateKey];
 }
 
 - (void)testSignAndVerify

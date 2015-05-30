@@ -28,5 +28,6 @@
 @protected
     RSA *_rsa;
 }
+@property (nonatomic, assign) int rsaPadding;
 
 @end
