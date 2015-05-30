@@ -181,7 +181,7 @@
 - (void)testMIHCoding
 {
     MIHBigInteger *someBigInteger = [[MIHBigInteger alloc] initWithDecimalStringValue:@"123456"];
-    MIHBigInteger *sameBigInteger = [[MIHBigInteger alloc] initWithData:someBigInteger.dataValue];
+    MIHBigInteger *sameBigInteger = [[MIHBigInteger alloc] initWithMpiData:someBigInteger.mpiDataValue];
     XCTAssertEqualObjects(someBigInteger, sameBigInteger);
 }
 
@@ -230,5 +230,18 @@
     XCTAssertEqualObjects(negativeBigInteger.decimalStringValue, @"-12345");
 }
 
+-(void)testInitWithMpiData
+{
+    MIHBigInteger *someBigInteger = [[MIHBigInteger alloc] initWithSignedInteger:1234];
+    MIHBigInteger *anotherBigInteger = [[MIHBigInteger alloc] initWithMpiData:someBigInteger.mpiDataValue];
+    XCTAssertEqualObjects(anotherBigInteger.decimalStringValue, @"1234");
+}
+
+-(void)testInitWithData
+{
+    MIHBigInteger *someBigInteger = [[MIHBigInteger alloc] initWithSignedInteger:1234];
+    MIHBigInteger *anotherBigInteger = [[MIHBigInteger alloc] initWithData:someBigInteger.dataValue];
+    XCTAssertEqualObjects(anotherBigInteger.decimalStringValue, @"1234");
+}
 
 @end

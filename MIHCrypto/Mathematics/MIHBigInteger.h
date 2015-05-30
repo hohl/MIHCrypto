@@ -31,6 +31,15 @@
 }
 
 /**
+ *  Initialises MIHBigInteger with the passed NSData which contains 4-byte big-endian encoded number.
+ *
+ *  @param value The value of to get assigned to the BigNum.
+ *
+ *  @return The newly-created MIHBigInteger instance.
+ */
+- (id)initWithMpiData:(NSData *)value;
+
+/**
  *  Initialises MIHBigInteger with the passed NSUInteger value.
  *
  *  @param value The value of to get assigned to the BigNum.
@@ -72,6 +81,13 @@
  *  @return NSString which represents the MIHBigInteger.
  */
 - (NSString *)hexStringValue;
+
+/**
+ *  Creates a NSData of MPI representation of this MIHBigInteger.
+ *
+ *  @return NSData which represents the MIHBigInteger.
+ */
+- (NSData *)mpiDataValue;
 
 /**
  *  Compares this MIHBigInteger with the passed MIHBigInteger.
