@@ -17,7 +17,7 @@ The aim of the MIHCrypto library is to provide an object-oriented interface whic
 
 ```ruby
 platform :ios, '6.0'
-pod "MIHCrypto", "~> 0.3.3"
+pod "MIHCrypto", "~> 0.4.0"
 ```
 
 ### Sample Code
