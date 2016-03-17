@@ -130,17 +130,20 @@
     }
     
     if (!EVP_DecryptInit(&decryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
+        free(messageBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     
     if (!EVP_DecryptUpdate(&decryptCtx, messageBytes, (int *) &blockLength, cipherData.bytes, (int) cipherData.length)) {
+        free(messageBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     messageBytesLength += blockLength;
     
     if (!EVP_DecryptFinal(&decryptCtx, messageBytes + messageBytesLength, (int *) &blockLength)) {
+        free(messageBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
@@ -168,17 +171,20 @@
     }
     
     if (!EVP_EncryptInit(&encryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
+        free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     
     if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, (int)messageData.length)) {
+        free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     cipherBytesLength += blockLength;
     
     if (!EVP_EncryptFinal(&encryptCtx, cipherBytes + cipherBytesLength, (int *) &blockLength)) {
+        free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
