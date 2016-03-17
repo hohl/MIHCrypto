@@ -197,6 +197,7 @@
     }
 
     if (!EVP_EncryptInit(&encryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
+        free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
