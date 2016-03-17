@@ -65,4 +65,15 @@
  */
 - (NSData *)signWithSHA256:(NSData *)message error:(NSError **)error;
 
+
+/**
+ * Signs the passed data. MD5 is used to create the hash of the message.
+ *
+ * @param message The message to sign.
+ * @param error   Reference used to return an error if there something went wrong.
+ *
+ * @return The created signature or nil if any error occurred.
+ */
+- (NSData *)signWithMD5:(NSData *)message error:(NSError **)error;
+
 @end

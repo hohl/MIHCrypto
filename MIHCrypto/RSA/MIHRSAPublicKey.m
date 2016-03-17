@@ -19,6 +19,7 @@
 #import "MIHInternal.h"
 #import "NSData+MIHConversion.h"
 #include <openssl/pem.h>
+#include <openssl/md5.h>
 
 @implementation MIHRSAPublicKey
 
@@ -188,6 +189,27 @@
         return NO;
     }
     if (RSA_verify(NID_sha256, messageDigest, SHA256_DIGEST_LENGTH, signature.bytes, (int)signature.length, _rsa) == 0) {
+        return NO;
+    }
+    return YES;
+}
+
+
+- (BOOL)verifySignatureWithMD5:(NSData *)signature message:(NSData *)message
+{
+    
+    MD5_CTX md5Ctx;
+    unsigned char messageDigest[MD5_DIGEST_LENGTH];
+    if(!MD5_Init(&md5Ctx)) {
+        return NO;
+    }
+    if (!MD5_Update(&md5Ctx, message.bytes, message.length)) {
+        return NO;
+    }
+    if (!MD5_Final(messageDigest, &md5Ctx)) {
+        return NO;
+    }
+    if (RSA_verify(NID_md5, messageDigest, MD5_DIGEST_LENGTH, signature.bytes, (int)signature.length, _rsa) == 0) {
         return NO;
     }
     return YES;
