@@ -63,4 +63,13 @@
  */
 - (BOOL)verifySignatureWithSHA256:(NSData *)signature message:(NSData *)message;
 
+/**
+ * Verifies the signature of the passed message. MD5 is used to create the hash of the message.
+ *
+ * @param signature The signature bytes to verify.
+ * @param message The message to verify.
+ * @return YES if the signature is valid.
+ */
+- (BOOL)verifySignatureWithMD5:(NSData *)signature message:(NSData *)message;
+
 @end

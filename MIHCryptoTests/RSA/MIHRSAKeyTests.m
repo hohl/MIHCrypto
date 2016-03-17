@@ -148,4 +148,13 @@
     XCTAssertEqualObjects(self.publicKeyString, [self.publicKey description]);
 }
 
+- (void)testSignAndVerifyUsingMD5
+{
+    NSError *signingError = nil;
+    NSData *signatureData = [self.privateKey signWithMD5:self.messageData error:&signingError];
+    XCTAssertNil(signingError);
+    BOOL isVerified = [self.publicKey verifySignatureWithMD5:signatureData message:self.messageData];
+    XCTAssertEqual(YES, isVerified);
+}
+
 @end
