@@ -53,7 +53,7 @@
             if (error)
                 *error = [NSError errorWithDomain:MIHCryptoErrorDomain
                                              code:MIHCryptoInvalidMode
-                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%lu is not a valid DES mode!", mode]}];
+                                         userInfo:@{NSLocalizedDescriptionKey : [NSString stringWithFormat:@"%lu is not a valid DES mode!", (unsigned long) mode]}];
             return nil;
     }
 }
