@@ -3,7 +3,6 @@
 </p>
 
 [![Build Status](https://img.shields.io/travis/hohl/MIHCrypto.svg)](https://travis-ci.org/hohl/MIHCrypto)
-[![Code Coverage](https://img.shields.io/codecov/c/github/hohl/MIHCrypto.svg)](https://codecov.io/github/hohl/MIHCrypto)
 [![Version](https://img.shields.io/cocoapods/v/MIHCrypto.svg)](http://cocoadocs.org/docsets/MIHCrypto)
 [![Platform](https://img.shields.io/cocoapods/p/MIHCrypto.svg)](http://cocoadocs.org/docsets/MIHCrypto)
 
