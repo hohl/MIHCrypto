@@ -2,7 +2,10 @@
   <img src="https://github.com/hohl/MIHCrypto/raw/master/Assets/MIHCrypto-Logo.png" alt="MIHCrypto" title="MIHCrypto">
 </p>
 
-[![Build Status](https://travis-ci.org/hohl/MIHCrypto.svg?branch=master)](https://travis-ci.org/hohl/MIHCrypto)
+[![Build Status](https://img.shields.io/travis/hohl/MIHCrypto.svg)](https://travis-ci.org/hohl/MIHCrypto)
+[![Code Coverage](https://img.shields.io/codecov/c/github/hohl/MIHCrypto.svg)](https://codecov.io/github/hohl/MIHCrypto)
+[![Version](https://img.shields.io/cocoapods/v/MIHCrypto.svg)](http://cocoadocs.org/docsets/MIHCrypto)
+[![Platform](https://img.shields.io/cocoapods/p/MIHCrypto.svg)](http://cocoadocs.org/docsets/MIHCrypto)
 
 
 [OpenSSL](https://www.openssl.org/) is the most powerful SSL and TLS library available which wraps a full cryptographic library. The library is written in pure C and due to its endless size and not-so-well-designed C interface it is very hard for beginners to step into it.
