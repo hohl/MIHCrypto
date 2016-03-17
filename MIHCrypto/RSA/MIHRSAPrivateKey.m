@@ -18,7 +18,7 @@
 #import "MIHRSAPrivateKey.h"
 #import "MIHInternal.h"
 #include <openssl/pem.h>
-
+#include <openssl/md5.h>
 @implementation MIHRSAPrivateKey
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -187,6 +187,34 @@
     }
     [signature setLength:(NSUInteger) signatureLength];
 
+    return signature;
+}
+
+- (NSData *)signWithMD5:(NSData *)message error:(NSError **)error{
+    MD5_CTX md5Ctx;
+    unsigned char messageDigest[MD5_DIGEST_LENGTH];
+    if (!MD5_Init(&md5Ctx)) {
+        if (error) *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    if (!MD5_Update(&md5Ctx, message.bytes, message.length)) {
+        if (error) *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    if (!MD5_Final(messageDigest, &md5Ctx)) {
+        if (error) *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    
+    NSMutableData *signature = [NSMutableData dataWithLength:(NSUInteger) RSA_size(_rsa)];
+    unsigned int signatureLength = 0;
+    if (RSA_sign(NID_md5, messageDigest, MD5_DIGEST_LENGTH, signature.mutableBytes, &signatureLength, _rsa) == 0) {
+        if (error)
+            *error = [NSError errorFromOpenSSL];
+        return nil;
+    }
+    [signature setLength:(NSUInteger) signatureLength];
+    
     return signature;
 }
 
