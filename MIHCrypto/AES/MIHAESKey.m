@@ -203,12 +203,14 @@
     }
 
     if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, (int)messageData.length)) {
+        free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     cipherBytesLength += blockLength;
 
     if (!EVP_EncryptFinal(&encryptCtx, cipherBytes + cipherBytesLength, (int *) &blockLength)) {
+        free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
