@@ -9,12 +9,15 @@ Pod::Spec.new do |s|
   s.authors       =  {'Michael Hohl' => 'me@michaelhohl.net'}
   s.source       = { :git => "https://github.com/hohl/MIHCrypto.git", :tag => "#{s.version}" }
   
-  s.ios.platform          = :ios, '8.0'
-  s.ios.deployment_target = '6.0'
-  s.osx.platform          = :osx, '10.10'
-  s.osx.deployment_target = '10.8'
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
 
   s.requires_arc = true
+
+  s.xcconfig = { 'OTHER_CFLAGS' => '-DLIBRESSL', 
+        'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/OpenSSL-Universal/lib-ios"' }
+
+  s.libraries = 'ssl', 'crypto'
 
   s.subspec 'Core' do |core|
     core.source_files = 'MIHCrypto/{Utils,Core}/*.{h,m,c}'
