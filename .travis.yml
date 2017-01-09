@@ -5,3 +5,4 @@ xcode_scheme: MIHCrypto
 
 before_install:
  - gem install cocoapods
+ - pod install
