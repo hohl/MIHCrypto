@@ -57,9 +57,16 @@
     }
     return nil;
 }
+
+- (NSDictionary *)debugInformation {
+    return @{
+             @"identifier": self.identifier ?: [NSNull null],
+             @"name": self.name ?: [NSNull null]
+             };
+}
 @end
 
-@implementation MIHECCurvesSizes : NSObject
+@implementation MIHECCurvesSizes
 + (NSInteger)size256 {
     return 256;
 }
@@ -75,7 +82,13 @@
 @property (copy, nonatomic, readwrite) NSArray <MIHECCurve *>* curves;
 @end
 
-@implementation MIHECCurves @end
+@implementation MIHECCurves
+- (NSDictionary *)debugInformation {
+    return @{
+             @"curves": [self.curves valueForKey:@"debugDescription"] ?: [NSNull null]
+             };
+}
+@end
 
 @implementation MIHECCurves (Curves)
 - (instancetype)requestedCurvesWithCount:(NSInteger)count {

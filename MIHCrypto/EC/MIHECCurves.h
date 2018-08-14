@@ -7,19 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MIHECObject.h"
 
-@interface MIHECCurve : NSObject// <NSCopying>
+@interface MIHECCurve : MIHECObject// <NSCopying>
 @property (copy, nonatomic, readonly) NSNumber *identifier;
 @property (copy, nonatomic, readonly) NSString *name;
 @end
 
-@interface MIHECCurvesSizes : NSObject
+@interface MIHECCurvesSizes : MIHECObject
 @property (assign, nonatomic, readonly, class) NSInteger size256;
 @property (assign, nonatomic, readonly, class) NSInteger size384;
 @property (assign, nonatomic, readonly, class) NSInteger size512;
 @end
 
-@interface MIHECCurves : NSObject
+@interface MIHECCurves : MIHECObject
 @property (copy, nonatomic, readonly) NSArray <MIHECCurve *>* curves;
 @end
 
