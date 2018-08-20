@@ -26,4 +26,23 @@
     return self;
 }
 
+- (void)dealloc {
+    if (self.key != NULL) {
+        EC_KEY_free(self.key);
+    }
+}
+
+@end
+
+@implementation MIHECKey (NSCopying)
+- (id)copyWithZone:(NSZone *)zone {
+    if (self.key) {
+        __auto_type key = EC_KEY_dup(self.key);
+        __auto_type result = (typeof(self))[[self.class alloc] initWithKey:key];
+        return result;
+    }
+    else {
+        return nil;
+    }
+}
 @end

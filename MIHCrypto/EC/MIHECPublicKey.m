@@ -7,16 +7,86 @@
 //
 
 #import "MIHECPublicKey.h"
+#import "MIHECKey.h"
 
+@interface MIHECPublicKey () @end
+@implementation MIHECPublicKey @end
 
-@implementation MIHECPublicKey
+@implementation MIHECPublicKey (KeyConversion)
+- (NSData *)dataFromKey:(MIHECKey *)key {
+    if (key == nil) {
+        return nil;
+    }
+    
+    __auto_type bytesCount = i2d_ECParameters(key.key, NULL);
+    if (bytesCount == 0) {
+        return nil;
+    }
+    
+    __auto_type bytes = (unsigned char *)calloc(bytesCount, sizeof(unsigned char));
+    i2o_ECPublicKey(key.key, &bytes);
+    if (bytes == NULL) {
+        return nil;
+    }
+    
+    __auto_type data = [[NSData alloc] initWithBytes:bytes length:bytesCount];
+    return data;
+}
 
+- (MIHECKey *)keyFromData:(NSData *)data {
+    __auto_type bytesCount = data.length;
+    
+    if (bytesCount == 0) {
+        return nil;
+    }
+    
+    __auto_type bytes = (unsigned char *)calloc(bytesCount, sizeof(unsigned char));
+    [data getBytes:bytes length:bytesCount];
+    
+    if (bytes == NULL) {
+        return nil;
+    }
+    
+    EC_KEY *key = NULL;
+    o2i_ECPublicKey(&key, &bytes, bytesCount);
+    
+    return [[MIHECKey alloc] initWithKey:key];
+}
 @end
 
 #import "MIHPublicKey.h"
 @implementation MIHECPublicKey (MIHPublicKey)
 - (NSData *)encrypt:(NSData *)message error:(NSError *__autoreleasing *)error { return nil; }
 - (NSData *)decrypt:(NSData *)cipher error:(NSError *__autoreleasing *)error { return nil; }
+
+- (BOOL)verifySignature:(NSData *)signature message:(NSData *)message {
+    const unsigned char *digest = [MIHNSDataExtension bytesFromData:message];
+    __auto_type digestLength = message.length;
+    if (digest == NULL) {
+        return NO;
+    }
+    
+    __auto_type signatureBytesCount = signature.length;
+    const unsigned char *signatureBytes = [MIHNSDataExtension bytesFromData:signature];
+    if (signatureBytes == NULL) {
+        return NO;
+    }
+    
+    ECDSA_SIG *sig = NULL;
+    d2i_ECDSA_SIG(&sig, &signatureBytes, signatureBytesCount);
+    if (sig == NULL) {
+        return NO;
+    }
+    
+    __auto_type status = ECDSA_do_verify(digest, digestLength, sig, self.key.key);
+    switch (status) {
+        case 1: return YES;
+        case 0: return NO;
+        case -1: return NO; // error, special handling
+        default: return NO;
+    }
+}
+
 - (BOOL)verifySignatureWithMD5:(NSData *)signature message:(NSData *)message {
     return NO;
 }

@@ -11,4 +11,5 @@
 #import "MIHPrivateKey.h"
 
 @interface MIHECPrivateKey : MIHECBaseKey @end
+
 @interface MIHECPrivateKey (MIHPrivateKey) <MIHPrivateKey> @end

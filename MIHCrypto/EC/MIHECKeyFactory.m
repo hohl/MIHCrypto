@@ -12,6 +12,7 @@
 #import "MIHKeyPair.h"
 #import "MIHECCurves.h"
 #import "MIHECCurveGroup.h"
+#import "MIHECKey.h"
 
 @implementation MIHECKeyFactory
 
@@ -22,6 +23,7 @@
     if (curve != nil) {
         __auto_type identifier = curve.identifier;
         __auto_type ec_key = EC_KEY_new_by_curve_name(identifier.unsignedShortValue);
+        __auto_type the_key = [[MIHECKey alloc] initWithKey:ec_key];
         return nil;
     }
     if (group != nil) {

@@ -15,3 +15,5 @@
 - (instancetype)initWithKey:(EC_KEY *)key;
 
 @end
+
+@interface MIHECKey (NSCopying) <NSCopying> @end

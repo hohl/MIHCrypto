@@ -8,9 +8,25 @@
 
 #import "MIHECObject.h"
 #import "MIHCoding.h"
+@class MIHECKey;
 
-@interface MIHECBaseKey : MIHECObject @end
+@interface MIHNSDataExtension : NSObject
++ (unsigned char *)bytesFromData:(NSData *)data;
++ (NSData *)dataFromBytes:(unsigned char *)bytes length:(NSUInteger)length;
+@end
+
+@interface MIHECBaseKey : MIHECObject
+@property (strong, nonatomic, readonly) MIHECKey *key;
+- (instancetype)initWithKey:(MIHECKey *)key;
+@end
 
 @interface MIHECBaseKey (NSCopying) <NSCopying> @end
+
+// Implement in subclasses
+@interface MIHECBaseKey (KeyConversion)
+- (NSData *)dataFromKey:(MIHECKey *)key;
+- (MIHECKey *)keyFromData:(NSData *)data;
+@end
+
 @interface MIHECBaseKey (NSCoding) <NSCoding> @end
 @interface MIHECBaseKey (MIHCoding) <MIHCoding> @end
