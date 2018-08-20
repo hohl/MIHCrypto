@@ -11,6 +11,12 @@
 
 @implementation MIHNSDataExtension
 
++ (unsigned char *)bytesFromData:(NSData *)data {
+    return [[self new] bytesFromData:data];
+}
++ (NSData *)dataFromBytes:(unsigned char *)bytes length:(NSUInteger)length {
+    return [[self new] dataFromBytes:bytes length:length];
+}
 - (unsigned char *)bytesFromData:(NSData *)data {
     __auto_type bytesCount = data.length;
     if (bytesCount == 0) {
@@ -58,10 +64,10 @@
 @end
 
 @implementation MIHECBaseKey (KeyConversion)
-- (NSData *)dataFromKey {
+- (NSData *)dataFromKey:(MIHECKey *)key {
     return nil;
 }
-- (MIHECKey *)keyFromData {
+- (MIHECKey *)keyFromData:(NSData *)data {
     return nil;
 }
 @end

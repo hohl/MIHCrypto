@@ -36,10 +36,7 @@
 @property (assign, nonatomic, readonly) EC_GROUP *group;
 @end
 
-@interface MIHECCurveGroup (Parameters)
+@interface MIHECCurveGroup (Initialization)
 - (instancetype)initWithFieldParameters:(MIHECCurveGroupFieldParameters *)parameters;
-@end
-
-@interface MIHECCurveGroup (Name)
 - (instancetype)initWithCurveName:(MIHECCurve *)curve;
 @end

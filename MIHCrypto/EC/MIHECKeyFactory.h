@@ -18,5 +18,7 @@
 @property (strong, nonatomic, readwrite) MIHECCurve *curve;
 
 - (MIHKeyPair *)generateKeyPair;
+- (MIHKeyPair *)generateKeyPairWithCurve:(MIHECCurve *)curve;
+- (MIHKeyPair *)generateKeyPairWithGroup:(MIHECCurveGroup *)group;
 
 @end

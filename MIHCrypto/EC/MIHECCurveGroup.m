@@ -45,14 +45,19 @@
 @end
 
 @interface MIHECCurveGroup ()
+@property (assign, nonatomic, readwrite) EC_GROUP *group;
 @property (strong, nonatomic, readwrite) MIHECCurve *curve;
 @property (strong, nonatomic, readwrite) MIHECCurveGroupFieldParameters *parameters;
 @end
 
-@implementation MIHECCurveGroup @end
-
-@implementation MIHECCurveGroup (Parameters)
-- (EC_GROUP *)group {
+@implementation MIHECCurveGroup
+// maybe add lifecycle for group?
+// people do not won't to self-handling memory management.
+- (instancetype)configuredByGroup:(EC_GROUP *)group {
+    self.group = group;
+    return self;
+}
+- (EC_GROUP *)createGroup {
     if ([self.parameters.fieldType isEqualToString:MIHECCurveGroupFieldTypes.primeField]) {
         __auto_type a = [self.parameters bigNum_a];
         __auto_type b = [self.parameters bigNum_b];
@@ -79,9 +84,17 @@
         return group;
     }
     
-    return nil;
+    return NULL;
 }
 
+- (void)dealloc {
+    if (self.group != NULL) {
+        EC_GROUP_free(self.group);
+    }
+}
+@end
+
+@implementation MIHECCurveGroup (Initialization)
 - (instancetype)initWithFieldParameters:(MIHECCurveGroupFieldParameters *)parameters {
     if (parameters == nil) {
         return nil;
@@ -90,9 +103,9 @@
     if (self = [super init]) {
         self.parameters = parameters;
     }
-    return self;
+    
+    return [self configuredByGroup:[self createGroup]];
 }
-
 - (instancetype)initWithCurveName:(MIHECCurve *)curve {
     if (curve == nil) {
         return nil;
@@ -102,6 +115,6 @@
         self.curve = curve;
     }
     
-    return self;
+    return [self configuredByGroup:[self createGroup]];
 }
 @end
