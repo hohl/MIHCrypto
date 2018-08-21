@@ -54,7 +54,8 @@
 }
 @end
 
-#import "MIHPublicKey.h"
+#import "MIHNSDataExtension.h"
+#import "MIHECSignature.h"
 @implementation MIHECPublicKey (MIHPublicKey)
 - (NSData *)encrypt:(NSData *)message error:(NSError *__autoreleasing *)error { return nil; }
 - (NSData *)decrypt:(NSData *)cipher error:(NSError *__autoreleasing *)error { return nil; }
@@ -65,20 +66,13 @@
     if (digest == NULL) {
         return NO;
     }
-    
-    __auto_type signatureBytesCount = signature.length;
-    const unsigned char *signatureBytes = [MIHNSDataExtension bytesFromData:signature];
-    if (signatureBytes == NULL) {
+
+    __auto_type theSignature = [[MIHECSignature alloc] initWithData:signature];
+    if (theSignature == nil) {
         return NO;
     }
     
-    ECDSA_SIG *sig = NULL;
-    d2i_ECDSA_SIG(&sig, &signatureBytes, signatureBytesCount);
-    if (sig == NULL) {
-        return NO;
-    }
-    
-    __auto_type status = ECDSA_do_verify(digest, digestLength, sig, self.key.key);
+    __auto_type status = ECDSA_do_verify(digest, digestLength, theSignature.signature, self.key.key);
     switch (status) {
         case 1: return YES;
         case 0: return NO;

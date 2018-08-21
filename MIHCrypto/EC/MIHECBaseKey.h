@@ -10,11 +10,6 @@
 #import "MIHCoding.h"
 @class MIHECKey;
 
-@interface MIHNSDataExtension : NSObject
-+ (unsigned char *)bytesFromData:(NSData *)data;
-+ (NSData *)dataFromBytes:(unsigned char *)bytes length:(NSUInteger)length;
-@end
-
 @interface MIHECBaseKey : MIHECObject
 @property (strong, nonatomic, readonly) MIHECKey *key;
 - (instancetype)initWithKey:(MIHECKey *)key;

@@ -54,25 +54,14 @@
 }
 @end
 
+#import "MIHNSDataExtension.h"
+#import "MIHECSignature.h"
 @implementation MIHECPrivateKey (MIHPrivateKey)
 
 - (NSData *)encrypt:(NSData *)message error:(NSError *__autoreleasing *)error { return nil; }
 - (NSData *)decrypt:(NSData *)cipher error:(NSError *__autoreleasing *)error { return nil; }
 
 #pragma mark - OpenSSL Definition
-/** Computes ECDSA signature of a given hash value using the supplied
- *  private key (note: sig must point to ECDSA_size(eckey) bytes of memory).
- *  \param  type     this parameter is ignored
- *  \param  dgst     pointer to the hash value to sign
- *  \param  dgstlen  length of the hash value
- *  \param  sig      memory for the DER encoded created signature
- *  \param  siglen   pointer to the length of the returned signature
- *  \param  eckey    EC_KEY object containing a private EC key
- *  \return 1 on success and 0 otherwise
- /
-int ECDSA_sign(int type, const unsigned char *dgst, int dgstlen,
-               unsigned char *sig, unsigned int *siglen, EC_KEY *eckey);
-*/
 - (NSData *)signMessage:(NSData *)message error:(NSError *__autoreleasing *)error {
     const unsigned char *digest = [MIHNSDataExtension bytesFromData:message];
     __auto_type digestLength = message.length;
@@ -87,16 +76,9 @@ int ECDSA_sign(int type, const unsigned char *dgst, int dgstlen,
     if (signature == NULL) {
         return nil;
     }
-    
-    __auto_type bytesCount = i2d_ECDSA_SIG(signature, NULL);
-    unsigned char *bytes = calloc(bytesCount, sizeof(unsigned char));
-    
-    i2d_ECDSA_SIG(signature, &bytes);
-    if (bytes == nil) {
-        return nil;
-    }
-    
-    __auto_type result = [NSData dataWithBytes:bytes length:bytesCount];
+
+    __auto_type theSignature = [[MIHECSignature alloc] initWithSignature:signature];
+    __auto_type result = theSignature.dataValue;
     return result;
 }
 
