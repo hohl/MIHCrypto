@@ -16,7 +16,9 @@
 
 @interface MIHECPemSanitizer : MIHECObject
 // apply pem ( or add it )
+// It allows only base64 strings for applying operation
 - (NSString *)apply:(NSString *)string type:(NSString *)type;
 // unapply pem ( or remove it )
+// It allows only PEM file content for unapplying operation
 - (NSString *)unapply:(NSString *)string;
 @end

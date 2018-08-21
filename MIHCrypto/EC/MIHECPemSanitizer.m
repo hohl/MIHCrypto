@@ -74,9 +74,9 @@
     __auto_type endHeader = [entry endHeaderOfType:type];
     
     if (string != nil) {
-        __auto_type formattedString = [[string dataUsingEncoding:NSUTF8StringEncoding] MIH_base64EncodedStringWithWrapWidth:64];
+        __auto_type formattedString = [[[NSData alloc] initWithBase64Encoding:string] MIH_base64EncodedStringWithWrapWidth:64];
         __auto_type result = @[beginHeader, formattedString, endHeader];
-        return [result componentsJoinedByString:@"\n"];
+        return [[result componentsJoinedByString:@"\n"] stringByAppendingString:@"\n"];
     }
     
     return nil;
@@ -92,7 +92,7 @@
         }
         __auto_type contentRange = [match rangeAtIndex:2];
         __auto_type content = [string substringWithRange:contentRange];
-        __auto_type cleanContent = [content stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+        __auto_type cleanContent = [[content componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet] componentsJoinedByString:@""];
         return cleanContent;
     }
     return string;
