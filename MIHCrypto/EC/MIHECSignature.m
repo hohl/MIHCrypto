@@ -32,18 +32,38 @@
 }
 @end
 
+#import <openssl/err.h>
 @implementation MIHECSignature (Conversion)
 + (ECDSA_SIG *)signatureFromData:(NSData *)data {
     __auto_type dataBytesCount = data.length;
     const unsigned char *bytes = [MIHNSDataExtension bytesFromData:data];
     if (bytes == NULL) {
-        return NO;
+        return NULL;
     }
     
     ECDSA_SIG *signature = NULL;
-    d2i_ECDSA_SIG(&signature, &bytes, dataBytesCount);
-    // check for NULL
+    signature = d2i_ECDSA_SIG(&signature, &bytes, dataBytesCount);
+    
     return signature;
+}
++ (NSData *)trimmingZeros:(unsigned char *)bytes length:(NSUInteger)length {
+    __auto_type start = bytes;
+    __auto_type finish = bytes + length;
+    while (*start == 0 && start != finish) {
+        start++;
+    }
+    while (*finish == 0 && start != finish) {
+        finish++;
+    }
+    
+    __auto_type begin = start;
+    __auto_type newLength = 0;
+    while (start != finish) {
+        newLength++;
+        start++;
+    }
+    __auto_type result = [[NSData alloc] initWithBytes:begin length:newLength];
+    return result;
 }
 + (NSData *)dataFromSignature:(ECDSA_SIG *)signature {
     __auto_type bytesCount = i2d_ECDSA_SIG(signature, NULL);
@@ -54,7 +74,9 @@
         return nil;
     }
     
-    return [NSData dataWithBytes:bytes length:bytesCount];
+    __auto_type result = [NSData dataWithBytes:bytes length:bytesCount];
+    __auto_type alternative = [self trimmingZeros:bytes length:bytesCount];
+    return result;
 }
 
 - (ECDSA_SIG *)signatureFromData:(NSData *)data { return [self.class signatureFromData:data]; }

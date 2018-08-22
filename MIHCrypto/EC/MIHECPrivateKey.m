@@ -56,6 +56,7 @@
 
 #import "MIHNSDataExtension.h"
 #import "MIHECSignature.h"
+#import <openssl/err.h>
 @implementation MIHECPrivateKey (MIHPrivateKey)
 
 - (NSData *)encrypt:(NSData *)message error:(NSError *__autoreleasing *)error { return nil; }
@@ -80,6 +81,25 @@
     __auto_type theSignature = [[MIHECSignature alloc] initWithSignature:signature];
     __auto_type result = theSignature.dataValue;
     return result;
+}
+
+- (MIHECSignature *)theSignMessage:(NSData *)message error:(NSError *__autoreleasing *)error {
+    const unsigned char *digest = [MIHNSDataExtension bytesFromData:message];
+    __auto_type digestLength = message.length;
+    if (digest == NULL) {
+        return nil;
+    }
+    
+    // convert signature to data
+    // maybe use another class for this.
+    // yes, we need signature object.
+    __auto_type signature = ECDSA_do_sign(digest, digestLength, self.key.key);
+    if (signature == NULL) {
+        return nil;
+    }
+    
+    __auto_type theSignature = [[MIHECSignature alloc] initWithSignature:signature];
+    return theSignature;
 }
 
 #pragma mark -

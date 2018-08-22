@@ -19,6 +19,10 @@
         return nil;
     }
     
+    if (!EC_KEY_check_key(key)) {
+        return nil;
+    }
+    
     if (self = [super init]) {
         self.key = key;
     }

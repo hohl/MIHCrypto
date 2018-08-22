@@ -7,7 +7,21 @@
 //
 
 #import "MIHEC.h"
-
+#import <openssl/err.h>
 @implementation MIHEC
-
++ (void)loadErrors:(BOOL)load {
+    if (load) {
+        //    SSL_load_error_strings();
+        ERR_load_crypto_strings();
+    }
+    else {
+        ERR_free_strings();
+    }
+}
++ (NSError *)getError {
+    __auto_type error = ERR_get_error();
+    char *buffer[1024];
+    __auto_type errorDescription = ERR_error_string(error, &buffer);
+    return nil;
+}
 @end

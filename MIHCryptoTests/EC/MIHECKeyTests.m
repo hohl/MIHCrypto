@@ -12,6 +12,7 @@
 #import "MIHKeyPair.h"
 #import "MIHECPrivateKey.h"
 #import "MIHECPublicKey.h"
+#import "MIHECDigest.h"
 
 @interface MIHECKeyTests : XCTestCase
 
@@ -35,6 +36,20 @@
     XCTAssertNotNil(keyPair.private);
     
     __auto_type message = @"very long message that we want to sign later we want to verify it.";
+    
+    // digest
+    __auto_type hashData = [[[MIHECDigest alloc] initWithLength:MIHECDigest__Constants.sha256] applyToString:message];
+    XCTAssertNotNil(hashData);
+    
+    // sign
+    __auto_type private = (MIHECPrivateKey *)keyPair.private;
+    __auto_type signature = [private theSignMessage:hashData error:NULL];
+    XCTAssertNotNil(signature);
+    
+    // verify
+    __auto_type public = (MIHECPublicKey *)keyPair.public;
+    __auto_type verified = [public verifyTheSignature:signature message:hashData];
+    XCTAssertTrue(verified);
 }
 
 - (void)testVerification {

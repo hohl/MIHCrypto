@@ -22,6 +22,7 @@
     if (key == NULL) {
         return nil;
     }
+    
     __auto_type the_key = [[MIHECKey alloc] initWithKey:key];
     __auto_type privateKey = [[MIHECPrivateKey alloc] initWithKey:the_key];
     __auto_type publicKey = [[MIHECPublicKey alloc] initWithKey:the_key];
@@ -47,6 +48,7 @@
 - (MIHKeyPair *)generateKeyPairWithCurve:(MIHECCurve *)curve {
     __auto_type identifier = curve.identifier;
     __auto_type ec_key = EC_KEY_new_by_curve_name(identifier.unsignedShortValue);
+    EC_KEY_generate_key(ec_key);
     return [self pairWithECKey:ec_key];
 }
 - (MIHKeyPair *)generateKeyPairWithGroup:(MIHECCurveGroup *)group {

@@ -67,12 +67,28 @@
         return NO;
     }
 
+//    ECDSA_SIG *theSignature = (__bridge ECDSA_SIG *)(signature);
     __auto_type theSignature = [[MIHECSignature alloc] initWithData:signature];
     if (theSignature == nil) {
         return NO;
     }
     
     __auto_type status = ECDSA_do_verify(digest, digestLength, theSignature.signature, self.key.key);
+    switch (status) {
+        case 1: return YES;
+        case 0: return NO;
+        case -1: return NO; // error, special handling
+        default: return NO;
+    }
+}
+
+- (BOOL)verifyTheSignature:(MIHECSignature *)signature message:(NSData *)message {
+    const unsigned char *digest = [MIHNSDataExtension bytesFromData:message];
+    __auto_type digestLength = message.length;
+    if (digest == NULL) {
+        return NO;
+    }
+    __auto_type status = ECDSA_do_verify(digest, digestLength, signature.signature, self.key.key);
     switch (status) {
         case 1: return YES;
         case 0: return NO;

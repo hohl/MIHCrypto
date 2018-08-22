@@ -13,7 +13,8 @@
 @interface MIHECPublicKey : MIHECBaseKey
 
 @end
-
+@class MIHECSignature;
 @interface MIHECPublicKey (MIHPublicKey) <MIHPublicKey>
 - (BOOL)verifySignature:(NSData *)signature message:(NSData *)message;
+- (BOOL)verifyTheSignature:(MIHECSignature *)signature message:(NSData *)message;
 @end
