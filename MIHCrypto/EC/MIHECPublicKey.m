@@ -66,20 +66,27 @@
     if (digest == NULL) {
         return NO;
     }
-
-//    ECDSA_SIG *theSignature = (__bridge ECDSA_SIG *)(signature);
-    __auto_type theSignature = [[MIHECSignature alloc] initWithData:signature];
-    if (theSignature == nil) {
+    
+    const unsigned char *signatureBytes = [MIHNSDataExtension bytesFromData:signature];
+    __auto_type signatureBytesLength = signature.length;
+    if (signature == NULL) {
         return NO;
     }
-    
-    __auto_type status = ECDSA_do_verify(digest, digestLength, theSignature.signature, self.key.key);
+
+    __auto_type status = ECDSA_verify(0, digest, digestLength, signatureBytes, signatureBytesLength, self.key.key);
     switch (status) {
         case 1: return YES;
         case 0: return NO;
         case -1: return NO; // error, special handling
         default: return NO;
     }
+//    ECDSA_SIG *theSignature = (__bridge ECDSA_SIG *)(signature);
+//    __auto_type theSignature = [[MIHECSignature alloc] initWithData:signature];
+//    if (theSignature == nil) {
+//        return NO;
+//    }
+    
+//    __auto_type status = ECDSA_do_verify(digest, digestLength, theSignature.signature, self.key.key);
 }
 
 - (BOOL)verifyTheSignature:(MIHECSignature *)signature message:(NSData *)message {

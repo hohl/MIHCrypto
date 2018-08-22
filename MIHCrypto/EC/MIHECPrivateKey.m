@@ -70,17 +70,28 @@
         return nil;
     }
     
-    // convert signature to data
-    // maybe use another class for this.
-    // yes, we need signature object.
-    __auto_type signature = ECDSA_do_sign(digest, digestLength, self.key.key);
-    if (signature == NULL) {
+    // note: sig must point to ECDSA_size(eckey) bytes of memory
+    unsigned char *signature = malloc(ECDSA_size(self.key.key));
+    unsigned int signatureSize = 0;
+    
+    if (ECDSA_sign(0, digest, digestLength, signature, &signatureSize, self.key.key) == 0) {
         return nil;
     }
-
-    __auto_type theSignature = [[MIHECSignature alloc] initWithSignature:signature];
-    __auto_type result = theSignature.dataValue;
+    
+//    __auto_type signatureBytes = realloc(signature, signatureSize);
+    __auto_type result = [[NSData alloc] initWithBytes:signature length:signatureSize];
     return result;
+//    // convert signature to data
+//    // maybe use another class for this.
+//    // yes, we need signature object.
+//    __auto_type signature = ECDSA_do_sign(digest, digestLength, self.key.key);
+//    if (signature == NULL) {
+//        return nil;
+//    }
+//
+//    __auto_type theSignature = [[MIHECSignature alloc] initWithSignature:signature];
+//    __auto_type result = theSignature.dataValue;
+//    return result;
 }
 
 - (MIHECSignature *)theSignMessage:(NSData *)message error:(NSError *__autoreleasing *)error {

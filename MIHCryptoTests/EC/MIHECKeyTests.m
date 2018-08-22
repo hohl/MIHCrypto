@@ -43,12 +43,12 @@
     
     // sign
     __auto_type private = (MIHECPrivateKey *)keyPair.private;
-    __auto_type signature = [private theSignMessage:hashData error:NULL];
+    __auto_type signature = [private signMessage:hashData error:NULL];
     XCTAssertNotNil(signature);
     
     // verify
     __auto_type public = (MIHECPublicKey *)keyPair.public;
-    __auto_type verified = [public verifyTheSignature:signature message:hashData];
+    __auto_type verified = [public verifySignature:signature message:hashData];
     XCTAssertTrue(verified);
 }
 
