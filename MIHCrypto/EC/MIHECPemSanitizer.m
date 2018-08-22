@@ -56,6 +56,10 @@
 #import "NSData+MIHConversion.h"
 @implementation MIHECPemSanitizer
 
+- (BOOL)isValidBase64String:(NSString *)string {
+    return [[NSData alloc] initWithBase64EncodedString:string options:0] != nil;
+}
+
 - (BOOL)isValidPemString:(NSString *)string {
     __auto_type expression = [self pemEntryRegularExpression];
     __auto_type range = NSMakeRange(0, string.length);
@@ -73,7 +77,8 @@
     __auto_type beginHeader = [entry beginHeaderOfType:type];
     __auto_type endHeader = [entry endHeaderOfType:type];
     
-    if (string != nil) {
+    BOOL canConvertToPem = string != nil && [self isValidBase64String:string];
+    if (canConvertToPem) {
         __auto_type formattedString = [[[NSData alloc] initWithBase64Encoding:string] MIH_base64EncodedStringWithWrapWidth:64];
         __auto_type result = @[beginHeader, formattedString, endHeader];
         return [[result componentsJoinedByString:@"\n"] stringByAppendingString:@"\n"];

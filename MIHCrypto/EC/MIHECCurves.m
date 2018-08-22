@@ -8,6 +8,7 @@
 
 #import "MIHECCurves.h"
 #import "MIHEC.h"
+#import <openssl/objects.h> // convert nid to sn.
 
 @interface MIHECCurve ()
 // maybe add flag that buildin_curve is ok?
@@ -53,6 +54,17 @@
 
 - (NSString *)name {
     if (self.valid) {
+        __auto_type sn = OBJ_nid2sn(self.curve.nid);
+        if (sn == NULL) {
+            return nil;
+        }
+        return [NSString stringWithCString:sn encoding:NSASCIIStringEncoding];
+    }
+    return nil;
+}
+
+- (NSString *)comment {
+    if (self.valid) {
         return [NSString stringWithCString:self.curve.comment encoding:NSASCIIStringEncoding];
     }
     return nil;
@@ -61,7 +73,8 @@
 - (NSDictionary *)debugInformation {
     return @{
              @"identifier": self.identifier ?: [NSNull null],
-             @"name": self.name ?: [NSNull null]
+             @"name": self.name ?: [NSNull null],
+             @"comment": self.comment ?: [NSNull null]
              };
 }
 @end
@@ -96,7 +109,7 @@
     return self;
 }
 + (size_t)defaultCountOfCurves {
-    return 10;
+    return EC_get_builtin_curves(NULL, 0);
 }
 + (NSArray<MIHECCurve *> *)curvesWithCount:(NSInteger)count {
     // we need all curves?
@@ -123,9 +136,9 @@
 @implementation MIHECCurves (Sizes)
 - (NSDictionary <NSNumber *, NSString*>*)namesAndSizes {
     return @{
-             @(MIHECCurvesSizes.size256) : @"secp256r1",
+             @(MIHECCurvesSizes.size256) : @"prime256v1",
              @(MIHECCurvesSizes.size384) : @"secp384r1",
-             @(MIHECCurvesSizes.size512) : @"secp521r1",
+             @(MIHECCurvesSizes.size512) : @"secp521r1"
              };
 }
 - (NSString *)nameBySize:(NSInteger)size {
@@ -138,7 +151,7 @@
     
     __auto_type curves = [self requestedCurvesWithCount:self.class.defaultCountOfCurves].curves;
     __auto_type filtered = [curves filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(MIHECCurve * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject isEqualTo:name];
+        return [evaluatedObject.name isEqualTo:name];
     }]];
     return filtered.firstObject;
 }

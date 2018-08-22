@@ -14,4 +14,6 @@
 
 @end
 
-@interface MIHECPublicKey (MIHPublicKey) <MIHPublicKey> @end
+@interface MIHECPublicKey (MIHPublicKey) <MIHPublicKey>
+- (BOOL)verifySignature:(NSData *)signature message:(NSData *)message;
+@end

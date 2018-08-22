@@ -12,6 +12,7 @@
 @interface MIHECCurve : MIHECObject// <NSCopying>
 @property (copy, nonatomic, readonly) NSNumber *identifier;
 @property (copy, nonatomic, readonly) NSString *name;
+@property (copy, nonatomic, readonly) NSString *comment;
 @end
 
 @interface MIHECCurvesSizes : MIHECObject

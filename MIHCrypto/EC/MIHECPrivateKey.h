@@ -12,4 +12,6 @@
 
 @interface MIHECPrivateKey : MIHECBaseKey @end
 
-@interface MIHECPrivateKey (MIHPrivateKey) <MIHPrivateKey> @end
+@interface MIHECPrivateKey (MIHPrivateKey) <MIHPrivateKey>
+- (NSData *)signMessage:(NSData *)message error:(NSError *__autoreleasing *)error;
+@end
