@@ -1,10 +1,16 @@
 PODS:
-  - OpenSSL-Universal (1.0.1.18)
+  - OpenSSL-Universal (1.0.1.20)
 
 DEPENDENCIES:
-  - OpenSSL-Universal (~> 1.0.1.s)
+  - OpenSSL-Universal (~> 1.0.1.18)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - OpenSSL-Universal
 
 SPEC CHECKSUMS:
-  OpenSSL-Universal: 79fd751a7b4db41f5b430e767c9bbf681b5c8330
+  OpenSSL-Universal: 71f2c4b2ae758e2218090f905e95ca0ac5c01be7
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 60999d047984d5da04537bd4b9810dfe882832b8
+
+COCOAPODS: 1.5.3
