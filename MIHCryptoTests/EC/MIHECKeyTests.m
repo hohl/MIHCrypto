@@ -13,6 +13,7 @@
 #import "MIHECPrivateKey.h"
 #import "MIHECPublicKey.h"
 #import "MIHECDigest.h"
+#import "MIHTestsHelperCertificatesAssetAccessor.h"
 
 @interface MIHECKeyTests : XCTestCase
 
@@ -52,8 +53,40 @@
     XCTAssertTrue(verified);
 }
 
-- (void)testVerification {
+- (void)testSigningAndVerifyingFromAssets {
+    __auto_type helper = [[MIHTestsHelperCertificatesAssetAccessor alloc] initWithAlgorithName:MIHTestsHelperCertificatesAssetAccessor__AlgorithmNames.es256];
+    XCTAssertNotNil(helper.privateKeyBase64);
+    XCTAssertNotNil(helper.publicKeyBase64);
+    __auto_type p = helper.privateKeyBase64;
+    __auto_type q = helper.publicKeyBase64;
+    p;
+    q;
+//    __auto_type privateKey = ({
+//        __auto_type pem = helper.privateKeyBase64;
+//        __auto_type key = [[MIHECPrivateKey alloc] initWithData:[pem dataUsingEncoding:NSUTF8StringEncoding]];
+//        key;
+//    });
+//    __auto_type publicKey = ({
+//        __auto_type pem = helper.publicKeyBase64;
+//        __auto_type key = [[MIHECPublicKey alloc] initWithData:[pem dataUsingEncoding:NSUTF8StringEncoding]];
+//        key;
+//    });
     
+//    __auto_type message = @"very long message that we want to sign later we want to verify it.";
+//
+//    // digest
+//    __auto_type hashData = [[[MIHECDigest alloc] initWithLength:MIHECDigest__Constants.sha256] applyToString:message];
+//    XCTAssertNotNil(hashData);
+//
+//    // sign
+//    __auto_type private = privateKey;
+//    __auto_type signature = [private signMessage:hashData error:NULL];
+//    XCTAssertNotNil(signature);
+//
+//    // verify
+//    __auto_type public = publicKey;
+//    __auto_type verified = [public verifySignature:signature message:hashData];
+//    XCTAssertTrue(verified);
 }
 
 //- (void)testDescription {

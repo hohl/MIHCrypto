@@ -10,9 +10,9 @@
 #import "MIHTestsHelperCertificatesAssetAccessor.h"
 
 @implementation MIHTestsHelperCertificatesAssetAccessor__AlgorithmNames
-+ (NSString *)ES256 { return NSStringFromSelector(_cmd); }
-+ (NSString *)ES384 { return NSStringFromSelector(_cmd); }
-+ (NSString *)ES512 { return NSStringFromSelector(_cmd); }
++ (NSString *)es256 { return NSStringFromSelector(_cmd); }
++ (NSString *)es384 { return NSStringFromSelector(_cmd); }
++ (NSString *)es512 { return NSStringFromSelector(_cmd); }
 @end
 
 @implementation MIHTestsHelperCertificatesAssetAccessor (FolderAccess)
@@ -23,7 +23,7 @@
 
 - (NSData *)dataFromFileWithName:(NSString *)name {
     __auto_type path = [self.folder stringByAppendingPathComponent:name];
-    if (@available(macOS 10.11, *)) {        
+    if (@available(macOS 10.11, *)) {
         __auto_type asset = [[NSDataAsset alloc] initWithName:path bundle:[NSBundle bundleForClass:self.class]];
         __auto_type data = asset.data;
         return data;
