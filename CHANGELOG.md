@@ -1,5 +1,11 @@
 ## Changelog
 
+### Version 0.5.0
+
+- Adds `MIHEC*` classes to support Elliptic Curve Cryptography.
+
+There are no API breaks in release 0.5.0 compared to 0.4.1.
+
 ### Version 0.4.1
 
  - Adds `signWithMD5:error:` and `verifySignatureWithMD5:message:` to `MIHRSAPrivateKey` and `MIHRSAPublicKey`.
