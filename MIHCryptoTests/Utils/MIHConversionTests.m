@@ -98,3 +98,47 @@
 }
 
 @end
+
+#import "MIHECPemSanitizer.h"
+@interface MIHECPemSanitizerTests : XCTestCase @end
+
+@implementation MIHECPemSanitizerTests
+
+
+// WELL!
+// \r\n is a correct separator for base64 alignment.
+- (NSString *)pemContent {
+    return @"-----BEGIN EC PRIVATE KEY-----\n"
+    "MIGkAgEBBDA4MOBnImNGKyrmWrpm+zJJYdzylhvpAGaCXAQK7gNpLIGkkK+t/E5J\r\n"
+    "MEPP2F/rFM6gBwYFK4EEACKhZANiAATFBX/XSrL3Bb94PKHu/CyrtkXgyeCnbWUl\r\n"
+    "tmG0/qomAdlpa9XMHk/gp5Cf7tKEa8Fp5c7LKAr76U702QPDg2N/Y5sv8CwzgYM4\r\n"
+    "L3eqGBTAK0aHYty1nh39YyYG6Hrw46E=\n"
+    "-----END EC PRIVATE KEY-----\n";
+}
+
+- (NSString *)base64Content {
+    return @"MIGkAgEBBDA4MOBnImNGKyrmWrpm+zJJYdzylhvpAGaCXAQK7gNpLIGkkK+t/E5J"
+    "MEPP2F/rFM6gBwYFK4EEACKhZANiAATFBX/XSrL3Bb94PKHu/CyrtkXgyeCnbWUl"
+    "tmG0/qomAdlpa9XMHk/gp5Cf7tKEa8Fp5c7LKAr76U702QPDg2N/Y5sv8CwzgYM4"
+    "L3eqGBTAK0aHYty1nh39YyYG6Hrw46E=";
+}
+
+- (void)testConvertPemWell {
+    __auto_type sanitizer = [MIHECPemSanitizer new];
+    __auto_type pemContent = self.pemContent;
+    __auto_type base64Content = self.base64Content;
+    
+    {
+        __auto_type result = [sanitizer unapply:pemContent];
+        XCTAssertNotNil(result);
+        XCTAssertEqualObjects(result, base64Content);
+    }
+    
+    {
+        __auto_type result = [sanitizer apply:base64Content type:@"EC PRIVATE KEY"];
+        XCTAssertNotNil(result);
+        XCTAssertEqualObjects(result, pemContent);
+    }
+}
+
+@end
