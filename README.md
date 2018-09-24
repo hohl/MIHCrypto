@@ -19,7 +19,7 @@ The aim of the MIHCrypto library is to provide an object-oriented interface whic
 
 ```ruby
 platform :ios, '6.0'
-pod "MIHCrypto", "~> 0.4.1"
+pod "MIHCrypto", "~> 0.5.0"
 ```
 
 ### Sample Code
@@ -65,17 +65,15 @@ As already mentioned OpenSSL is very powerful and large project so this library 
  - DES (block cipher)
  - MD5 (hash algorithm)
  - RSA (public-key cryptography)
- - SHA, SHA256, SHA384, SHA512 (hash algorithm)
-
-Following approaches are in progress and may get published shortly:
-
  - ECC (public-key cryptography)
+ - SHA, SHA256, SHA384, SHA512 (hash algorithm)
  
 Anybody is welcome to add additional support for other approaches.
 
 ### Contributors
 
  - [Michael Hohl](http://www.michaelhohl.net/)
+ - [Dmitry Lobanov](https://github.com/lolgear)
  - [Akhil Stanislavose](https://github.com/akhilstanislavose)
  - [Andrey Toropchin](https://github.com/4ndrey)
 
