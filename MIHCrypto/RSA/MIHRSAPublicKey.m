@@ -48,7 +48,7 @@
             _rsa = EVP_PKEY_get1_RSA(pkey);
         }
         @finally {
-            //EVP_PKEY_free(pkey);
+            EVP_PKEY_free(pkey);
         }
     }
 
