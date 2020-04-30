@@ -1,5 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
-
+source 'https://cdn.cocoapods.org/'
 platform :osx, '10.9'
 
 def all
