@@ -54,7 +54,7 @@ MIHCrypto is based on 5 core protocols which are implemented by various algorith
 
 ### Requirements
 
-MIHCrypto requires Xcode 4 and above, targeting either iOS 5.0 and above, or Mac OS 10.7 Mountain Lion (64-bit with modern Cocoa runtime) and above.
+MIHCrypto requires Xcode 4 and above, targeting either iOS 6.0 and above, or Mac OS 10.9 Mavericks (64-bit with modern Cocoa runtime) and above.
 
 ## About
 
@@ -65,17 +65,15 @@ As already mentioned OpenSSL is very powerful and large project so this library 
  - DES (block cipher)
  - MD5 (hash algorithm)
  - RSA (public-key cryptography)
- - SHA, SHA256, SHA384, SHA512 (hash algorithm)
-
-Following approaches are in progress and may get published shortly:
-
  - ECC (public-key cryptography)
+ - SHA, SHA256, SHA384, SHA512 (hash algorithm)
  
 Anybody is welcome to add additional support for other approaches.
 
 ### Contributors
 
  - [Michael Hohl](http://www.michaelhohl.net/)
+ - [Dmitry Lobanov](https://github.com/lolgear)
  - [Akhil Stanislavose](https://github.com/akhilstanislavose)
  - [Andrey Toropchin](https://github.com/4ndrey)
 

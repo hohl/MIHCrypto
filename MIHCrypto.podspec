@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "MIHCrypto"
-  s.version      = "0.4.1"
+  s.version      = "0.5.0"
   s.license      = 'MIT'
   s.summary      = "OpenSSL wrapper for Objective-C"
   s.description  = "MIHCrypto provides an object-oriented cryptography framework based on libCrypto 
@@ -9,10 +9,12 @@ Pod::Spec.new do |s|
   s.authors       =  {'Michael Hohl' => 'me@michaelhohl.net'}
   s.source       = { :git => "https://github.com/hohl/MIHCrypto.git", :tag => "#{s.version}" }
   
-  s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.10'
+
+  s.ios.deployment_target = '6.0'
+  s.osx.deployment_target = '10.9'
 
   s.requires_arc = true
+  s.static_framework = true
 
   s.xcconfig = { 'OTHER_CFLAGS' => '-DLIBRESSL', 
         'LIBRARY_SEARCH_PATHS' => '"${PODS_ROOT}/OpenSSL-Universal/lib-ios"' }
@@ -21,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.source_files = 'MIHCrypto/{Utils,Core}/*.{h,m,c}'
-    core.dependency 'OpenSSL-Universal', '~> 1.0.1.18'
+    core.dependency 'OpenSSL-Universal', '~> 1.0.2.19'
   end
 
   s.subspec 'Mathematics' do |ss|
@@ -36,6 +38,11 @@ Pod::Spec.new do |s|
   
   s.subspec 'DES' do |ss|
     ss.source_files = 'MIHCrypto/DES/*.{h,m,c}'
+    ss.dependency 'MIHCrypto/Core'
+  end
+
+  s.subspec 'EC' do |ss|
+    ss.source_files = 'MIHCrypto/EC/*.{h,m,c}'
     ss.dependency 'MIHCrypto/Core'
   end
 

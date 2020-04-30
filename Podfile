@@ -1,10 +1,15 @@
 source 'https://github.com/CocoaPods/Specs.git'
-platform :osx, '10.8'
+
+platform :osx, '10.9'
+
+def all
+	pod 'OpenSSL-Universal', '~> 1.0.2.19'
+end
 
 target 'MIHCrypto' do
-  pod 'OpenSSL-Universal', '~> 1.0.1.18'
+	all
 end
 
 target 'MIHCryptoTests' do
-  pod 'OpenSSL-Universal', '~> 1.0.1.18'
+	all
 end

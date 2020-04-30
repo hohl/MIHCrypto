@@ -7,9 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A767E4C2122EB22005187F2 /* MIHEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E472122EB22005187F2 /* MIHEC.m */; };
+		0A767E4D2122EB22005187F2 /* MIHECCurveGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E492122EB22005187F2 /* MIHECCurveGroup.m */; };
+		0A767E4E2122EB22005187F2 /* MIHECCurves.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E4B2122EB22005187F2 /* MIHECCurves.m */; };
+		0A767E512122EC42005187F2 /* MIHECObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E502122EC42005187F2 /* MIHECObject.m */; };
+		0A767E542122ED11005187F2 /* MIHECKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E532122ED11005187F2 /* MIHECKeyFactory.m */; };
+		0A767E572122EFCA005187F2 /* MIHECKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E562122EFCA005187F2 /* MIHECKey.m */; };
+		0A767E5A2122F0CE005187F2 /* MIHECPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E592122F0CE005187F2 /* MIHECPrivateKey.m */; };
+		0A767E5D2122F0D7005187F2 /* MIHECPublicKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E5C2122F0D7005187F2 /* MIHECPublicKey.m */; };
+		0A767E6021231673005187F2 /* MIHECBaseKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E5F21231673005187F2 /* MIHECBaseKey.m */; };
+		0A89AC5F212E986E00C26312 /* Certificates.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A89AC5E212E986E00C26312 /* Certificates.xcassets */; };
+		0A9E7FFF212C17500037A82F /* MIHECSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E7FFE212C17500037A82F /* MIHECSignature.m */; };
+		0A9E8005212C3F920037A82F /* MIHNSDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E8004212C3F920037A82F /* MIHNSDataExtension.m */; };
+		0A9E8008212C41D60037A82F /* MIHECPemSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E8007212C41D60037A82F /* MIHECPemSanitizer.m */; };
+		0A9E800B212C59100037A82F /* MIHEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E472122EB22005187F2 /* MIHEC.m */; };
+		0A9E800C212C59100037A82F /* MIHECCurveGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E492122EB22005187F2 /* MIHECCurveGroup.m */; };
+		0A9E800D212C59100037A82F /* MIHECCurves.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E4B2122EB22005187F2 /* MIHECCurves.m */; };
+		0A9E800E212C59100037A82F /* MIHECObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E502122EC42005187F2 /* MIHECObject.m */; };
+		0A9E800F212C59100037A82F /* MIHECKeyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E532122ED11005187F2 /* MIHECKeyFactory.m */; };
+		0A9E8010212C59100037A82F /* MIHECKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E562122EFCA005187F2 /* MIHECKey.m */; };
+		0A9E8011212C59100037A82F /* MIHECBaseKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E5F21231673005187F2 /* MIHECBaseKey.m */; };
+		0A9E8012212C59100037A82F /* MIHECPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E592122F0CE005187F2 /* MIHECPrivateKey.m */; };
+		0A9E8013212C59100037A82F /* MIHECPublicKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E5C2122F0D7005187F2 /* MIHECPublicKey.m */; };
+		0A9E8014212C59100037A82F /* MIHECSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E7FFE212C17500037A82F /* MIHECSignature.m */; };
+		0A9E8015212C59100037A82F /* MIHNSDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E8004212C3F920037A82F /* MIHNSDataExtension.m */; };
+		0A9E8016212C59100037A82F /* MIHECPemSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E8007212C41D60037A82F /* MIHECPemSanitizer.m */; };
+		0A9E801E212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E801D212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.m */; };
+		0A9E8020212DB0730037A82F /* MIHECKeyFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E801F212DB0730037A82F /* MIHECKeyFactoryTests.m */; };
+		0AFE16E1212DB97C00B6E1EE /* MIHECKeyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE16E0212DB97C00B6E1EE /* MIHECKeyTests.m */; };
+		0AFE16E5212DC81C00B6E1EE /* MIHECDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE16E4212DC81C00B6E1EE /* MIHECDigest.m */; };
+		0AFE16E6212DD3F000B6E1EE /* MIHECDigest.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE16E4212DC81C00B6E1EE /* MIHECDigest.m */; };
 		30F444513B60F9F0518B1DB1 /* MIHBigInteger+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F44643891A3BC409D257E0 /* MIHBigInteger+Factory.m */; };
 		30F449352F8A7B842ACC7139 /* MIHBigInteger+Factory.m in Sources */ = {isa = PBXBuildFile; fileRef = 30F44643891A3BC409D257E0 /* MIHBigInteger+Factory.m */; };
-		3FAD852894F3429B91E0FE10 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675F91913CB4A25B61DA7CC /* libPods.a */; };
 		5F20E406191BB20900D313FB /* MIHBigInteger+Internal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */; };
 		5F20E40D191BC6FE00D313FB /* MIHBigIntegerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F20E40C191BC6FE00D313FB /* MIHBigIntegerTests.m */; };
 		5F20E40E191BC83500D313FB /* MIHBigInteger.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9201D7191B7B30008FBBB2 /* MIHBigInteger.m */; };
@@ -76,7 +105,8 @@
 		5FDD19B218FDA0D800620929 /* MIHMessageDigest5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */; };
 		5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */; };
 		5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */; };
-		C46F28014D6D496E98C9068F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0675F91913CB4A25B61DA7CC /* libPods.a */; };
+		63697866AB431429D06BD6FA /* libPods-MIHCryptoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4ECFDEDF13663601982F93 /* libPods-MIHCryptoTests.a */; };
+		E72B1E2BEB4357F0E26A04FC /* libPods-MIHCrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E92E0756432C719CCE71C61 /* libPods-MIHCrypto.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,10 +133,40 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0675F91913CB4A25B61DA7CC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0A767E462122EB22005187F2 /* MIHEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHEC.h; sourceTree = "<group>"; };
+		0A767E472122EB22005187F2 /* MIHEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHEC.m; sourceTree = "<group>"; };
+		0A767E482122EB22005187F2 /* MIHECCurveGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHECCurveGroup.h; sourceTree = "<group>"; };
+		0A767E492122EB22005187F2 /* MIHECCurveGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHECCurveGroup.m; sourceTree = "<group>"; };
+		0A767E4A2122EB22005187F2 /* MIHECCurves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHECCurves.h; sourceTree = "<group>"; };
+		0A767E4B2122EB22005187F2 /* MIHECCurves.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHECCurves.m; sourceTree = "<group>"; };
+		0A767E4F2122EC42005187F2 /* MIHECObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECObject.h; sourceTree = "<group>"; };
+		0A767E502122EC42005187F2 /* MIHECObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECObject.m; sourceTree = "<group>"; };
+		0A767E522122ED11005187F2 /* MIHECKeyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECKeyFactory.h; sourceTree = "<group>"; };
+		0A767E532122ED11005187F2 /* MIHECKeyFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECKeyFactory.m; sourceTree = "<group>"; };
+		0A767E552122EFCA005187F2 /* MIHECKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECKey.h; sourceTree = "<group>"; };
+		0A767E562122EFCA005187F2 /* MIHECKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECKey.m; sourceTree = "<group>"; };
+		0A767E582122F0CE005187F2 /* MIHECPrivateKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECPrivateKey.h; sourceTree = "<group>"; };
+		0A767E592122F0CE005187F2 /* MIHECPrivateKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECPrivateKey.m; sourceTree = "<group>"; };
+		0A767E5B2122F0D7005187F2 /* MIHECPublicKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECPublicKey.h; sourceTree = "<group>"; };
+		0A767E5C2122F0D7005187F2 /* MIHECPublicKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECPublicKey.m; sourceTree = "<group>"; };
+		0A767E5F21231673005187F2 /* MIHECBaseKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECBaseKey.m; sourceTree = "<group>"; };
+		0A767E6121231770005187F2 /* MIHECBaseKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHECBaseKey.h; sourceTree = "<group>"; };
+		0A89AC5E212E986E00C26312 /* Certificates.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Certificates.xcassets; sourceTree = "<group>"; };
+		0A9E7FFD212C17500037A82F /* MIHECSignature.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECSignature.h; sourceTree = "<group>"; };
+		0A9E7FFE212C17500037A82F /* MIHECSignature.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECSignature.m; sourceTree = "<group>"; };
+		0A9E8003212C3F920037A82F /* MIHNSDataExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHNSDataExtension.h; sourceTree = "<group>"; };
+		0A9E8004212C3F920037A82F /* MIHNSDataExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHNSDataExtension.m; sourceTree = "<group>"; };
+		0A9E8006212C41D60037A82F /* MIHECPemSanitizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECPemSanitizer.h; sourceTree = "<group>"; };
+		0A9E8007212C41D60037A82F /* MIHECPemSanitizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECPemSanitizer.m; sourceTree = "<group>"; };
+		0A9E801C212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHTestsHelperCertificatesAssetAccessor.h; sourceTree = "<group>"; };
+		0A9E801D212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHTestsHelperCertificatesAssetAccessor.m; sourceTree = "<group>"; };
+		0A9E801F212DB0730037A82F /* MIHECKeyFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECKeyFactoryTests.m; sourceTree = "<group>"; };
+		0AFE16E0212DB97C00B6E1EE /* MIHECKeyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECKeyTests.m; sourceTree = "<group>"; };
+		0AFE16E3212DC81C00B6E1EE /* MIHECDigest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHECDigest.h; sourceTree = "<group>"; };
+		0AFE16E4212DC81C00B6E1EE /* MIHECDigest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIHECDigest.m; sourceTree = "<group>"; };
+		1E92E0756432C719CCE71C61 /* libPods-MIHCrypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MIHCrypto.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		30F44365BA5528C54A136E6B /* MIHBigInteger+Factory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MIHBigInteger+Factory.h"; path = "Mathematics/MIHBigInteger+Factory.h"; sourceTree = "<group>"; };
 		30F44643891A3BC409D257E0 /* MIHBigInteger+Factory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MIHBigInteger+Factory.m"; path = "Mathematics/MIHBigInteger+Factory.m"; sourceTree = "<group>"; };
-		4024929363B7338D94B18BA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		5F20E404191BB20900D313FB /* MIHBigInteger+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MIHBigInteger+Internal.h"; path = "Mathematics/MIHBigInteger+Internal.h"; sourceTree = "<group>"; };
 		5F20E405191BB20900D313FB /* MIHBigInteger+Internal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "MIHBigInteger+Internal.m"; path = "Mathematics/MIHBigInteger+Internal.m"; sourceTree = "<group>"; };
 		5F20E40C191BC6FE00D313FB /* MIHBigIntegerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHBigIntegerTests.m; path = Mathematics/MIHBigIntegerTests.m; sourceTree = "<group>"; };
@@ -161,6 +221,7 @@
 		5F35BDB218F8523E00596974 /* NSData+MIHConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+MIHConversion.m"; sourceTree = "<group>"; };
 		5F35BDB318F8523E00596974 /* NSString+MIHConversion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MIHConversion.h"; sourceTree = "<group>"; };
 		5F35BDB418F8523E00596974 /* NSString+MIHConversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MIHConversion.m"; sourceTree = "<group>"; };
+		5F4ECFDEDF13663601982F93 /* libPods-MIHCryptoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MIHCryptoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F7005BF1900657A003789B7 /* MIHDESKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHDESKey.h; sourceTree = "<group>"; };
 		5F7005C01900657A003789B7 /* MIHDESKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHDESKey.m; sourceTree = "<group>"; };
 		5F7005C319006593003789B7 /* MIHDESKeyFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHDESKeyFactory.h; sourceTree = "<group>"; };
@@ -187,7 +248,10 @@
 		5FDD19B118FDA0D800620929 /* MIHMessageDigest5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHMessageDigest5.m; path = MD5/MIHMessageDigest5.m; sourceTree = "<group>"; };
 		5FDD19B618FDA19900620929 /* MIHMessageDigest5Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIHMessageDigest5Tests.m; path = MD5/MIHMessageDigest5Tests.m; sourceTree = "<group>"; };
 		5FF8106F18FFA4DE00408780 /* MIHCoding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIHCoding.h; sourceTree = "<group>"; };
-		E1C1AAF97812F44EE1DF89ED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		A3F370FFFAC9658A65C32156 /* Pods-MIHCrypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIHCrypto.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MIHCrypto/Pods-MIHCrypto.debug.xcconfig"; sourceTree = "<group>"; };
+		A4CD71436425C44B7659E0AD /* Pods-MIHCrypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIHCrypto.release.xcconfig"; path = "Pods/Target Support Files/Pods-MIHCrypto/Pods-MIHCrypto.release.xcconfig"; sourceTree = "<group>"; };
+		CF7FF76C800170D14FAA6E7D /* Pods-MIHCryptoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIHCryptoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MIHCryptoTests/Pods-MIHCryptoTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1725649F9D4969B9F0A4A84 /* Pods-MIHCryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MIHCryptoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MIHCryptoTests/Pods-MIHCryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F35130318FC2590002BD9D9 /* Foundation.framework in Frameworks */,
-				3FAD852894F3429B91E0FE10 /* libPods.a in Frameworks */,
+				E72B1E2BEB4357F0E26A04FC /* libPods-MIHCrypto.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,13 +269,65 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F35131318FC259F002BD9D9 /* XCTest.framework in Frameworks */,
-				C46F28014D6D496E98C9068F /* libPods.a in Frameworks */,
+				63697866AB431429D06BD6FA /* libPods-MIHCryptoTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A767E452122EB22005187F2 /* EC */ = {
+			isa = PBXGroup;
+			children = (
+				0A767E462122EB22005187F2 /* MIHEC.h */,
+				0A767E472122EB22005187F2 /* MIHEC.m */,
+				0A767E482122EB22005187F2 /* MIHECCurveGroup.h */,
+				0A767E492122EB22005187F2 /* MIHECCurveGroup.m */,
+				0A767E4A2122EB22005187F2 /* MIHECCurves.h */,
+				0A767E4B2122EB22005187F2 /* MIHECCurves.m */,
+				0A767E4F2122EC42005187F2 /* MIHECObject.h */,
+				0A767E502122EC42005187F2 /* MIHECObject.m */,
+				0A767E522122ED11005187F2 /* MIHECKeyFactory.h */,
+				0A767E532122ED11005187F2 /* MIHECKeyFactory.m */,
+				0A767E552122EFCA005187F2 /* MIHECKey.h */,
+				0A767E562122EFCA005187F2 /* MIHECKey.m */,
+				0A767E6121231770005187F2 /* MIHECBaseKey.h */,
+				0A767E5F21231673005187F2 /* MIHECBaseKey.m */,
+				0A767E582122F0CE005187F2 /* MIHECPrivateKey.h */,
+				0A767E592122F0CE005187F2 /* MIHECPrivateKey.m */,
+				0A767E5B2122F0D7005187F2 /* MIHECPublicKey.h */,
+				0A767E5C2122F0D7005187F2 /* MIHECPublicKey.m */,
+				0A9E7FFD212C17500037A82F /* MIHECSignature.h */,
+				0A9E7FFE212C17500037A82F /* MIHECSignature.m */,
+				0A9E8003212C3F920037A82F /* MIHNSDataExtension.h */,
+				0A9E8004212C3F920037A82F /* MIHNSDataExtension.m */,
+				0A9E8006212C41D60037A82F /* MIHECPemSanitizer.h */,
+				0A9E8007212C41D60037A82F /* MIHECPemSanitizer.m */,
+				0AFE16E3212DC81C00B6E1EE /* MIHECDigest.h */,
+				0AFE16E4212DC81C00B6E1EE /* MIHECDigest.m */,
+			);
+			path = EC;
+			sourceTree = "<group>";
+		};
+		0A9E800A212C578B0037A82F /* EC */ = {
+			isa = PBXGroup;
+			children = (
+				0A9E801F212DB0730037A82F /* MIHECKeyFactoryTests.m */,
+				0AFE16E0212DB97C00B6E1EE /* MIHECKeyTests.m */,
+			);
+			path = EC;
+			sourceTree = "<group>";
+		};
+		0A9E8019212DAAD80037A82F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A89AC5E212E986E00C26312 /* Certificates.xcassets */,
+				0A9E801C212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.h */,
+				0A9E801D212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.m */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5F20E407191BC6D100D313FB /* Mathematics */ = {
 			isa = PBXGroup;
 			children = (
@@ -238,7 +354,7 @@
 				5F35BD5B18F850E400596974 /* MIHCryptoTests */,
 				5F35BD3518F850E400596974 /* Frameworks */,
 				5F35BD3418F850E400596974 /* Products */,
-				EC94A02F43C7A81ACC82EF40 /* Pods */,
+				F27707BA86021034AAD29B14 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -258,7 +374,8 @@
 				5F35BD3818F850E400596974 /* CoreGraphics.framework */,
 				5F35BD3A18F850E400596974 /* UIKit.framework */,
 				5F35BD5518F850E400596974 /* XCTest.framework */,
-				0675F91913CB4A25B61DA7CC /* libPods.a */,
+				1E92E0756432C719CCE71C61 /* libPods-MIHCrypto.a */,
+				5F4ECFDEDF13663601982F93 /* libPods-MIHCryptoTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,6 +388,7 @@
 				5F7005BE1900657A003789B7 /* DES */,
 				5F9201D5191B7B1E008FBBB2 /* Mathematics */,
 				5FDD19AF18FDA09000620929 /* MD5 */,
+				0A767E452122EB22005187F2 /* EC */,
 				5F35BDA018F8523E00596974 /* RSA */,
 				5F35BDAB18F8523E00596974 /* SHA */,
 				5F35BDAE18F8523E00596974 /* Utils */,
@@ -282,9 +400,10 @@
 		5F35BD5B18F850E400596974 /* MIHCryptoTests */ = {
 			isa = PBXGroup;
 			children = (
+				0A9E8019212DAAD80037A82F /* Resources */,
 				5F35BD8018F8522C00596974 /* AES */,
-				5F35BD8318F8522C00596974 /* Core */,
 				5F8C2C7519013F3C003DD9E6 /* DES */,
+				0A9E800A212C578B0037A82F /* EC */,
 				5F20E407191BC6D100D313FB /* Mathematics */,
 				5FDD19B418FDA17C00620929 /* MD5 */,
 				5F35BD8418F8522C00596974 /* RSA */,
@@ -312,13 +431,6 @@
 				5F35BD8218F8522C00596974 /* MIHAESKeyTests.m */,
 			);
 			path = AES;
-			sourceTree = "<group>";
-		};
-		5F35BD8318F8522C00596974 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		5F35BD8418F8522C00596974 /* RSA */ = {
@@ -479,11 +591,13 @@
 			name = MD5;
 			sourceTree = "<group>";
 		};
-		EC94A02F43C7A81ACC82EF40 /* Pods */ = {
+		F27707BA86021034AAD29B14 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E1C1AAF97812F44EE1DF89ED /* Pods.debug.xcconfig */,
-				4024929363B7338D94B18BA0 /* Pods.release.xcconfig */,
+				A3F370FFFAC9658A65C32156 /* Pods-MIHCrypto.debug.xcconfig */,
+				A4CD71436425C44B7659E0AD /* Pods-MIHCrypto.release.xcconfig */,
+				D1725649F9D4969B9F0A4A84 /* Pods-MIHCryptoTests.debug.xcconfig */,
+				CF7FF76C800170D14FAA6E7D /* Pods-MIHCryptoTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -495,11 +609,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F35130B18FC2590002BD9D9 /* Build configuration list for PBXNativeTarget "MIHCrypto" */;
 			buildPhases = (
-				7BA6BA6D9D86494BA5656BA7 /* Check Pods Manifest.lock */,
+				A07FE50CF4403210D23AC355 /* [CP] Check Pods Manifest.lock */,
 				5F3512FE18FC258F002BD9D9 /* Sources */,
 				5F3512FF18FC258F002BD9D9 /* Frameworks */,
 				5F35130018FC258F002BD9D9 /* CopyFiles */,
-				478D50553BB34AB096C147CD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -514,12 +627,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5F35131F18FC259F002BD9D9 /* Build configuration list for PBXNativeTarget "MIHCryptoTests" */;
 			buildPhases = (
-				AA033869E6C8443B9AA91F5A /* Check Pods Manifest.lock */,
+				64DBCA73345FA47A0585A116 /* [CP] Check Pods Manifest.lock */,
 				5F35130E18FC259F002BD9D9 /* Sources */,
 				5F35130F18FC259F002BD9D9 /* Frameworks */,
 				5F35131018FC259F002BD9D9 /* Resources */,
-				C415DB6DBD93456CB4F6D1C6 /* Copy Pods Resources */,
-				AC9B24279B3A78C7F1352FEC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -538,7 +649,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MIH;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Michael Hohl";
 				TargetAttributes = {
 					5F35131118FC259F002BD9D9 = {
@@ -571,85 +682,47 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F35131918FC259F002BD9D9 /* InfoPlist.strings in Resources */,
+				0A89AC5F212E986E00C26312 /* Certificates.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		478D50553BB34AB096C147CD /* Copy Pods Resources */ = {
+		64DBCA73345FA47A0585A116 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MIHCryptoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7BA6BA6D9D86494BA5656BA7 /* Check Pods Manifest.lock */ = {
+		A07FE50CF4403210D23AC355 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MIHCrypto-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AA033869E6C8443B9AA91F5A /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AC9B24279B3A78C7F1352FEC /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C415DB6DBD93456CB4F6D1C6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -665,23 +738,36 @@
 				5F35132B18FC25E5002BD9D9 /* MIHKeyPair.m in Sources */,
 				5F7005C11900657A003789B7 /* MIHDESKey.m in Sources */,
 				5F8C2C7B19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */,
+				0A767E4C2122EB22005187F2 /* MIHEC.m in Sources */,
 				5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
+				0A767E512122EC42005187F2 /* MIHECObject.m in Sources */,
+				0A767E542122ED11005187F2 /* MIHECKeyFactory.m in Sources */,
 				5F35132D18FC25E5002BD9D9 /* MIHRSAPrivateKey+Internal.m in Sources */,
 				5F20E406191BB20900D313FB /* MIHBigInteger+Internal.m in Sources */,
+				0A9E8005212C3F920037A82F /* MIHNSDataExtension.m in Sources */,
 				5F9201D8191B7B30008FBBB2 /* MIHBigInteger.m in Sources */,
 				5F35132E18FC25E5002BD9D9 /* MIHRSAPrivateKey.m in Sources */,
 				5FDD19B218FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
 				5F35132F18FC25E5002BD9D9 /* MIHRSAPublicKey+Internal.m in Sources */,
+				0AFE16E5212DC81C00B6E1EE /* MIHECDigest.m in Sources */,
+				0A767E5D2122F0D7005187F2 /* MIHECPublicKey.m in Sources */,
 				5F35133018FC25E5002BD9D9 /* MIHRSAPublicKey.m in Sources */,
 				5F35133118FC25E5002BD9D9 /* MIHSecureHashAlgorithm256.m in Sources */,
 				5F35133218FC25E5002BD9D9 /* MIHInternal.m in Sources */,
+				0A767E572122EFCA005187F2 /* MIHECKey.m in Sources */,
 				5F35133318FC25E5002BD9D9 /* NSData+MIHConversion.m in Sources */,
+				0A767E5A2122F0CE005187F2 /* MIHECPrivateKey.m in Sources */,
 				5F35133418FC25E5002BD9D9 /* NSString+MIHConversion.m in Sources */,
+				0A767E6021231673005187F2 /* MIHECBaseKey.m in Sources */,
+				0A767E4E2122EB22005187F2 /* MIHECCurves.m in Sources */,
 				5F7005C519006593003789B7 /* MIHDESKeyFactory.m in Sources */,
 				5FDD199C18FD978400620929 /* MIHSecureHashAlgorithm.m in Sources */,
 				5F7005C919006D25003789B7 /* MIHDESKey+Internal.m in Sources */,
 				5F34B2C41931F18400456B9F /* MIHBigIntegerRange.m in Sources */,
+				0A9E7FFF212C17500037A82F /* MIHECSignature.m in Sources */,
+				0A9E8008212C41D60037A82F /* MIHECPemSanitizer.m in Sources */,
+				0A767E4D2122EB22005187F2 /* MIHECCurveGroup.m in Sources */,
 				5FDD19A318FD9A6000620929 /* MIHSecureHashAlgorithm512.m in Sources */,
 				5F35130618FC2590002BD9D9 /* main.m in Sources */,
 				30F444513B60F9F0518B1DB1 /* MIHBigInteger+Factory.m in Sources */,
@@ -700,18 +786,28 @@
 				5FDD199F18FD981A00620929 /* MIHSecureHashAlgorithmTests.m in Sources */,
 				5FDD19A718FD9BAF00620929 /* MIHSecureHashAlgorithm512.m in Sources */,
 				5F7005C21900657A003789B7 /* MIHDESKey.m in Sources */,
+				0A9E8010212C59100037A82F /* MIHECKey.m in Sources */,
 				5FDD19B718FDA19A00620929 /* MIHMessageDigest5Tests.m in Sources */,
+				0A9E800E212C59100037A82F /* MIHECObject.m in Sources */,
+				0A9E8011212C59100037A82F /* MIHECBaseKey.m in Sources */,
+				0AFE16E6212DD3F000B6E1EE /* MIHECDigest.m in Sources */,
 				5F20E40F191BC83800D313FB /* MIHBigInteger+Internal.m in Sources */,
 				5FDD19AE18FD9F3000620929 /* MIHSecureHashAlgorithm384.m in Sources */,
+				0A9E8012212C59100037A82F /* MIHECPrivateKey.m in Sources */,
+				0A9E8016212C59100037A82F /* MIHECPemSanitizer.m in Sources */,
 				5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
+				0A9E800B212C59100037A82F /* MIHEC.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
 				5F5A756918FC2B9100773864 /* MIHKeyPair.m in Sources */,
+				0A9E8014212C59100037A82F /* MIHECSignature.m in Sources */,
+				0A9E801E212DAB9D0037A82F /* MIHTestsHelperCertificatesAssetAccessor.m in Sources */,
 				5F8C2C7819013F54003DD9E6 /* MIHDESKeyTests.m in Sources */,
 				5F5A756A18FC2B9100773864 /* MIHRSAKeyFactory.m in Sources */,
 				5F5A756B18FC2B9100773864 /* MIHRSAPrivateKey+Internal.m in Sources */,
 				5F5A756C18FC2B9100773864 /* MIHRSAPrivateKey.m in Sources */,
 				5FDD19A018FD98F100620929 /* MIHSecureHashAlgorithm.m in Sources */,
 				5F5A756D18FC2B9100773864 /* MIHRSAPublicKey+Internal.m in Sources */,
+				0A9E800D212C59100037A82F /* MIHECCurves.m in Sources */,
 				5F5A756E18FC2B9100773864 /* MIHRSAPublicKey.m in Sources */,
 				5F5A756F18FC2B9100773864 /* MIHSecureHashAlgorithm256.m in Sources */,
 				5F34B2C51931F18400456B9F /* MIHBigIntegerRange.m in Sources */,
@@ -719,14 +815,20 @@
 				5F5A757018FC2B9100773864 /* MIHInternal.m in Sources */,
 				5F5A757118FC2B9100773864 /* NSData+MIHConversion.m in Sources */,
 				5F5A757218FC2B9100773864 /* NSString+MIHConversion.m in Sources */,
+				0A9E8013212C59100037A82F /* MIHECPublicKey.m in Sources */,
+				0A9E8015212C59100037A82F /* MIHNSDataExtension.m in Sources */,
 				5F35132318FC25B9002BD9D9 /* MIHAESKeyTests.m in Sources */,
+				0A9E8020212DB0730037A82F /* MIHECKeyFactoryTests.m in Sources */,
+				0AFE16E1212DB97C00B6E1EE /* MIHECKeyTests.m in Sources */,
 				5F35132718FC25B9002BD9D9 /* MIHConversionTests.m in Sources */,
 				5F35132618FC25B9002BD9D9 /* MIHSecureHashAlgorithm256Tests.m in Sources */,
 				5F8C2C7F19015EF0003DD9E6 /* MIHDESKeyFactoryTests.m in Sources */,
+				0A9E800F212C59100037A82F /* MIHECKeyFactory.m in Sources */,
 				5F35132418FC25B9002BD9D9 /* MIHRSAKeyFactoryTests.m in Sources */,
 				5F35132518FC25B9002BD9D9 /* MIHRSAKeyTests.m in Sources */,
 				5F20E40E191BC83500D313FB /* MIHBigInteger.m in Sources */,
 				5FDD19B318FDA0D800620929 /* MIHMessageDigest5.m in Sources */,
+				0A9E800C212C59100037A82F /* MIHECCurveGroup.m in Sources */,
 				5F35132218FC25B9002BD9D9 /* MIHAESKeyFactoryTests.m in Sources */,
 				5F7005C619006593003789B7 /* MIHDESKeyFactory.m in Sources */,
 				30F449352F8A7B842ACC7139 /* MIHBigInteger+Factory.m in Sources */,
@@ -758,7 +860,7 @@
 /* Begin XCBuildConfiguration section */
 		5F35130C18FC2590002BD9D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1C1AAF97812F44EE1DF89ED /* Pods.debug.xcconfig */;
+			baseConfigurationReference = A3F370FFFAC9658A65C32156 /* Pods-MIHCrypto.debug.xcconfig */;
 			buildSettings = {
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -767,7 +869,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -775,13 +876,12 @@
 		};
 		5F35130D18FC2590002BD9D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4024929363B7338D94B18BA0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = A4CD71436425C44B7659E0AD /* Pods-MIHCrypto.release.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIHCryptoOSX/MIHCryptoOSX-Prefix.pch";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -789,7 +889,7 @@
 		};
 		5F35132018FC259F002BD9D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1C1AAF97812F44EE1DF89ED /* Pods.debug.xcconfig */;
+			baseConfigurationReference = D1725649F9D4969B9F0A4A84 /* Pods-MIHCryptoTests.debug.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -804,7 +904,6 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MIHCryptoOSXTests/MIHCryptoOSXTests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.michaelhohl.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -814,7 +913,7 @@
 		};
 		5F35132118FC259F002BD9D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4024929363B7338D94B18BA0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = CF7FF76C800170D14FAA6E7D /* Pods-MIHCryptoTests.release.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -826,7 +925,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MIHCryptoOSXTests/MIHCryptoOSXTests-Prefix.pch";
 				INFOPLIST_FILE = "MIHCryptoOSXTests/MIHCryptoOSXTests-Info.plist";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				PRODUCT_BUNDLE_IDENTIFIER = "net.michaelhohl.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
@@ -842,19 +940,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -867,7 +978,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -881,25 +993,39 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
