@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A767E4C2122EB22005187F2 /* MIHEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E472122EB22005187F2 /* MIHEC.m */; };
 		0A767E4D2122EB22005187F2 /* MIHECCurveGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E492122EB22005187F2 /* MIHECCurveGroup.m */; };
 		0A767E4E2122EB22005187F2 /* MIHECCurves.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E4B2122EB22005187F2 /* MIHECCurves.m */; };
 		0A767E512122EC42005187F2 /* MIHECObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E502122EC42005187F2 /* MIHECObject.m */; };
@@ -20,7 +19,6 @@
 		0A9E7FFF212C17500037A82F /* MIHECSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E7FFE212C17500037A82F /* MIHECSignature.m */; };
 		0A9E8005212C3F920037A82F /* MIHNSDataExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E8004212C3F920037A82F /* MIHNSDataExtension.m */; };
 		0A9E8008212C41D60037A82F /* MIHECPemSanitizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E8007212C41D60037A82F /* MIHECPemSanitizer.m */; };
-		0A9E800B212C59100037A82F /* MIHEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E472122EB22005187F2 /* MIHEC.m */; };
 		0A9E800C212C59100037A82F /* MIHECCurveGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E492122EB22005187F2 /* MIHECCurveGroup.m */; };
 		0A9E800D212C59100037A82F /* MIHECCurves.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E4B2122EB22005187F2 /* MIHECCurves.m */; };
 		0A9E800E212C59100037A82F /* MIHECObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A767E502122EC42005187F2 /* MIHECObject.m */; };
@@ -134,7 +132,6 @@
 
 /* Begin PBXFileReference section */
 		0A767E462122EB22005187F2 /* MIHEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHEC.h; sourceTree = "<group>"; };
-		0A767E472122EB22005187F2 /* MIHEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHEC.m; sourceTree = "<group>"; };
 		0A767E482122EB22005187F2 /* MIHECCurveGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHECCurveGroup.h; sourceTree = "<group>"; };
 		0A767E492122EB22005187F2 /* MIHECCurveGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIHECCurveGroup.m; sourceTree = "<group>"; };
 		0A767E4A2122EB22005187F2 /* MIHECCurves.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIHECCurves.h; sourceTree = "<group>"; };
@@ -280,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				0A767E462122EB22005187F2 /* MIHEC.h */,
-				0A767E472122EB22005187F2 /* MIHEC.m */,
 				0A767E482122EB22005187F2 /* MIHECCurveGroup.h */,
 				0A767E492122EB22005187F2 /* MIHECCurveGroup.m */,
 				0A767E4A2122EB22005187F2 /* MIHECCurves.h */,
@@ -662,6 +658,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -738,7 +735,6 @@
 				5F35132B18FC25E5002BD9D9 /* MIHKeyPair.m in Sources */,
 				5F7005C11900657A003789B7 /* MIHDESKey.m in Sources */,
 				5F8C2C7B19015303003DD9E6 /* MIHCryptoConfiguration.m in Sources */,
-				0A767E4C2122EB22005187F2 /* MIHEC.m in Sources */,
 				5FDD19AA18FD9E4F00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
 				5F35132C18FC25E5002BD9D9 /* MIHRSAKeyFactory.m in Sources */,
 				0A767E512122EC42005187F2 /* MIHECObject.m in Sources */,
@@ -796,7 +792,6 @@
 				0A9E8012212C59100037A82F /* MIHECPrivateKey.m in Sources */,
 				0A9E8016212C59100037A82F /* MIHECPemSanitizer.m in Sources */,
 				5FDD19AD18FD9F2D00620929 /* MIHSecureHashAlgorithm384.m in Sources */,
-				0A9E800B212C59100037A82F /* MIHEC.m in Sources */,
 				5F5A756818FC2B9100773864 /* MIHErrors.m in Sources */,
 				5F5A756918FC2B9100773864 /* MIHKeyPair.m in Sources */,
 				0A9E8014212C59100037A82F /* MIHECSignature.m in Sources */,

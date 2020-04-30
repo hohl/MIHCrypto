@@ -10,7 +10,3 @@
 #import <openssl/ec.h>
 #import <openssl/ecdh.h>
 #import <openssl/ecdsa.h>
-@interface MIHEC : NSObject
-+ (void)loadErrors:(BOOL)load;
-@end
-
