@@ -10,14 +10,14 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/hohl/MIHCrypto.git", :tag => "#{s.version}" }
   
   s.ios.deployment_target = '6.0'
-  s.osx.deployment_target = '10.8'
+  s.osx.deployment_target = '10.9'
 
   s.requires_arc = true
   s.static_framework = true
 
   s.subspec 'Core' do |core|
     core.source_files = 'MIHCrypto/{Utils,Core}/*.{h,m,c}'
-    core.dependency 'OpenSSL-Universal', '~> 1.0.2.13'
+    core.dependency 'OpenSSL-Universal', '~> 1.0.2.19'
   end
 
   s.subspec 'Mathematics' do |ss|
