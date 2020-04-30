@@ -151,7 +151,7 @@
     
     __auto_type curves = [self requestedCurvesWithCount:self.class.defaultCountOfCurves].curves;
     __auto_type filtered = [curves filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(MIHECCurve * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-        return [evaluatedObject.name isEqualTo:name];
+        return [evaluatedObject.name isEqualToString:name];
     }]];
     return filtered.firstObject;
 }
