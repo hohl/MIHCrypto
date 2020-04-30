@@ -75,7 +75,6 @@
     }
     
     __auto_type result = [NSData dataWithBytes:bytes length:bytesCount];
-    __auto_type alternative = [self trimmingZeros:bytes length:bytesCount];
     return result;
 }
 

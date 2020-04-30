@@ -91,8 +91,7 @@
         __auto_type range = NSMakeRange(0, string.length);
         __auto_type match = [[self pemEntryRegularExpression] firstMatchInString:string options:0 range:range];
         
-        __auto_type validMatch = (BOOL)match.numberOfRanges > 2;
-        if (!validMatch) {
+        if (match.numberOfRanges <= 2) {
             return nil;
         }
         __auto_type contentRange = [match rangeAtIndex:2];

@@ -57,10 +57,6 @@
     __auto_type helper = [[MIHTestsHelperCertificatesAssetAccessor alloc] initWithAlgorithName:MIHTestsHelperCertificatesAssetAccessor__AlgorithmNames.es256];
     XCTAssertNotNil(helper.privateKeyBase64);
     XCTAssertNotNil(helper.publicKeyBase64);
-    __auto_type p = helper.privateKeyBase64;
-    __auto_type q = helper.publicKeyBase64;
-    p;
-    q;
 //    __auto_type privateKey = ({
 //        __auto_type pem = helper.privateKeyBase64;
 //        __auto_type key = [[MIHECPrivateKey alloc] initWithData:[pem dataUsingEncoding:NSUTF8StringEncoding]];

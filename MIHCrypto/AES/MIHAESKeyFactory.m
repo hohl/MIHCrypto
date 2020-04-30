@@ -42,7 +42,7 @@
     }
 
     unsigned char *keyBytes = (unsigned char *) malloc(sizeof(unsigned char) * self.preferedKeySize);
-    RAND_bytes(keyBytes, self.preferedKeySize);
+    RAND_bytes(keyBytes, (int)self.preferedKeySize);
     NSData *key = [NSData dataWithBytesNoCopy:keyBytes length:(NSUInteger) self.preferedKeySize];
     unsigned char *initVectorBytes = (unsigned char *) malloc(sizeof(unsigned char) * AES_BLOCK_SIZE);
     RAND_bytes(initVectorBytes, AES_BLOCK_SIZE);
