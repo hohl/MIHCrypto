@@ -101,6 +101,7 @@
             privateBytesLength =  BIO_pending(privateBIO);
             privateBytes = malloc((size_t)privateBytesLength);
             BIO_read(privateBIO, privateBytes, privateBytesLength);
+        }
         @finally {
             BIO_free(privateBIO);
         }
