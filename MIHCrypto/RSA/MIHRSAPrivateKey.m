@@ -39,7 +39,8 @@
             _rsa = EVP_PKEY_get1_RSA(pkey);
         }
         @finally {
-            //EVP_PKEY_free(pkey);
+            EVP_PKEY_free(pkey);
+            BIO_free(privateBIO);
         }
     }
 
@@ -95,10 +96,15 @@
     @try {
         EVP_PKEY_set1_RSA(pkey, _rsa);
         BIO *privateBIO = BIO_new(BIO_s_mem());
-        PEM_write_bio_PKCS8PrivateKey(privateBIO, pkey, NULL, NULL, 0, 0, NULL);
-        privateBytesLength =  BIO_pending(privateBIO);
-        privateBytes = malloc((size_t)privateBytesLength);
-        BIO_read(privateBIO, privateBytes, privateBytesLength);
+        @try {
+            PEM_write_bio_PKCS8PrivateKey(privateBIO, pkey, NULL, NULL, 0, 0, NULL);
+            privateBytesLength =  BIO_pending(privateBIO);
+            privateBytes = malloc((size_t)privateBytesLength);
+            BIO_read(privateBIO, privateBytes, privateBytesLength);
+        }
+        @finally {
+            BIO_free(privateBIO);
+        }
     }
     @finally {
         EVP_PKEY_free(pkey);
