@@ -11,7 +11,7 @@
 #import <openssl/err.h>
 @implementation MIHEC
 + (void)loadErrors:(BOOL)load {
-# TODO: no need for that!
+    // TODO: no need for that!
 }
 + (NSError *)getError {
     // TODO: Re-write that that entire class as it does not behave as the rest of the library!
