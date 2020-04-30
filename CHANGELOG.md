@@ -5,7 +5,7 @@
 - Adds `MIHEC*` classes to support Elliptic Curve Cryptography.
 - Fix a memory leak in `MIHRSAPrivateKey` and `MIHPublicKey` (see [issue #60](https://github.com/hohl/MIHCrypto/issues/60) for details).
 
-There are no API breaks in release 0.5.0 compared to 0.4.1.
+There are no API breaks in release 0.5.0 compared to 0.4.1. Thanks to [@zty0](https://github.com/zty0) for pointing out the memory leak.
 
 ### Version 0.4.1
 
