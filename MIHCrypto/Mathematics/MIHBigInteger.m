@@ -39,7 +39,7 @@
     return self;
 }
 
-- (id)initWithSignedInteger:(BN_ULONG)value
+- (id)initWithSignedInteger:(BN_LONG)value
 {
     self = [super init];
     if (self) {
