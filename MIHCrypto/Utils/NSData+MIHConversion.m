@@ -17,8 +17,7 @@
 
 #import "NSData+MIHConversion.h"
 #import "MIHInternal.h"
-#include <openssl/bio.h>
-#include <openssl/evp.h>
+#include <OpenSSL/OpenSSL.h>
 
 #pragma GCC diagnostic ignored "-Wselector"
 

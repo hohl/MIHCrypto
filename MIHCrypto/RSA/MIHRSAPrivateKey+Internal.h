@@ -16,7 +16,7 @@
 //
 
 #import "MIHRSAPrivateKey.h"
-
+#include <OpenSSL/OpenSSL.h>
 /**
  * These category on MIHRSAPrivateKey contains an initializer which should only get used by MIHRSAKeyFactory.
  *

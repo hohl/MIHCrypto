@@ -17,7 +17,7 @@
 
 #import "MIHMessageDigest5.h"
 #import "MIHInternal.h"
-#import <openssl/md5.h>
+#import <OpenSSL/OpenSSL.h>
 
 
 @implementation MIHMessageDigest5

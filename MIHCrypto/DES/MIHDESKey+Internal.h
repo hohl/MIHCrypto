@@ -17,7 +17,7 @@
 
 #import "MIHDESKey.h"
 #import "MIHDESKeyFactory.h"
-#import <openssl/evp.h>
+#import <OpenSSL/OpenSSL.h>
 
 /**
  * These category on MIHDESKey contains an static helper which fetches the EVP_CIPHER for the passed MIHDESMode.

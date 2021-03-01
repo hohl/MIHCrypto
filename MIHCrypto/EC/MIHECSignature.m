@@ -32,7 +32,7 @@
 }
 @end
 
-#import <openssl/err.h>
+#import <OpenSSL/OpenSSL.h>
 @implementation MIHECSignature (Conversion)
 + (ECDSA_SIG *)signatureFromData:(NSData *)data {
     __auto_type dataBytesCount = data.length;

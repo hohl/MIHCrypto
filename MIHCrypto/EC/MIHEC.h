@@ -7,6 +7,4 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <openssl/ec.h>
-#import <openssl/ecdh.h>
-#import <openssl/ecdsa.h>
+#import <OpenSSL/OpenSSL.h>

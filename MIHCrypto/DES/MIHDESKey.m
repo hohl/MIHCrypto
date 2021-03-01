@@ -21,12 +21,12 @@
 #import "NSString+MIHConversion.h"
 #import "MIHErrors.h"
 #import "MIHInternal.h"
-#import <openssl/evp.h>
+#import <OpenSSL/OpenSSL.h>
 
 @implementation MIHDESKey
 {
-    EVP_CIPHER_CTX encryptCtx;
-    EVP_CIPHER_CTX decryptCtx;
+    EVP_CIPHER_CTX *encryptCtx;
+    EVP_CIPHER_CTX *decryptCtx;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +47,8 @@
         _key = [coder decodeObjectForKey:@"_key"];
         _iv = [coder decodeObjectForKey:@"_iv"];
         _mode = [coder decodeIntegerForKey:@"_mode"];
+        encryptCtx = EVP_CIPHER_CTX_new();
+        decryptCtx = EVP_CIPHER_CTX_new();
     }
     
     return self;
@@ -59,6 +61,8 @@
         _key = key;
         _iv = iv;
         _mode = mode;
+        encryptCtx = EVP_CIPHER_CTX_new();
+        decryptCtx = EVP_CIPHER_CTX_new();
     }
     
     return self;
@@ -99,6 +103,8 @@
                  _mode = [MIHDESKey modeFromModeName:modeName];
              }
          }];
+        encryptCtx = EVP_CIPHER_CTX_new();
+        decryptCtx = EVP_CIPHER_CTX_new();
     }
     
     return self;
@@ -244,6 +250,11 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<MIHDESKey %@>", self.stringValue];
+}
+
+- (void)dealloc {
+    EVP_CIPHER_CTX_free(encryptCtx);
+    EVP_CIPHER_CTX_free(decryptCtx);
 }
 
 @end

@@ -16,7 +16,7 @@
 //
 
 #import "MIHNumber.h"
-#import <openssl/bn.h>
+#include <OpenSSL/OpenSSL.h>
 
 /**
  *  Class which wraps the functionality of OpenSSL BIGNUM data type.
@@ -55,7 +55,7 @@
  *
  *  @return The newly-created MIHBigInteger instance.
  */
-- (id)initWithSignedInteger:(BN_LONG)value;
+- (id)initWithSignedInteger:(BN_ULONG)value;
 
 /**
  *  Initialises MIHBigInteger with the passed NSString which contains a decimal number as string.

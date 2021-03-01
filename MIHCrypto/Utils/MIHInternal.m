@@ -17,8 +17,7 @@
 
 #import "MIHInternal.h"
 #import "MIHErrors.h"
-#include <openssl/err.h>
-#include <openssl/rand.h>
+#include <OpenSSL/OpenSSL.h>
 
 static dispatch_once_t loadErrorsOnce = 0;
 

@@ -19,8 +19,7 @@
 #import "MIHBigInteger+Internal.h"
 #import "MIHBigIntegerRange.h"
 #import "MIHInternal.h"
-#include <openssl/bn.h>
-#include <openssl/rand.h>
+#include <OpenSSL/OpenSSL.h>
 
 static dispatch_block_t sMIHInitRANDOnce = ^() {
     RAND_poll();
