@@ -51,7 +51,7 @@
     
     if (![NSData instancesRespondToSelector:@selector(base64EncodedStringWithOptions:)])
     {
-        encoded = [self base64Encoding];
+        encoded = [self base64EncodedStringWithOptions: 0];
     }
     else
         
@@ -112,7 +112,7 @@
     
     if (![NSData instancesRespondToSelector:@selector(initWithBase64EncodedString:options:)])
     {
-        decoded = [[self alloc] initWithBase64Encoding:base64String];
+        decoded = [[self alloc] initWithBase64EncodedString:base64String options:0];
     }
     else
         
