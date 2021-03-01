@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.source_files = 'MIHCrypto/{Utils,Core}/*.{h,m,c}'
-    core.dependency 'OpenSSL-Universal', '~> 1.1.171'
+    core.dependency 'OpenSSL-Universal', '~> 1.1.180'
   end
 
   s.subspec 'Mathematics' do |ss|
