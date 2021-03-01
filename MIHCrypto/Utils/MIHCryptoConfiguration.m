@@ -8,9 +8,7 @@
 
 #import "MIHCryptoConfiguration.h"
 #import "MIHErrors.h"
-#include <openssl/conf.h>
-#include <openssl/err.h>
-#include <openssl/evp.h>
+#include <OpenSSL/OpenSSL.h>
 
 @implementation MIHCryptoConfiguration
 

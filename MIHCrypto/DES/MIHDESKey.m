@@ -21,12 +21,12 @@
 #import "NSString+MIHConversion.h"
 #import "MIHErrors.h"
 #import "MIHInternal.h"
-#import <openssl/evp.h>
+#import <OpenSSL/OpenSSL.h>
 
 @implementation MIHDESKey
 {
-    EVP_CIPHER_CTX encryptCtx;
-    EVP_CIPHER_CTX decryptCtx;
+    EVP_CIPHER_CTX *encryptCtx;
+    EVP_CIPHER_CTX *decryptCtx;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +47,8 @@
         _key = [coder decodeObjectForKey:@"_key"];
         _iv = [coder decodeObjectForKey:@"_iv"];
         _mode = [coder decodeIntegerForKey:@"_mode"];
+        encryptCtx = EVP_CIPHER_CTX_new();
+        decryptCtx = EVP_CIPHER_CTX_new();
     }
     
     return self;
@@ -59,6 +61,8 @@
         _key = key;
         _iv = iv;
         _mode = mode;
+        encryptCtx = EVP_CIPHER_CTX_new();
+        decryptCtx = EVP_CIPHER_CTX_new();
     }
     
     return self;
@@ -99,6 +103,8 @@
                  _mode = [MIHDESKey modeFromModeName:modeName];
              }
          }];
+        encryptCtx = EVP_CIPHER_CTX_new();
+        decryptCtx = EVP_CIPHER_CTX_new();
     }
     
     return self;
@@ -129,20 +135,20 @@
         return nil;
     }
     
-    if (!EVP_DecryptInit(&decryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
+    if (!EVP_DecryptInit(decryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
         free(messageBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     
-    if (!EVP_DecryptUpdate(&decryptCtx, messageBytes, (int *) &blockLength, cipherData.bytes, (int) cipherData.length)) {
+    if (!EVP_DecryptUpdate(decryptCtx, messageBytes, (int *) &blockLength, cipherData.bytes, (int) cipherData.length)) {
         free(messageBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     messageBytesLength += blockLength;
     
-    if (!EVP_DecryptFinal(&decryptCtx, messageBytes + messageBytesLength, (int *) &blockLength)) {
+    if (!EVP_DecryptFinal(decryptCtx, messageBytes + messageBytesLength, (int *) &blockLength)) {
         free(messageBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
@@ -170,20 +176,20 @@
         @throw [NSException outOfMemoryException];
     }
     
-    if (!EVP_EncryptInit(&encryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
+    if (!EVP_EncryptInit(encryptCtx, evpCipher, self.key.bytes, self.iv.bytes)) {
         free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     
-    if (!EVP_EncryptUpdate(&encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, (int)messageData.length)) {
+    if (!EVP_EncryptUpdate(encryptCtx, cipherBytes, (int *) &blockLength, messageData.bytes, (int)messageData.length)) {
         free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
     }
     cipherBytesLength += blockLength;
     
-    if (!EVP_EncryptFinal(&encryptCtx, cipherBytes + cipherBytesLength, (int *) &blockLength)) {
+    if (!EVP_EncryptFinal(encryptCtx, cipherBytes + cipherBytesLength, (int *) &blockLength)) {
         free(cipherBytes);
         if (error) *error = [NSError errorFromOpenSSL];
         return nil;
@@ -244,6 +250,11 @@
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"<MIHDESKey %@>", self.stringValue];
+}
+
+- (void)dealloc {
+    EVP_CIPHER_CTX_free(encryptCtx);
+    EVP_CIPHER_CTX_free(decryptCtx);
 }
 
 @end

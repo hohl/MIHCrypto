@@ -8,7 +8,7 @@
 
 #import "MIHECCurves.h"
 #import "MIHEC.h"
-#import <openssl/objects.h> // convert nid to sn.
+#import <OpenSSL/OpenSSL.h> // convert nid to sn.
 
 @interface MIHECCurve ()
 // maybe add flag that buildin_curve is ok?

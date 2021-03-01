@@ -24,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        CRYPTO_add(&rsa->references, 1, CRYPTO_LOCK_RSA);
+        RSA_up_ref(rsa);
         _rsa = rsa;
     }
 

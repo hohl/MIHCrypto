@@ -17,8 +17,7 @@
 
 #import "MIHAESKeyFactory.h"
 #import "MIHAESKey.h"
-#import <openssl/aes.h>
-#import <openssl/rand.h>
+#import <OpenSSL/OpenSSL.h>
 
 @implementation MIHAESKeyFactory
 

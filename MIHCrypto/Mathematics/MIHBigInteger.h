@@ -16,7 +16,27 @@
 //
 
 #import "MIHNumber.h"
-#import <openssl/bn.h>
+#include <OpenSSL/OpenSSL.h>
+
+/** Added missing BN_LONG (was removed in newer OpenSSL versions) **/
+
+/*
+ * 64-bit processor with LP64 ABI
+ */
+# ifdef SIXTY_FOUR_BIT_LONG
+#  define BN_LONG        long
+# endif
+
+/*
+ * 64-bit processor other than LP64 ABI
+ */
+# ifdef SIXTY_FOUR_BIT
+#  define BN_LONG        long long
+# endif
+
+# ifdef THIRTY_TWO_BIT
+#  define BN_LONG        int
+# endif
 
 /**
  *  Class which wraps the functionality of OpenSSL BIGNUM data type.

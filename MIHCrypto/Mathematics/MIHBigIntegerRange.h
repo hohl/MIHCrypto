@@ -36,7 +36,7 @@
 /**
  *  Compares this `MIHBigIntegerRange with the passed `MIHBigIntegerRange`.
  *
- *  @param other `MIHBigIntegerRange` to compare with.
+ *  @param range `MIHBigIntegerRange` to compare with.
  *
  *  @return `YES` if the other `MIHBigIntegerRange` is equal to this one.
  */

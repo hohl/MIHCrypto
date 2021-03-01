@@ -79,7 +79,7 @@
     
     BOOL canConvertToPem = string != nil && [self isValidBase64String:string];
     if (canConvertToPem) {
-        __auto_type formattedString = [[[NSData alloc] initWithBase64Encoding:string] MIH_base64EncodedStringWithWrapWidth:64];
+        __auto_type formattedString = [[[NSData alloc] initWithBase64EncodedString:string options:0] MIH_base64EncodedStringWithWrapWidth:64];
         __auto_type result = @[beginHeader, formattedString, endHeader];
         return [[result componentsJoinedByString:@"\n"] stringByAppendingString:@"\n"];
     }

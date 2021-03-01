@@ -56,7 +56,7 @@
 
 #import "MIHNSDataExtension.h"
 #import "MIHECSignature.h"
-#import <openssl/err.h>
+#import <OpenSSL/OpenSSL.h>
 @implementation MIHECPrivateKey (MIHPrivateKey)
 
 - (NSData *)encrypt:(NSData *)message error:(NSError *__autoreleasing *)error { return nil; }

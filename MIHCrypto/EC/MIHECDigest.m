@@ -7,7 +7,7 @@
 //
 
 #import "MIHECDigest.h"
-#import <openssl/sha.h>
+#import <OpenSSL/OpenSSL.h>
 
 @implementation MIHECDigest__Constants
 + (NSNumber *)sha1 { return @(SHA_DIGEST_LENGTH); }

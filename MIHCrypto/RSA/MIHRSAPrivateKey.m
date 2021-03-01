@@ -17,8 +17,7 @@
 
 #import "MIHRSAPrivateKey.h"
 #import "MIHInternal.h"
-#include <openssl/pem.h>
-#include <openssl/md5.h>
+#include <OpenSSL/OpenSSL.h>
 @implementation MIHRSAPrivateKey
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +62,7 @@
     MIHRSAPrivateKey *copy = [[[self class] allocWithZone:zone] init];
 
     if (copy != nil) {
-        CRYPTO_add(&_rsa->references, 1, CRYPTO_LOCK_RSA);
+        RSA_up_ref(_rsa);
         copy->_rsa = _rsa;
     }
 

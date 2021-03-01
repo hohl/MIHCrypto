@@ -17,7 +17,7 @@
 
 #import "MIHSecureHashAlgorithm256.h"
 #import "MIHInternal.h"
-#import <openssl/sha.h>
+#import <OpenSSL/OpenSSL.h>
 
 
 @implementation MIHSecureHashAlgorithm256

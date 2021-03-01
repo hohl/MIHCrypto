@@ -15,7 +15,7 @@
 // OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#include <openssl/rsa.h>
+#include <OpenSSL/OpenSSL.h>
 #import "MIHPrivateKey.h"
 
 /**

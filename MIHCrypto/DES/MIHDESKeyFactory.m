@@ -19,9 +19,7 @@
 #import "MIHDESKey.h"
 #import "MIHDESKey+Internal.h"
 #import "MIHInternal.h"
-#import <openssl/dsa.h>
-#import <openssl/evp.h>
-#import <openssl/rand.h>
+#import <OpenSSL/OpenSSL.h>
 
 @implementation MIHDESKeyFactory
 
